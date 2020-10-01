@@ -1,0 +1,221 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.7.8 Build 9507
+Tuning:                17-SKX ~ Kotori
+
+User:                  Amazon Web Services (c5d.24xlarge)
+
+Operating System:      Linux 5.4.58-32.125.amzn2.x86_64 x86_64
+
+Processor(s):
+    Name:              Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+    Logical Cores:     96
+    Physical Cores:    48
+    Sockets:           2
+    NUMA Nodes:        2
+    Base Frequency:    2,999,994,624 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     198,331,162,624 ( 185 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Gamma(1/3)
+Algorithm:             AGM-Pi
+Decimal Digits:        25,000,000
+Hexadecimal Digits:    20,762,051
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  96 / ?  (randomization off)
+Working Memory:        997,183,232 ( 951 MiB)
+Total Memory:          1,105,060,480 (1.03 GiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Gamma(⅓)"
+        NameLong : "Gamma(1/3)"
+        AlgorithmShort : "AGM-Pi"
+        AlgorithmLong : "AGM-Pi"
+        Formula : {
+            Divide : [
+                {
+                    Multiply : [
+                        {
+                            InvNthRoot : [
+                                3
+                                {
+                                    AGM : {
+                                        Invsqrt : {
+                                            LinearCombination : [
+                                                [1 8]
+                                                [
+                                                    -1
+                                                    {
+                                                        Sqrt : 48
+                                                    }
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                        {
+                            InvNthRoot : [12 3]
+                        }
+                    ]
+                }
+                {
+                    Multiply : [
+                        {
+                            InvNthRoot : [
+                                3
+                                {
+                                    Power : [
+                                        {
+                                            Pi : {
+                                                Algorithm : "ramanujan"
+                                            }
+                                        }
+                                        2
+                                    ]
+                                }
+                            ]
+                        }
+                        {
+                            InvNthRoot : [9 16]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 25000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Path : ""
+        OutputEnable : "false"
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 96
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 96
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Sat Oct 10 10:44:03 2020
+End Date:              Sat Oct 10 10:44:06 2020
+
+Total Computation Time:    1.995 seconds
+Start-to-End Wall Time:    2.911 seconds
+
+CPU Utilization:           3352.24 %  +  82.21 % kernel overhead
+Multi-core Efficiency:     34.92 %  +  0.86 % kernel overhead
+
+Last Decimal Digits:
+3036926734 8282292147 2023967651 9784995366 0777641135  :  24,999,950
+4894197557 9792084901 3357022447 0944346280 2641556239  :  25,000,000
+
+Last Hexadecimal Digits:
+0d113c3e18 f4c0c7b0b7 5e7e466f46 49d55babde 598ca58c56  :  20,762,050
+b
+
+SHA256-dec(25,000,001 - 25,000,100): 0aec9d23fa08d1c4a8979b45b02faff5fd275121fcdace6c90953815d86b8da3
+
+Dec Counts: {2498790,2502501,2498554,2500658,2499344,2500665,2500017,2499492,2500835,2499144}
+Hex Counts: {1298452,1296684,1298795,1297526,1299301,1299203,1297849,1297322,1298823,1298246,1296322,1296852,1297146,1297035,1297333,1295162}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 1774787249169723470
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 852455578114922024
+
+Spot Check:                 Good through 25,000,000
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          142,183,126
+Reference Clock 2:          1,703,920
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Sat Oct 10 10:44:03 2020	0.507	Working Memory
+Sat Oct 10 10:44:03 2020	0.818	Working Memory:  952 MiB  (locked, spread: 99%/2)
+Sat Oct 10 10:44:03 2020	0.818	Twiddle Tables
+Sat Oct 10 10:44:04 2020	0.882	Twiddle Tables:  103 MiB  (locked, spread: 100%/2)
+Sat Oct 10 10:44:04 2020	0.882	Begin Computation
+Sat Oct 10 10:44:04 2020	0.882	InvSqrt(48)...
+Sat Oct 10 10:44:04 2020	0.903	Large Invsqrt...
+Sat Oct 10 10:44:04 2020	0.944	AGM(1,x)
+Sat Oct 10 10:44:04 2020	0.991	AGM: -4
+Sat Oct 10 10:44:04 2020	1.044	AGM: -9
+Sat Oct 10 10:44:04 2020	1.098	AGM: -18
+Sat Oct 10 10:44:04 2020	1.151	AGM: -37
+Sat Oct 10 10:44:04 2020	1.204	AGM: -75
+Sat Oct 10 10:44:04 2020	1.257	AGM: -150
+Sat Oct 10 10:44:04 2020	1.311	AGM: -302
+Sat Oct 10 10:44:04 2020	1.364	AGM: -604
+Sat Oct 10 10:44:04 2020	1.417	AGM: -1,209
+Sat Oct 10 10:44:04 2020	1.471	AGM: -2,419
+Sat Oct 10 10:44:04 2020	1.524	AGM: -4,839
+Sat Oct 10 10:44:04 2020	1.577	AGM: -9,679
+Sat Oct 10 10:44:04 2020	1.630	AGM: -19,358
+Sat Oct 10 10:44:04 2020	1.684	AGM: -38,717
+Sat Oct 10 10:44:04 2020	1.738	AGM: -77,435
+Sat Oct 10 10:44:04 2020	1.791	AGM: -154,872
+Sat Oct 10 10:44:05 2020	1.844	AGM: -309,744
+Sat Oct 10 10:44:05 2020	1.896	AGM: -619,490
+Sat Oct 10 10:44:05 2020	1.950	AGM: -1,238,980
+Sat Oct 10 10:44:05 2020	2.004	AGM: -2,477,962
+Sat Oct 10 10:44:05 2020	2.057	AGM: -4,955,924
+Sat Oct 10 10:44:05 2020	2.112	AGM: -9,911,849
+Sat Oct 10 10:44:05 2020	2.168	AGM: -19,823,699
+Sat Oct 10 10:44:05 2020	2.220	AGM: Final
+Sat Oct 10 10:44:05 2020	2.221	Radical x^(-1/3)...
+Sat Oct 10 10:44:05 2020	2.264	Radical x^(-1/12)...
+Sat Oct 10 10:44:05 2020	2.346	Large Multiply
+Sat Oct 10 10:44:05 2020	2.352	Pi - Ramanujan (1910):
+Sat Oct 10 10:44:05 2020	2.352	Series CommonP2B3...  3,131,856 terms  (Expansion Factor = 3.467)
+Sat Oct 10 10:44:05 2020	2.352	Series: A ( 1 ) 0.000%
+Sat Oct 10 10:44:05 2020	2.459	Series: A ( 0 ) 40.275%
+Sat Oct 10 10:44:05 2020	2.637	Finishing Series
+Sat Oct 10 10:44:05 2020	2.639	Large Division
+Sat Oct 10 10:44:05 2020	2.666	InvSqrt(8)...
+Sat Oct 10 10:44:05 2020	2.686	Large Multiply
+Sat Oct 10 10:44:05 2020	2.694	Squaring
+Sat Oct 10 10:44:05 2020	2.699	Radical x^(-1/3)...
+Sat Oct 10 10:44:05 2020	2.743	Radical x^(-1/9)...
+Sat Oct 10 10:44:05 2020	2.817	Large Multiply
+Sat Oct 10 10:44:05 2020	2.824	Large Division
+Sat Oct 10 10:44:06 2020	2.851	Processing Hexadecimal Digits
+Sat Oct 10 10:44:06 2020	2.852	Base Converting
+Sat Oct 10 10:44:06 2020	2.878	Processing Decimal Digits
+Sat Oct 10 10:44:06 2020	2.878	Verifying Base Conversion
+Sat Oct 10 10:44:06 2020	2.895	Verifying Binary Output
+Sat Oct 10 10:44:06 2020	2.911	End Computation
+
+----
+
+Checksum0: b8c489ecd14cdd8cbfa8b2d24414b1cde9722b7f7990c902f22bc33aed443f41d5129f25a42182c61a5b7c4089f974f34ee67375158e366eb5b4810cf69c4c98
+Checksum1: 196ef33948c86fa43063c559eeb7337bae8a62025189dfe4e346492a5b17f623ada02adf8fcc87e700f49d98260b398ce1e7fd5578bb20709db4c6aa04ad4a71

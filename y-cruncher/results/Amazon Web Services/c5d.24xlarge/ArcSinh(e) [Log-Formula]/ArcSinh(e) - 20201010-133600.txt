@@ -1,0 +1,292 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.7.8 Build 9507
+Tuning:                17-SKX ~ Kotori
+
+User:                  Amazon Web Services (c5d.24xlarge)
+
+Operating System:      Linux 5.4.58-32.125.amzn2.x86_64 x86_64
+
+Processor(s):
+    Name:              Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+    Logical Cores:     96
+    Physical Cores:    48
+    Sockets:           2
+    NUMA Nodes:        2
+    Base Frequency:    2,999,952,320 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     198,331,162,624 ( 185 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - ArcSinh(e)
+Algorithm:             Log Expansion of ArcSinh(x)
+Decimal Digits:        500,000,000
+Hexadecimal Digits:    415,241,012
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  96 / ?  (randomization off)
+Working Memory:        3,366,037,824 (3.13 GiB)
+Total Memory:          3,502,988,992 (3.26 GiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "ArcSinh(e)"
+        NameLong : "ArcSinh(e)"
+        AlgorithmShort : "Log-Formula"
+        AlgorithmLong : "Log Expansion of ArcSinh(x)"
+        Formula : {
+            Log : {
+                Scope : {
+                    Locals : [
+                        {
+                            arg : {
+                                E : {}
+                            }
+                        }
+                    ]
+                    Formula : {
+                        LinearCombination : [
+                            [
+                                1
+                                "arg"
+                            ]
+                            [
+                                1
+                                {
+                                    Sqrt : {
+                                        LinearCombination : [
+                                            [
+                                                1
+                                                {
+                                                    Power : [
+                                                        "arg"
+                                                        2
+                                                    ]
+                                                }
+                                            ]
+                                            [1 1]
+                                        ]
+                                    }
+                                }
+                            ]
+                        ]
+                    }
+                }
+            }
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 500000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Path : ""
+        OutputEnable : "false"
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 96
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 96
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Sat Oct 10 13:34:55 2020
+End Date:              Sat Oct 10 13:36:00 2020
+
+Total Computation Time:    62.950 seconds
+Start-to-End Wall Time:    64.878 seconds
+
+CPU Utilization:           7277.74 %  +  42.94 % kernel overhead
+Multi-core Efficiency:     75.81 %  +  0.45 % kernel overhead
+
+Last Decimal Digits:
+6621584227 0984866667 5647003523 1687016474 1718183058  :  499,999,950
+6770640644 4689971955 3726375723 8931079126 2319689823  :  500,000,000
+
+Last Hexadecimal Digits:
+e5881279cb 7a7df22a2d e154b69605 ad022714fc 19112ad707  :  415,241,000
+0b50d25d09 83
+
+SHA256-dec(500,000,001 - 500,000,100): b21bffaf70f9a1874fab005b3de8bc686cec7791ac950560335b7dcb587c61cc
+
+Dec Counts: {49987338,49998916,49993998,50003227,49998651,49992886,50009195,50001461,50010682,50003646}
+Hex Counts: {25948040,25948048,25955728,25947894,25949619,25948177,25953949,25955179,25953101,25951644,25965086,25952942,25953479,25961180,25949865,25947081}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 1502402413589996227
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 1976195362291831387
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          141,854,179
+Reference Clock 2:          1,726,871
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Sat Oct 10 13:34:55 2020	0.505	Working Memory
+Sat Oct 10 13:34:57 2020	1.610	Working Memory: 3.14 GiB  (locked, spread: 99%/2)
+Sat Oct 10 13:34:57 2020	1.610	Twiddle Tables
+Sat Oct 10 13:34:57 2020	1.694	Twiddle Tables:  131 MiB  (locked, spread: 100%/2)
+Sat Oct 10 13:34:57 2020	1.694	Begin Computation
+Sat Oct 10 13:34:57 2020	1.694	e - exp(1)
+Sat Oct 10 13:34:57 2020	1.694	Series Hyperdescent...  67,606,905 terms  (Expansion Factor = 1.000)
+Sat Oct 10 13:34:58 2020	2.629	Finishing Series
+Sat Oct 10 13:34:58 2020	2.629	Large Division
+Sat Oct 10 13:34:58 2020	2.946	Squaring
+Sat Oct 10 13:34:58 2020	3.037	Large Invsqrt...
+Sat Oct 10 13:34:58 2020	3.468	Large Multiply
+Sat Oct 10 13:34:59 2020	3.600	Log(x):
+Sat Oct 10 13:34:59 2020	3.604	AGM(1,x)
+Sat Oct 10 13:34:59 2020	4.172	AGM: 125,000,052
+Sat Oct 10 13:35:00 2020	4.863	AGM: 62,500,026
+Sat Oct 10 13:35:01 2020	5.552	AGM: 31,250,013
+Sat Oct 10 13:35:01 2020	6.243	AGM: 15,625,006
+Sat Oct 10 13:35:02 2020	6.934	AGM: 7,812,503
+Sat Oct 10 13:35:03 2020	7.622	AGM: 3,906,251
+Sat Oct 10 13:35:03 2020	8.312	AGM: 1,953,125
+Sat Oct 10 13:35:04 2020	9.001	AGM: 976,562
+Sat Oct 10 13:35:05 2020	9.691	AGM: 488,281
+Sat Oct 10 13:35:05 2020	10.381	AGM: 244,140
+Sat Oct 10 13:35:06 2020	11.073	AGM: 122,070
+Sat Oct 10 13:35:07 2020	11.767	AGM: 61,035
+Sat Oct 10 13:35:07 2020	12.458	AGM: 30,517
+Sat Oct 10 13:35:08 2020	13.151	AGM: 15,258
+Sat Oct 10 13:35:09 2020	13.843	AGM: 7,629
+Sat Oct 10 13:35:09 2020	14.531	AGM: 3,814
+Sat Oct 10 13:35:10 2020	15.222	AGM: 1,907
+Sat Oct 10 13:35:11 2020	15.913	AGM: 953
+Sat Oct 10 13:35:12 2020	16.605	AGM: 476
+Sat Oct 10 13:35:12 2020	17.295	AGM: 238
+Sat Oct 10 13:35:13 2020	17.987	AGM: 119
+Sat Oct 10 13:35:14 2020	18.681	AGM: 59
+Sat Oct 10 13:35:14 2020	19.372	AGM: 29
+Sat Oct 10 13:35:15 2020	20.064	AGM: 14
+Sat Oct 10 13:35:16 2020	20.756	AGM: 7
+Sat Oct 10 13:35:16 2020	21.447	AGM: 3
+Sat Oct 10 13:35:17 2020	22.136	AGM: 1
+Sat Oct 10 13:35:18 2020	22.827	AGM: 0
+Sat Oct 10 13:35:18 2020	23.518	AGM: -1
+Sat Oct 10 13:35:19 2020	24.208	AGM: -3
+Sat Oct 10 13:35:20 2020	24.899	AGM: -7
+Sat Oct 10 13:35:21 2020	25.587	AGM: -15
+Sat Oct 10 13:35:21 2020	26.276	AGM: -31
+Sat Oct 10 13:35:22 2020	26.967	AGM: -63
+Sat Oct 10 13:35:23 2020	27.655	AGM: -127
+Sat Oct 10 13:35:23 2020	28.345	AGM: -255
+Sat Oct 10 13:35:24 2020	29.037	AGM: -511
+Sat Oct 10 13:35:25 2020	29.728	AGM: -1,022
+Sat Oct 10 13:35:25 2020	30.419	AGM: -2,046
+Sat Oct 10 13:35:26 2020	31.110	AGM: -4,093
+Sat Oct 10 13:35:27 2020	31.803	AGM: -8,186
+Sat Oct 10 13:35:27 2020	32.494	AGM: -16,373
+Sat Oct 10 13:35:28 2020	33.185	AGM: -32,747
+Sat Oct 10 13:35:29 2020	33.877	AGM: -65,496
+Sat Oct 10 13:35:30 2020	34.568	AGM: -130,992
+Sat Oct 10 13:35:30 2020	35.259	AGM: -261,985
+Sat Oct 10 13:35:31 2020	35.948	AGM: -523,971
+Sat Oct 10 13:35:32 2020	36.640	AGM: -1,047,943
+Sat Oct 10 13:35:32 2020	37.330	AGM: -2,095,887
+Sat Oct 10 13:35:33 2020	38.021	AGM: -4,191,774
+Sat Oct 10 13:35:34 2020	38.715	AGM: -8,383,549
+Sat Oct 10 13:35:34 2020	39.406	AGM: -16,767,099
+Sat Oct 10 13:35:35 2020	40.101	AGM: -33,534,199
+Sat Oct 10 13:35:36 2020	40.800	AGM: -67,068,399
+Sat Oct 10 13:35:36 2020	41.500	AGM: -134,136,799
+Sat Oct 10 13:35:37 2020	42.218	AGM: -268,273,600
+Sat Oct 10 13:35:38 2020	42.905	AGM: Final
+Sat Oct 10 13:35:38 2020	42.914	Large Division
+Sat Oct 10 13:35:38 2020	43.225	Series CommonP2B3...  35,256,847 terms  (Expansion Factor = 2.636)
+Sat Oct 10 13:35:38 2020	43.225	Series: A ( 9 ) 0.000%
+Sat Oct 10 13:35:38 2020	43.353	Series: A ( 8 ) 3.307%
+Sat Oct 10 13:35:38 2020	43.532	Series: E ( 7 ) 7.017%
+Sat Oct 10 13:35:39 2020	43.723	Series: E ( 6 ) 10.732%
+Sat Oct 10 13:35:39 2020	43.928	Series: E ( 5 ) 14.685%
+Sat Oct 10 13:35:39 2020	44.211	Series: E ( 4 ) 20.104%
+Sat Oct 10 13:35:40 2020	44.593	Series: E ( 3 ) 27.543%
+Sat Oct 10 13:35:40 2020	45.107	Series: E ( 2 ) 37.778%
+Sat Oct 10 13:35:41 2020	45.802	Series: E ( 1 ) 51.913%
+Sat Oct 10 13:35:42 2020	46.761	Series: E ( 0 ) 71.591%
+Sat Oct 10 13:35:43 2020	48.084	Finishing Series
+Sat Oct 10 13:35:43 2020	48.099	Large Division
+Sat Oct 10 13:35:43 2020	48.410	InvSqrt(10005)...
+Sat Oct 10 13:35:44 2020	48.619	Large Multiply
+Sat Oct 10 13:35:44 2020	48.742	Large Multiply
+Sat Oct 10 13:35:44 2020	48.865	18 ArcCoth( 26 ):
+Sat Oct 10 13:35:44 2020	48.865	Series CommonP2B3...  176,681,827 terms  (Expansion Factor = 3.867)
+Sat Oct 10 13:35:44 2020	48.865	Series: A ( 14 ) 0.000%
+Sat Oct 10 13:35:44 2020	48.881	Series: A ( 13 ) 0.214%
+Sat Oct 10 13:35:44 2020	49.034	Series: A ( 12 ) 2.728%
+Sat Oct 10 13:35:44 2020	49.208	Series: A ( 11 ) 5.244%
+Sat Oct 10 13:35:44 2020	49.387	Series: E ( 10 ) 7.763%
+Sat Oct 10 13:35:45 2020	49.575	Series: E ( 9 ) 10.284%
+Sat Oct 10 13:35:45 2020	49.774	Series: E ( 8 ) 12.854%
+Sat Oct 10 13:35:45 2020	50.026	Series: E ( 7 ) 16.070%
+Sat Oct 10 13:35:45 2020	50.337	Series: E ( 6 ) 20.098%
+Sat Oct 10 13:35:46 2020	50.712	Series: E ( 5 ) 25.146%
+Sat Oct 10 13:35:46 2020	51.218	Series: E ( 4 ) 31.481%
+Sat Oct 10 13:35:47 2020	51.827	Series: E ( 3 ) 39.444%
+Sat Oct 10 13:35:48 2020	52.600	Series: E ( 2 ) 49.480%
+Sat Oct 10 13:35:49 2020	53.558	Series: E ( 1 ) 62.185%
+Sat Oct 10 13:35:50 2020	54.725	Series: E ( 0 ) 78.411%
+Sat Oct 10 13:35:51 2020	56.290	Finishing Series
+Sat Oct 10 13:35:51 2020	56.301	Large Division
+Sat Oct 10 13:35:52 2020	56.611	-2 ArcCoth( 4801 ):
+Sat Oct 10 13:35:52 2020	56.611	Series CommonP2B3...  67,910,229 terms  (Expansion Factor = 2.046)
+Sat Oct 10 13:35:52 2020	56.611	Series: A ( 7 ) 0.000%
+Sat Oct 10 13:35:52 2020	56.732	Series: A ( 6 ) 4.184%
+Sat Oct 10 13:35:52 2020	56.898	Series: E ( 5 ) 8.993%
+Sat Oct 10 13:35:52 2020	57.074	Series: E ( 4 ) 13.809%
+Sat Oct 10 13:35:52 2020	57.324	Series: E ( 3 ) 20.404%
+Sat Oct 10 13:35:53 2020	57.679	Series: E ( 2 ) 30.180%
+Sat Oct 10 13:35:53 2020	58.196	Series: E ( 1 ) 44.711%
+Sat Oct 10 13:35:54 2020	58.957	Series: E ( 0 ) 66.457%
+Sat Oct 10 13:35:55 2020	60.145	Finishing Series
+Sat Oct 10 13:35:55 2020	60.156	Large Division
+Sat Oct 10 13:35:55 2020	60.476	8 ArcCoth( 8749 ):
+Sat Oct 10 13:35:55 2020	60.476	Series CommonP2B3...  63,420,273 terms  (Expansion Factor = 1.973)
+Sat Oct 10 13:35:55 2020	60.476	Series: A ( 7 ) 0.000%
+Sat Oct 10 13:35:56 2020	60.562	Series: A ( 6 ) 3.025%
+Sat Oct 10 13:35:56 2020	60.723	Series: E ( 5 ) 8.014%
+Sat Oct 10 13:35:56 2020	60.892	Series: E ( 4 ) 13.010%
+Sat Oct 10 13:35:56 2020	61.129	Series: E ( 3 ) 19.457%
+Sat Oct 10 13:35:56 2020	61.468	Series: E ( 2 ) 29.125%
+Sat Oct 10 13:35:57 2020	61.970	Series: E ( 1 ) 43.667%
+Sat Oct 10 13:35:58 2020	62.723	Series: E ( 0 ) 65.681%
+Sat Oct 10 13:35:59 2020	63.903	Finishing Series
+Sat Oct 10 13:35:59 2020	63.914	Large Division
+Sat Oct 10 13:35:59 2020	64.236	Finishing Log(x)
+Sat Oct 10 13:35:59 2020	64.245	Processing Hexadecimal Digits
+Sat Oct 10 13:35:59 2020	64.247	Base Converting
+Sat Oct 10 13:36:00 2020	64.647	Processing Decimal Digits
+Sat Oct 10 13:36:00 2020	64.651	Verifying Base Conversion
+Sat Oct 10 13:36:00 2020	64.862	Verifying Binary Output
+Sat Oct 10 13:36:00 2020	64.878	End Computation
+
+----
+
+Checksum0: 834e324dee7b15474f72456e3250d03ee9bfedd9f68d6d586a9cbc51cad458a7dcb53a6d7943bf902e0d1ebd51ee261597038b9ffdaf8d49336e61d7aabfe355
+Checksum1: dea8ebdb9c222c8f9afe1e3d97d16983409686518f8cdeaac5f4ec52bb451cb06486f5fb455a171fc89a5975ff862743766727e71bee3292ba198f97a9d890e0
