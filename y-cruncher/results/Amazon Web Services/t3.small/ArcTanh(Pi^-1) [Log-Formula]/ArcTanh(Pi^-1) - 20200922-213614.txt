@@ -1,0 +1,301 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.7.8 Build 9507
+Tuning:                17-SKX ~ Kotori
+
+User:                  Amazon Web Services (t3.small)
+
+Operating System:      Linux 4.14.193-149.317.amzn2.x86_64 x86_64
+
+Processor(s):
+    Name:              Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+    Logical Cores:     2
+    Physical Cores:    1
+    Sockets:           1
+    NUMA Nodes:        1
+    Base Frequency:    2,499,981,248 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     2,050,060,288 (1.91 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - ArcTanh(Pi^-1)
+Algorithm:             Log Expansion of ArcTanh(x)
+Decimal Digits:        25,000,000
+Hexadecimal Digits:    20,762,051
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  2 / ?  (randomization off)
+Working Memory:        162,319,616 ( 155 MiB)
+Total Memory:          270,196,864 ( 258 MiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "ArcTanh(Pi^-1)"
+        NameLong : "ArcTanh(Pi^-1)"
+        AlgorithmShort : "Log-Formula"
+        AlgorithmLong : "Log Expansion of ArcTanh(x)"
+        Formula : {
+            Shift : [
+                {
+                    Scope : {
+                        Locals : [
+                            {
+                                pi : {
+                                    Pi : {}
+                                }
+                            }
+                            {
+                                log2 : {
+                                    Log : 2
+                                }
+                            }
+                        ]
+                        Formula : {
+                            Log-AGM : {
+                                Pi : "pi"
+                                Log2 : "log2"
+                                Argument : {
+                                    Divide : [
+                                        {
+                                            LinearCombination : [
+                                                [
+                                                    1
+                                                    "pi"
+                                                ]
+                                                [1 1]
+                                            ]
+                                        }
+                                        {
+                                            LinearCombination : [
+                                                [
+                                                    1
+                                                    "pi"
+                                                ]
+                                                [1 -1]
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+                -1
+            ]
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 25000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Path : ""
+        OutputEnable : "false"
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 2
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 4
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Tue Sep 22 21:35:22 2020
+End Date:              Tue Sep 22 21:36:14 2020
+
+Total Computation Time:    51.004 seconds
+Start-to-End Wall Time:    51.511 seconds
+
+CPU Utilization:           189.89 %  +  0.35 % kernel overhead
+Multi-core Efficiency:     94.94 %  +  0.18 % kernel overhead
+
+Last Decimal Digits:
+1162761330 1679745435 5260671742 9224688574 3230295215  :  24,999,950
+8786884166 0575085964 0385409330 5423379178 4415621576  :  25,000,000
+
+Last Hexadecimal Digits:
+7c1795bd9b 563b746e11 870a645bc6 30c1f43149 64c4105df0  :  20,762,050
+a
+
+SHA256-dec(25,000,001 - 25,000,100): 99da90225949c534a4b606973d2b1281299701a85a45aee38d0e0a4eff741a7b
+
+Dec Counts: {2499448,2499656,2503282,2500186,2501528,2497671,2497747,2502723,2497907,2499852}
+Hex Counts: {1297742,1297944,1295679,1297058,1296496,1298957,1297664,1299254,1295906,1299280,1298740,1296505,1298746,1297991,1296631,1297458}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 2026374099311339621
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 7506759729434960
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            kvm-clock
+Reference Clock 0:          0
+Reference Clock 1:          113,921,421
+Reference Clock 2:          1,462,800
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Tue Sep 22 21:35:22 2020	0.012	Working Memory
+Tue Sep 22 21:35:22 2020	0.158	Working Memory:  156 MiB  (locked, spread: 100%/1)
+Tue Sep 22 21:35:22 2020	0.158	Twiddle Tables
+Tue Sep 22 21:35:22 2020	0.322	Twiddle Tables:  103 MiB  (locked, spread: 100%/1)
+Tue Sep 22 21:35:22 2020	0.322	Begin Computation
+Tue Sep 22 21:35:22 2020	0.322	Pi - Chudnovsky (1988):
+Tue Sep 22 21:35:22 2020	0.322	Series CommonP2B3...  1,762,854 terms  (Expansion Factor = 2.360)
+Tue Sep 22 21:35:22 2020	0.322	Series: A ( 12 ) 0.000%
+Tue Sep 22 21:35:22 2020	0.331	Series: A ( 11 ) 0.505%
+Tue Sep 22 21:35:22 2020	0.365	Series: A ( 10 ) 1.793%
+Tue Sep 22 21:35:22 2020	0.402	Series: E ( 9 ) 3.081%
+Tue Sep 22 21:35:22 2020	0.443	Series: E ( 8 ) 4.370%
+Tue Sep 22 21:35:23 2020	0.503	Series: E ( 7 ) 6.156%
+Tue Sep 22 21:35:23 2020	0.588	Series: E ( 6 ) 8.674%
+Tue Sep 22 21:35:23 2020	0.716	Series: E ( 5 ) 12.225%
+Tue Sep 22 21:35:23 2020	0.902	Series: E ( 4 ) 17.241%
+Tue Sep 22 21:35:23 2020	1.180	Series: E ( 3 ) 24.333%
+Tue Sep 22 21:35:24 2020	1.589	Series: E ( 2 ) 34.387%
+Tue Sep 22 21:35:24 2020	2.259	Series: E ( 1 ) 48.698%
+Tue Sep 22 21:35:25 2020	3.187	Series: E ( 0 ) 69.250%
+Tue Sep 22 21:35:27 2020	4.560	Finishing Series
+Tue Sep 22 21:35:27 2020	4.567	Large Division
+Tue Sep 22 21:35:27 2020	4.824	InvSqrt(10005)...
+Tue Sep 22 21:35:27 2020	4.985	Large Multiply
+Tue Sep 22 21:35:27 2020	5.153	Log( 2 ):
+Tue Sep 22 21:35:27 2020	5.153	18 ArcCoth( 26 ):
+Tue Sep 22 21:35:27 2020	5.153	Series CommonP2B3...  8,834,144 terms  (Expansion Factor = 3.407)
+Tue Sep 22 21:35:27 2020	5.153	Series: A ( 17 ) 0.000%
+Tue Sep 22 21:35:27 2020	5.158	Series: A ( 16 ) 0.214%
+Tue Sep 22 21:35:27 2020	5.189	Series: A ( 15 ) 1.101%
+Tue Sep 22 21:35:27 2020	5.226	Series: A ( 14 ) 1.988%
+Tue Sep 22 21:35:27 2020	5.265	Series: E ( 13 ) 2.875%
+Tue Sep 22 21:35:27 2020	5.307	Series: E ( 12 ) 3.763%
+Tue Sep 22 21:35:27 2020	5.358	Series: E ( 11 ) 4.822%
+Tue Sep 22 21:35:27 2020	5.423	Series: E ( 10 ) 6.179%
+Tue Sep 22 21:35:28 2020	5.515	Series: E ( 9 ) 7.920%
+Tue Sep 22 21:35:28 2020	5.638	Series: E ( 8 ) 10.153%
+Tue Sep 22 21:35:28 2020	5.794	Series: E ( 7 ) 13.020%
+Tue Sep 22 21:35:28 2020	6.049	Series: E ( 6 ) 16.702%
+Tue Sep 22 21:35:28 2020	6.334	Series: E ( 5 ) 21.435%
+Tue Sep 22 21:35:29 2020	6.725	Series: E ( 4 ) 27.529%
+Tue Sep 22 21:35:29 2020	7.240	Series: E ( 3 ) 35.388%
+Tue Sep 22 21:35:30 2020	7.908	Series: E ( 2 ) 45.554%
+Tue Sep 22 21:35:31 2020	8.812	Series: E ( 1 ) 58.768%
+Tue Sep 22 21:35:32 2020	10.088	Series: E ( 0 ) 76.120%
+Tue Sep 22 21:35:34 2020	11.672	Finishing Series
+Tue Sep 22 21:35:34 2020	11.678	Large Division
+Tue Sep 22 21:35:34 2020	11.932	-2 ArcCoth( 4801 ):
+Tue Sep 22 21:35:34 2020	11.932	Series CommonP2B3...  3,395,532 terms  (Expansion Factor = 1.869)
+Tue Sep 22 21:35:34 2020	11.932	Series: A ( 10 ) 0.000%
+Tue Sep 22 21:35:34 2020	11.933	Series: A ( 9 ) 0.113%
+Tue Sep 22 21:35:34 2020	11.962	Series: E ( 8 ) 1.750%
+Tue Sep 22 21:35:34 2020	12.040	Series: E ( 7 ) 3.389%
+Tue Sep 22 21:35:34 2020	12.080	Series: E ( 6 ) 5.149%
+Tue Sep 22 21:35:34 2020	12.146	Series: E ( 5 ) 7.826%
+Tue Sep 22 21:35:34 2020	12.253	Series: E ( 4 ) 11.898%
+Tue Sep 22 21:35:34 2020	12.419	Series: E ( 3 ) 18.100%
+Tue Sep 22 21:35:35 2020	12.688	Series: E ( 2 ) 27.563%
+Tue Sep 22 21:35:35 2020	13.150	Series: E ( 1 ) 42.051%
+Tue Sep 22 21:35:36 2020	13.866	Series: E ( 0 ) 64.388%
+Tue Sep 22 21:35:37 2020	15.095	Finishing Series
+Tue Sep 22 21:35:37 2020	15.101	Large Division
+Tue Sep 22 21:35:37 2020	15.359	8 ArcCoth( 8749 ):
+Tue Sep 22 21:35:37 2020	15.359	Series CommonP2B3...  3,171,033 terms  (Expansion Factor = 1.808)
+Tue Sep 22 21:35:37 2020	15.359	Series: A ( 9 ) 0.000%
+Tue Sep 22 21:35:37 2020	15.379	Series: A ( 8 ) 1.353%
+Tue Sep 22 21:35:37 2020	15.413	Series: E ( 7 ) 3.049%
+Tue Sep 22 21:35:37 2020	15.448	Series: E ( 6 ) 4.745%
+Tue Sep 22 21:35:38 2020	15.506	Series: E ( 5 ) 7.298%
+Tue Sep 22 21:35:38 2020	15.601	Series: E ( 4 ) 11.227%
+Tue Sep 22 21:35:38 2020	15.756	Series: E ( 3 ) 17.281%
+Tue Sep 22 21:35:38 2020	16.061	Series: E ( 2 ) 26.626%
+Tue Sep 22 21:35:38 2020	16.461	Series: E ( 1 ) 41.098%
+Tue Sep 22 21:35:39 2020	17.186	Series: E ( 0 ) 63.662%
+Tue Sep 22 21:35:40 2020	18.348	Finishing Series
+Tue Sep 22 21:35:40 2020	18.354	Large Division
+Tue Sep 22 21:35:41 2020	18.623	Large Division
+Tue Sep 22 21:35:41 2020	18.877	Log(x) - AGM:
+Tue Sep 22 21:35:41 2020	18.879	AGM(1,x)
+Tue Sep 22 21:35:41 2020	19.411	AGM: 6,250,057
+Tue Sep 22 21:35:42 2020	20.075	AGM: 3,125,028
+Tue Sep 22 21:35:43 2020	20.696	AGM: 1,562,514
+Tue Sep 22 21:35:43 2020	21.361	AGM: 781,257
+Tue Sep 22 21:35:44 2020	21.984	AGM: 390,628
+Tue Sep 22 21:35:45 2020	22.655	AGM: 195,314
+Tue Sep 22 21:35:45 2020	23.315	AGM: 97,657
+Tue Sep 22 21:35:46 2020	23.933	AGM: 48,828
+Tue Sep 22 21:35:47 2020	24.593	AGM: 24,414
+Tue Sep 22 21:35:47 2020	25.249	AGM: 12,207
+Tue Sep 22 21:35:48 2020	25.866	AGM: 6,103
+Tue Sep 22 21:35:49 2020	26.530	AGM: 3,051
+Tue Sep 22 21:35:49 2020	27.187	AGM: 1,525
+Tue Sep 22 21:35:50 2020	27.803	AGM: 762
+Tue Sep 22 21:35:50 2020	28.466	AGM: 381
+Tue Sep 22 21:35:51 2020	29.126	AGM: 190
+Tue Sep 22 21:35:52 2020	29.741	AGM: 95
+Tue Sep 22 21:35:52 2020	30.403	AGM: 47
+Tue Sep 22 21:35:53 2020	31.070	AGM: 23
+Tue Sep 22 21:35:54 2020	31.688	AGM: 11
+Tue Sep 22 21:35:54 2020	32.347	AGM: 5
+Tue Sep 22 21:35:55 2020	32.957	AGM: 2
+Tue Sep 22 21:35:56 2020	33.612	AGM: 1
+Tue Sep 22 21:35:56 2020	34.270	AGM: 0
+Tue Sep 22 21:35:57 2020	34.889	AGM: -2
+Tue Sep 22 21:35:58 2020	35.543	AGM: -4
+Tue Sep 22 21:35:58 2020	36.200	AGM: -9
+Tue Sep 22 21:35:59 2020	36.818	AGM: -19
+Tue Sep 22 21:36:00 2020	37.484	AGM: -39
+Tue Sep 22 21:36:00 2020	38.155	AGM: -79
+Tue Sep 22 21:36:01 2020	38.781	AGM: -159
+Tue Sep 22 21:36:01 2020	39.477	AGM: -319
+Tue Sep 22 21:36:02 2020	40.159	AGM: -639
+Tue Sep 22 21:36:03 2020	40.847	AGM: -1,278
+Tue Sep 22 21:36:03 2020	41.459	AGM: -2,558
+Tue Sep 22 21:36:04 2020	42.109	AGM: -5,116
+Tue Sep 22 21:36:05 2020	42.727	AGM: -10,233
+Tue Sep 22 21:36:05 2020	43.386	AGM: -20,467
+Tue Sep 22 21:36:06 2020	44.046	AGM: -40,934
+Tue Sep 22 21:36:07 2020	44.665	AGM: -81,869
+Tue Sep 22 21:36:07 2020	45.321	AGM: -163,739
+Tue Sep 22 21:36:08 2020	45.938	AGM: -327,479
+Tue Sep 22 21:36:09 2020	46.603	AGM: -654,958
+Tue Sep 22 21:36:09 2020	47.267	AGM: -1,309,917
+Tue Sep 22 21:36:10 2020	47.890	AGM: -2,619,835
+Tue Sep 22 21:36:11 2020	48.558	AGM: -5,239,672
+Tue Sep 22 21:36:11 2020	49.221	AGM: -10,479,344
+Tue Sep 22 21:36:12 2020	49.842	AGM: -20,958,690
+Tue Sep 22 21:36:13 2020	50.499	AGM: Final
+Tue Sep 22 21:36:13 2020	50.504	Large Division
+Tue Sep 22 21:36:13 2020	50.757	Large Multiply
+Tue Sep 22 21:36:13 2020	50.879	Finishing Log(x)
+Tue Sep 22 21:36:13 2020	50.884	Shift
+Tue Sep 22 21:36:13 2020	50.885	Processing Hexadecimal Digits
+Tue Sep 22 21:36:13 2020	50.890	Base Converting
+Tue Sep 22 21:36:13 2020	51.331	Processing Decimal Digits
+Tue Sep 22 21:36:13 2020	51.339	Verifying Base Conversion
+Tue Sep 22 21:36:14 2020	51.510	Verifying Binary Output
+Tue Sep 22 21:36:14 2020	51.512	End Computation
+
+----
+
+Checksum0: 93c45f68206e35d4e971013891e6827e4af582cb637d2adfb0b72248b929ac9d094bca7980456da19ae14297766a076b8f37585cb0d1808eeff5ea7b1494598a
+Checksum1: 2d2ef70d7cd7be87723fa7e559dc549a160c13693e8fc77d6e3173cff8021d8b5cc950f455eec71125132a4622ddc1e649016050ab60c8ea5ffbcecc0cc45580

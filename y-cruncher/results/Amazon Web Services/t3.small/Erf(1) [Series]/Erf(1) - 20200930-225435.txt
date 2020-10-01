@@ -1,0 +1,170 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.7.8 Build 9507
+Tuning:                17-SKX ~ Kotori
+
+User:                  Amazon Web Services (t3.small)
+
+Operating System:      Linux 4.14.193-149.317.amzn2.x86_64 x86_64
+
+Processor(s):
+    Name:              Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+    Logical Cores:     2
+    Physical Cores:    1
+    Sockets:           1
+    NUMA Nodes:        1
+    Base Frequency:    2,499,974,752 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     2,050,060,288 (1.91 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Erf(1)
+Algorithm:             Taylor Series
+Decimal Digits:        5,000,000
+Hexadecimal Digits:    4,152,411
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  2 / ?  (randomization off)
+Working Memory:        33,345,088 (31.8 MiB)
+Total Memory:          133,517,760 ( 127 MiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Erf(1)"
+        NameLong : "Erf(1)"
+        AlgorithmShort : "Series"
+        AlgorithmLong : "Taylor Series"
+        Formula : {
+            Multiply : [
+                {
+                    SeriesHypergeometric : {
+                        CoefficientP : -6
+                        CoefficientQ : 4
+                        CoefficientD : 3
+                        PolynomialP : [1]
+                        PolynomialQ : [-3 -5 -2]
+                        PolynomialR : [3 2]
+                    }
+                }
+                {
+                    Invsqrt : {
+                        Pi : {}
+                    }
+                }
+            ]
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 5000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Path : ""
+        OutputEnable : "false"
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 2
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 4
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Wed Sep 30 22:54:33 2020
+End Date:              Wed Sep 30 22:54:35 2020
+
+Total Computation Time:    1.711 seconds
+Start-to-End Wall Time:    1.962 seconds
+
+CPU Utilization:           195.80 %  +  2.92 % kernel overhead
+Multi-core Efficiency:     97.90 %  +  1.46 % kernel overhead
+
+Last Decimal Digits:
+7127739369 4168162679 0526607329 6916513289 7943207049  :  4,999,950
+5941763680 8142926633 1318450177 4121606955 2307803386  :  5,000,000
+
+Last Hexadecimal Digits:
+d87b926345 1891d597d9 d21856407d a4fdb206da cf997b8fca  :  4,152,400
+c760feed9d f
+
+SHA256-dec(5,000,001 - 5,000,100): 06f8f55b745b9070cb260c4bcba1cff70afe8dc75237b5cb29abd6af959fb0ff
+
+Dec Counts: {499129,499722,498829,499325,501520,500682,500043,500775,501444,498531}
+Hex Counts: {259980,259515,259622,259961,259196,258732,258066,259815,260258,259115,259975,259654,259646,258962,260154,259760}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 571247341149961552
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 1968259366212466569
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            kvm-clock
+Reference Clock 0:          0
+Reference Clock 1:          114,161,456
+Reference Clock 2:          1,466,254
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Wed Sep 30 22:54:33 2020	0.012	Working Memory
+Wed Sep 30 22:54:33 2020	0.042	Working Memory: 32.8 MiB  (locked, spread: 100%/1)
+Wed Sep 30 22:54:33 2020	0.042	Twiddle Tables
+Wed Sep 30 22:54:33 2020	0.183	Twiddle Tables: 95.5 MiB  (locked, spread: 100%/1)
+Wed Sep 30 22:54:33 2020	0.183	Begin Computation
+Wed Sep 30 22:54:33 2020	0.183	Series CommonP2B3...  905,411 terms  (Expansion Factor = 2.055)
+Wed Sep 30 22:54:33 2020	0.183	Series: A ( 6 ) 0.000%
+Wed Sep 30 22:54:33 2020	0.212	Series: A ( 5 ) 4.713%
+Wed Sep 30 22:54:33 2020	0.264	Series: E ( 4 ) 11.892%
+Wed Sep 30 22:54:34 2020	0.320	Series: E ( 3 ) 19.114%
+Wed Sep 30 22:54:34 2020	0.393	Series: E ( 2 ) 28.549%
+Wed Sep 30 22:54:34 2020	0.504	Series: E ( 1 ) 42.758%
+Wed Sep 30 22:54:34 2020	0.676	Series: E ( 0 ) 64.422%
+Wed Sep 30 22:54:34 2020	0.964	Finishing Series
+Wed Sep 30 22:54:34 2020	0.966	Large Division
+Wed Sep 30 22:54:34 2020	1.018	Pi - Chudnovsky (1988):
+Wed Sep 30 22:54:34 2020	1.018	Series CommonP2B3...  352,580 terms  (Expansion Factor = 2.213)
+Wed Sep 30 22:54:34 2020	1.018	Series: A ( 7 ) 0.000%
+Wed Sep 30 22:54:34 2020	1.024	Series: A ( 6 ) 1.874%
+Wed Sep 30 22:54:34 2020	1.057	Series: A ( 5 ) 8.738%
+Wed Sep 30 22:54:34 2020	1.095	Series: E ( 4 ) 15.623%
+Wed Sep 30 22:54:34 2020	1.136	Series: E ( 3 ) 22.530%
+Wed Sep 30 22:54:34 2020	1.194	Series: E ( 2 ) 32.433%
+Wed Sep 30 22:54:34 2020	1.283	Series: E ( 1 ) 46.798%
+Wed Sep 30 22:54:35 2020	1.418	Series: E ( 0 ) 67.829%
+Wed Sep 30 22:54:35 2020	1.623	Finishing Series
+Wed Sep 30 22:54:35 2020	1.625	Large Division
+Wed Sep 30 22:54:35 2020	1.677	InvSqrt(10005)...
+Wed Sep 30 22:54:35 2020	1.709	Large Multiply
+Wed Sep 30 22:54:35 2020	1.734	Large Invsqrt...
+Wed Sep 30 22:54:35 2020	1.804	Large Multiply
+Wed Sep 30 22:54:35 2020	1.829	Processing Hexadecimal Digits
+Wed Sep 30 22:54:35 2020	1.830	Base Converting
+Wed Sep 30 22:54:35 2020	1.895	Processing Decimal Digits
+Wed Sep 30 22:54:35 2020	1.897	Verifying Base Conversion
+Wed Sep 30 22:54:35 2020	1.963	Verifying Binary Output
+Wed Sep 30 22:54:35 2020	1.963	End Computation
+
+----
+
+Checksum0: 7e1c975e3ced966a7b59c413350fa93932545b158d7686abd7a25510a82ee62e218984709baa75cfe6395080126b3ecaaaa28c544fa81b573228d79dcb1da39f
+Checksum1: a1f916d400eb6017276b9cd2f489bf9b5e21a8d34f8966bdc74faea2bd8e88c3e17588a2e1be6ec5ac2f9ae5ec12106988aedc392a9d520d8520afd9000d855f
