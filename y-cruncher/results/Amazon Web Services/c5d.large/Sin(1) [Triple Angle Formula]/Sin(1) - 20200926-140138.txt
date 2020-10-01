@@ -1,0 +1,203 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.7.8 Build 9507
+Tuning:                17-SKX ~ Kotori
+
+User:                  Amazon Web Services (c5d.large)
+
+Operating System:      Linux 5.4.58-32.125.amzn2.x86_64 x86_64
+
+Processor(s):
+    Name:              Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+    Logical Cores:     2
+    Physical Cores:    1
+    Sockets:           1
+    NUMA Nodes:        1
+    Base Frequency:    2,999,888,928 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     3,877,044,224 (3.61 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Sine of 1
+Algorithm:             3*sin(1/3) - 4*sin^3(1/3)
+Decimal Digits:        1,000,000,000
+Hexadecimal Digits:    830,482,024
+Computation Mode:      Swap Mode
+Threading Mode:        Push Pool  ->  2 / ?  (randomization off)
+Working Memory:        3,170,182,374 (2.95 GiB)
+Total Memory:          3,382,238,822 (3.15 GiB)
+
+Logical Largest Checkpoint:    0 ( 0 bytes)
+Logical Peak Disk Usage:       5,536,501,336 (5.16 GiB)
+Logical Disk Bytes Read:       37,973,017,440 (35.4 GiB)
+Logical Disk Bytes Written:    32,149,670,480 (29.9 GiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Sin(1)"
+        NameLong : "Sine of 1"
+        AlgorithmShort : "Triple Angle Formula"
+        AlgorithmLong : "3*sin(1/3) - 4*sin^3(1/3)"
+        Formula : {
+            Scope : {
+                Locals : [
+                    {
+                        sin : {
+                            SeriesHyperdescent : {
+                                Power : 1
+                                CoefficientP : 1
+                                CoefficientQ : 1
+                                CoefficientD : 3
+                                PolynomialP : [1]
+                                PolynomialQ : [0 -18 -36]
+                            }
+                        }
+                    }
+                ]
+                Formula : {
+                    LinearCombination : [
+                        [
+                            3
+                            "sin"
+                        ]
+                        [
+                            -4
+                            {
+                                Power : [
+                                    "sin"
+                                    3
+                                ]
+                            }
+                        ]
+                    ]
+                }
+            }
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 1000000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Path : ""
+        OutputEnable : "false"
+    }
+    OutputVerify : "true"
+    Mode : "swap"
+    Parallelism : {
+        TaskDecomposition : 2
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 4
+    }
+    Allocator : {
+        Allocator : "mmap"
+        LargePages : "attempt"
+        LockedPages : "attempt"
+    }
+    Memory : 3382238822
+    Checkpointing : {
+        Enabled : "false"
+        PostCheckpointCommand : ""
+    }
+    FarMemoryTuning : {
+        BytesPerSeek : 4096
+        ParallelAccess : "none"
+    }
+    FarMemoryConfig : {
+        Framework : "disk-raid0"
+        InterleaveWidth : 262144
+        BufferPerLane : 67108864
+        Checksums : "true"
+        RawIO : "true"
+        Lanes : [
+            {   //  Lane 0
+                Path : "/volumes/nvme1n1/tmp"
+                BufferAllocator : {
+                    Allocator : "mmap"
+                    LargePages : "attempt"
+                    LockedPages : "attempt"
+                }
+                WorkerThreadCores : []
+                WorkerThreadPriority : 2
+            }
+        ]
+    }
+}
+
+Start Date:            Sat Sep 26 13:42:39 2020
+End Date:              Sat Sep 26 14:01:37 2020
+
+Total Computation Time:    936.431 seconds
+Start-to-End Wall Time:    1138.354 seconds
+
+CPU Utilization:           25.72 %  +  0.21 % kernel overhead
+Multi-core Efficiency:     12.86 %  +  0.10 % kernel overhead
+
+Last Decimal Digits:
+6463395111 9511916422 2732779826 3656116620 2509982205  :  999,999,950
+7823167751 2586983726 4770810101 6736460719 7823171666  :  1,000,000,000
+
+Last Hexadecimal Digits:
+973dbc013e bd4f587f71 6d4bc708c0 95ead6d753 036ac8d2f2  :  830,482,000
+48f26d6f94 642e278276 5967
+
+SHA256-dec(1,000,000,001 - 1,000,000,100): 8a77a2567833c687d14ad6d49fe74472e2e4bc6ab715f2d4894b9a57aa72dbef
+
+Dec Counts: {99991174,99994622,100009011,99998465,100005980,99989198,100001234,100012393,100001655,99996268}
+Hex Counts: {51912501,51903597,51914973,51908486,51909286,51915585,51898398,51914302,51910478,51905405,51906638,51889435,51900827,51895761,51901314,51895038}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 397638380155598614
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 244201935248408316
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          125,533,718
+Reference Clock 2:          1,232,874
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Sat Sep 26 13:42:39 2020	0.013	Working Memory
+Sat Sep 26 13:42:41 2020	2.084	Working Memory: 2.95 GiB  (locked, spread: 100%/1)
+Sat Sep 26 13:42:41 2020	2.084	Twiddle Tables
+Sat Sep 26 13:42:41 2020	2.243	Twiddle Tables:  138 MiB  (locked, spread: 100%/1)
+Sat Sep 26 13:42:41 2020	2.243	I/O Buffers
+Sat Sep 26 13:42:41 2020	2.287	I/O Buffers: 64.0 MiB  (locked, spread: 100%/1)
+Sat Sep 26 13:42:41 2020	2.287	Begin Computation
+Sat Sep 26 13:42:41 2020	2.287	Series Hyperdescent...  61,480,983 terms  (Expansion Factor = 1.000)
+Sat Sep 26 13:44:06 2020	86.871	Finishing Series
+Sat Sep 26 13:44:33 2020	114.188	Large Division
+Sat Sep 26 13:49:26 2020	407.084	Loading Variable
+Sat Sep 26 13:49:39 2020	419.617	Small Multiply
+Sat Sep 26 13:49:50 2020	431.201	Loading Variable
+Sat Sep 26 13:50:02 2020	442.806	Powering
+Sat Sep 26 13:54:59 2020	740.439	Accumulate
+Sat Sep 26 13:55:26 2020	767.304	Processing Hexadecimal Digits
+Sat Sep 26 13:55:30 2020	770.960	Base Converting
+Sat Sep 26 13:58:21 2020	942.373	Processing Decimal Digits
+Sat Sep 26 13:58:24 2020	945.284	Verifying Base Conversion
+Sat Sep 26 14:01:33 2020	1133.853	Verifying Binary Output
+Sat Sep 26 14:01:37 2020	1138.354	End Computation
+
+----
+
+Checksum0: 7c43f2115f17807d8d97a2502fd0a8289f0b09ad5900e3ea2183f7a09ec9915990e2b87f01403136c1ed650999c283faa778ad8cf2f5dc43a52ec568b0ad2a7d
+Checksum1: a8a93c89ac743d2363cdfef2022682f49f58914331852a520df47dc66ad653220ca699eacdbd6d3e35c77091388f777ab2f854538abdff545753b7491950cb07

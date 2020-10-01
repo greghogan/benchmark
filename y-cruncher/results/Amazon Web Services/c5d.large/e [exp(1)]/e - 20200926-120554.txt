@@ -1,0 +1,160 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.7.8 Build 9507
+Tuning:                17-SKX ~ Kotori
+
+User:                  Amazon Web Services (c5d.large)
+
+Operating System:      Linux 5.4.58-32.125.amzn2.x86_64 x86_64
+
+Processor(s):
+    Name:              Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+    Logical Cores:     2
+    Physical Cores:    1
+    Sockets:           1
+    NUMA Nodes:        1
+    Base Frequency:    2,999,899,168 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     3,877,044,224 (3.61 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              e
+Algorithm:             Taylor Series of exp(1)
+Decimal Digits:        1,000,000,000
+Hexadecimal Digits:    830,482,024
+Computation Mode:      Swap Mode
+Threading Mode:        Push Pool  ->  2 / ?  (randomization off)
+Working Memory:        3,178,163,225 (2.96 GiB)
+Total Memory:          3,390,219,673 (3.16 GiB)
+
+Logical Largest Checkpoint:    0 ( 0 bytes)
+Logical Peak Disk Usage:       4,188,283,312 (3.90 GiB)
+Logical Disk Bytes Read:       23,746,342,512 (22.1 GiB)
+Logical Disk Bytes Written:    20,675,891,912 (19.3 GiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "e"
+        Algorithm : "exp(1)"
+    }
+    ComputeSize : {
+        DecimalDigits : 1000000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Path : ""
+        OutputEnable : "false"
+    }
+    OutputVerify : "true"
+    Mode : "swap"
+    Parallelism : {
+        TaskDecomposition : 2
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 4
+    }
+    Allocator : {
+        Allocator : "mmap"
+        LargePages : "attempt"
+        LockedPages : "attempt"
+    }
+    Memory : 3390219673
+    Checkpointing : {
+        Enabled : "false"
+        PostCheckpointCommand : ""
+    }
+    FarMemoryTuning : {
+        BytesPerSeek : 4096
+        ParallelAccess : "none"
+    }
+    FarMemoryConfig : {
+        Framework : "disk-raid0"
+        InterleaveWidth : 262144
+        BufferPerLane : 67108864
+        Checksums : "true"
+        RawIO : "true"
+        Lanes : [
+            {   //  Lane 0
+                Path : "/volumes/nvme1n1/tmp"
+                BufferAllocator : {
+                    Allocator : "mmap"
+                    LargePages : "attempt"
+                    LockedPages : "attempt"
+                }
+                WorkerThreadCores : []
+                WorkerThreadPriority : 2
+            }
+        ]
+    }
+}
+
+Start Date:            Sat Sep 26 11:53:30 2020
+End Date:              Sat Sep 26 12:05:54 2020
+
+Total Computation Time:    541.885 seconds
+Start-to-End Wall Time:    743.864 seconds
+
+CPU Utilization:           37.11 %  +  0.20 % kernel overhead
+Multi-core Efficiency:     18.56 %  +  0.10 % kernel overhead
+
+Last Decimal Digits:
+7962740870 5223527026 1592784126 4342662580 7363455584  :  999,999,950
+9042066373 4387717556 5997433859 5103567871 0858200191  :  1,000,000,000
+
+Last Hexadecimal Digits:
+6e22ea87fc 43d6742e65 43db1686a6 6bd5c49589 625aaa7763  :  830,482,000
+55a16fe716 fa89304f0a b9fc
+
+SHA256-dec(1,000,000,001 - 1,000,000,100): a7b477748a43418aabae20d26ac07ab685c3234b3859520abb1a676af49cde4e
+
+Dec Counts: {100004425,99982926,99999168,100002498,100018922,100003884,99987241,99997536,100005348,99998052}
+Hex Counts: {51904703,51913185,51902041,51909801,51909119,51906145,51905785,51902214,51907243,51904977,51890518,51901620,51900638,51907761,51908836,51907438}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 976387912937429701
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 876230201871373360
+
+Spot Check:                 Good through 1,000,000,000
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          125,499,600
+Reference Clock 2:          1,233,064
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Sat Sep 26 11:53:30 2020	0.013	Working Memory
+Sat Sep 26 11:53:32 2020	2.091	Working Memory: 2.96 GiB  (locked, spread: 100%/1)
+Sat Sep 26 11:53:32 2020	2.091	Twiddle Tables
+Sat Sep 26 11:53:32 2020	2.249	Twiddle Tables:  138 MiB  (locked, spread: 100%/1)
+Sat Sep 26 11:53:32 2020	2.249	I/O Buffers
+Sat Sep 26 11:53:32 2020	2.293	I/O Buffers: 64.0 MiB  (locked, spread: 100%/1)
+Sat Sep 26 11:53:32 2020	2.293	Begin Computation
+Sat Sep 26 11:53:32 2020	2.293	Series Hyperdescent...  130,202,828 terms  (Expansion Factor = 1.000)
+Sat Sep 26 11:54:52 2020	81.680	Finishing Series
+Sat Sep 26 11:54:52 2020	81.680	Large Division
+Sat Sep 26 11:59:43 2020	372.820	Processing Hexadecimal Digits
+Sat Sep 26 11:59:47 2020	376.477	Base Converting
+Sat Sep 26 12:02:38 2020	547.836	Processing Decimal Digits
+Sat Sep 26 12:02:41 2020	550.752	Verifying Base Conversion
+Sat Sep 26 12:05:49 2020	739.354	Verifying Binary Output
+Sat Sep 26 12:05:54 2020	743.863	End Computation
+
+----
+
+Checksum0: 802ce011c038b71ca86c77bde7144fc53e7adf69ab2144fc961db8fcec3a54c505c9cc9180c9e5009559b6136307881355cac3c6de150714ab593ca5f7b6ad30
+Checksum1: 6010e7e684f6224672d45025c0169cd308617c22e48b39fb0025faddbad27e2ba7822db5388909f30051a6d4efb4f383697b291fcca02d3bc1ed75a15c8fb703
