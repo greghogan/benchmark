@@ -1,0 +1,140 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.7.8 Build 9507
+Tuning:                19-ZN2 ~ Kagari
+
+User:                  Google Cloud Platform (n2d-standard-224)
+
+Operating System:      Linux 5.4.0-1025-gcp x86_64
+
+Processor(s):
+    Name:              AMD EPYC 7B12
+    Logical Cores:     224
+    Physical Cores:    112
+    Sockets:           2
+    NUMA Nodes:        2
+    Base Frequency:    2,250,000,368 Hz
+
+Motherboard:
+    Manufacturer:      Google
+    Model:             Google Compute Engine
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     946,893,291,520 ( 882 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Sqrt(Pi)
+Algorithm:             Simple
+Decimal Digits:        25,000,000
+Hexadecimal Digits:    20,762,051
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  224 / ?  (randomization off)
+Working Memory:        3,110,037,568 (2.90 GiB)
+Total Memory:          3,353,616,704 (3.12 GiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Sqrt(Pi)"
+        NameLong : "Sqrt(Pi)"
+        AlgorithmShort : "Simple"
+        AlgorithmLong : "Simple"
+        Formula : {
+            Invsqrt : {
+                Pi : {
+                    Power : -1
+                }
+            }
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 25000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Path : ""
+        OutputEnable : "false"
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 224
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 224
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Sat Oct  3 20:41:18 2020
+End Date:              Sat Oct  3 20:41:21 2020
+
+Total Computation Time:    0.557 seconds
+Start-to-End Wall Time:    2.415 seconds
+
+CPU Utilization:           3833.43 %  +  339.51 % kernel overhead
+Multi-core Efficiency:     17.11 %  +  1.52 % kernel overhead
+
+Last Decimal Digits:
+7475521660 1027208666 5307818841 2372979194 5294368409  :  24,999,950
+1212440168 2228328527 9556939980 9440034398 4043285549  :  25,000,000
+
+Last Hexadecimal Digits:
+4bfc5be63e 9ee9b3a404 a3d1f07548 4ec4d4a2cc b84e175d3b  :  20,762,050
+8
+
+SHA256-dec(25,000,001 - 25,000,100): 839c324b26dbd8364c19241934d489a3a5547419c91f06f31b52fbb30ad7bee6
+
+Dec Counts: {2501439,2501986,2501091,2499451,2498031,2498373,2499487,2500627,2500226,2499289}
+Hex Counts: {1297490,1298890,1297892,1299720,1295271,1298315,1296701,1296482,1299726,1297630,1297433,1296365,1297529,1297800,1297935,1296872}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 904217963095608217
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 477760127302713584
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          87,155,376
+Reference Clock 2:          1,178,047
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Sat Oct  3 20:41:19 2020	0.750	Working Memory
+Sat Oct  3 20:41:20 2020	1.656	Working Memory: 2.90 GiB  (locked, spread: 99%/2)
+Sat Oct  3 20:41:20 2020	1.656	Twiddle Tables
+Sat Oct  3 20:41:20 2020	1.784	Twiddle Tables:  232 MiB  (locked, spread: 100%/2)
+Sat Oct  3 20:41:20 2020	1.784	Begin Computation
+Sat Oct  3 20:41:20 2020	1.784	Pi - Chudnovsky (1988):
+Sat Oct  3 20:41:20 2020	1.784	Series CommonP2B3...  1,762,854 terms  (Expansion Factor = 2.360)
+Sat Oct  3 20:41:20 2020	1.784	Series: A ( 0 ) 0.000%
+Sat Oct  3 20:41:21 2020	2.120	Finishing Series
+Sat Oct  3 20:41:21 2020	2.123	Large Division
+Sat Oct  3 20:41:21 2020	2.173	InvSqrt(10005)...
+Sat Oct  3 20:41:21 2020	2.210	Large Multiply
+Sat Oct  3 20:41:21 2020	2.225	Large Invsqrt...
+Sat Oct  3 20:41:21 2020	2.297	Processing Hexadecimal Digits
+Sat Oct  3 20:41:21 2020	2.299	Base Converting
+Sat Oct  3 20:41:21 2020	2.343	Processing Decimal Digits
+Sat Oct  3 20:41:21 2020	2.345	Verifying Base Conversion
+Sat Oct  3 20:41:21 2020	2.373	Verifying Binary Output
+Sat Oct  3 20:41:21 2020	2.415	End Computation
+
+----
+
+Checksum0: 84a6e0edb9dbc0d7ea644128c6d28a54f5aab14a0f40d00a2dad5006a22da27998bf009d8f5d015d8fccc28bd2dad4ffa58c57913ff38f142ca6497a308c5910
+Checksum1: 0bd70d97cec981444d99005a435a466efde07d7da7ec10372f1c5db80b729e273474b6853addd7c4dc3210234004d0b0ab0af311155f3b59a7ab18befaf7c5b2

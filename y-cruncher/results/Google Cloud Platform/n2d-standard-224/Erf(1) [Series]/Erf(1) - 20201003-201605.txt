@@ -1,0 +1,159 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.7.8 Build 9507
+Tuning:                19-ZN2 ~ Kagari
+
+User:                  Google Cloud Platform (n2d-standard-224)
+
+Operating System:      Linux 5.4.0-1025-gcp x86_64
+
+Processor(s):
+    Name:              AMD EPYC 7B12
+    Logical Cores:     224
+    Physical Cores:    112
+    Sockets:           2
+    NUMA Nodes:        2
+    Base Frequency:    2,249,986,320 Hz
+
+Motherboard:
+    Manufacturer:      Google
+    Model:             Google Compute Engine
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     946,893,291,520 ( 882 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Erf(1)
+Algorithm:             Taylor Series
+Decimal Digits:        50,000,000
+Hexadecimal Digits:    41,524,102
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  224 / ?  (randomization off)
+Working Memory:        5,915,490,880 (5.51 GiB)
+Total Memory:          6,172,177,216 (5.75 GiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Erf(1)"
+        NameLong : "Erf(1)"
+        AlgorithmShort : "Series"
+        AlgorithmLong : "Taylor Series"
+        Formula : {
+            Multiply : [
+                {
+                    SeriesHypergeometric : {
+                        CoefficientP : -6
+                        CoefficientQ : 4
+                        CoefficientD : 3
+                        PolynomialP : [1]
+                        PolynomialQ : [-3 -5 -2]
+                        PolynomialR : [3 2]
+                    }
+                }
+                {
+                    Invsqrt : {
+                        Pi : {}
+                    }
+                }
+            ]
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 50000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Path : ""
+        OutputEnable : "false"
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 224
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 224
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Sat Oct  3 20:16:00 2020
+End Date:              Sat Oct  3 20:16:04 2020
+
+Total Computation Time:    1.652 seconds
+Start-to-End Wall Time:    4.414 seconds
+
+CPU Utilization:           7990.39 %  +  666.02 % kernel overhead
+Multi-core Efficiency:     35.67 %  +  2.97 % kernel overhead
+
+Last Decimal Digits:
+5498952147 9071768356 6980286794 2235150427 1904003950  :  49,999,950
+7723623840 8547994816 4110785335 5690136372 3143247776  :  50,000,000
+
+Last Hexadecimal Digits:
+e855bd5680 4ef6ebb5b3 b382e8b202 64107879fd 89c3e6c9f2  :  41,524,100
+fa
+
+SHA256-dec(50,000,001 - 50,000,100): 28cebac0ca9b35eab6761ffe402dd8c5b24027ba0570d19713c457e3b23d6b60
+
+Dec Counts: {4997564,4999679,4999363,5000226,5001488,4996625,5001839,5002866,5000365,4999985}
+Hex Counts: {2595851,2596375,2596600,2594368,2595280,2592813,2591674,2593075,2595929,2595160,2595272,2593581,2597204,2596667,2598423,2595830}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 903494232987435644
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 1264872738848221587
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          86,948,182
+Reference Clock 2:          1,192,605
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Sat Oct  3 20:16:00 2020	0.756	Working Memory
+Sat Oct  3 20:16:02 2020	2.532	Working Memory: 5.51 GiB  (locked, spread: 100%/2)
+Sat Oct  3 20:16:02 2020	2.532	Twiddle Tables
+Sat Oct  3 20:16:02 2020	2.666	Twiddle Tables:  245 MiB  (locked, spread: 100%/2)
+Sat Oct  3 20:16:02 2020	2.666	Begin Computation
+Sat Oct  3 20:16:02 2020	2.666	Series CommonP2B3...  7,746,209 terms  (Expansion Factor = 2.047)
+Sat Oct  3 20:16:02 2020	2.667	Series: A ( 1 ) 0.000%
+Sat Oct  3 20:16:02 2020	2.683	Series: A ( 0 ) 1.214%
+Sat Oct  3 20:16:03 2020	3.203	Finishing Series
+Sat Oct  3 20:16:03 2020	3.208	Large Division
+Sat Oct  3 20:16:03 2020	3.301	Pi - Chudnovsky (1988):
+Sat Oct  3 20:16:03 2020	3.301	Series CommonP2B3...  3,525,695 terms  (Expansion Factor = 2.424)
+Sat Oct  3 20:16:03 2020	3.301	Series: A ( 1 ) 0.000%
+Sat Oct  3 20:16:03 2020	3.391	Series: A ( 0 ) 16.105%
+Sat Oct  3 20:16:04 2020	3.946	Finishing Series
+Sat Oct  3 20:16:04 2020	3.950	Large Division
+Sat Oct  3 20:16:04 2020	4.028	InvSqrt(10005)...
+Sat Oct  3 20:16:04 2020	4.082	Large Multiply
+Sat Oct  3 20:16:04 2020	4.107	Large Invsqrt...
+Sat Oct  3 20:16:04 2020	4.214	Large Multiply
+Sat Oct  3 20:16:04 2020	4.241	Processing Hexadecimal Digits
+Sat Oct  3 20:16:04 2020	4.243	Base Converting
+Sat Oct  3 20:16:04 2020	4.320	Processing Decimal Digits
+Sat Oct  3 20:16:04 2020	4.323	Verifying Base Conversion
+Sat Oct  3 20:16:04 2020	4.369	Verifying Binary Output
+Sat Oct  3 20:16:04 2020	4.414	End Computation
+
+----
+
+Checksum0: 4ab2bce5de135d7a22fb8bddcd4c12d12c5c5f54e4c6ad9bc6ce6240a20148d298f01572d2d18ca87d90405fe7682becd4e5727f6e7148fc01a853a968881af5
+Checksum1: e97fddafa86d11bb91dc3c5a7b65262e0304a5c2ed067f048072857bf4369ddb82267c1d9891175c0634cc77620e946367cc880ad22133edd2920b1ae0afbf44

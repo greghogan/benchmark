@@ -1,0 +1,233 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.7.8 Build 9507
+Tuning:                19-ZN2 ~ Kagari
+
+User:                  Google Cloud Platform (n2d-standard-224)
+
+Operating System:      Linux 5.4.0-1025-gcp x86_64
+
+Processor(s):
+    Name:              AMD EPYC 7B12
+    Logical Cores:     224
+    Physical Cores:    112
+    Sockets:           2
+    NUMA Nodes:        2
+    Base Frequency:    2,249,997,472 Hz
+
+Motherboard:
+    Manufacturer:      Google
+    Model:             Google Compute Engine
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     946,893,291,520 ( 882 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Gamma(1/6)
+Algorithm:             AGM-Pi
+Decimal Digits:        250,000,000
+Hexadecimal Digits:    207,620,506
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  224 / ?  (randomization off)
+Working Memory:        6,405,034,048 (5.96 GiB)
+Total Memory:          6,691,670,336 (6.23 GiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Gamma(⅙)"
+        NameLong : "Gamma(1/6)"
+        AlgorithmShort : "AGM-Pi"
+        AlgorithmLong : "AGM-Pi"
+        Formula : {
+            Scope : {
+                Locals : [
+                    {
+                        pi : {
+                            Pi : {
+                                Algorithm : "ramanujan"
+                            }
+                        }
+                    }
+                ]
+                Formula : {
+                    Multiply : [
+                        {
+                            InvNthRoot : [
+                                6
+                                {
+                                    Multiply : [
+                                        {
+                                            Power : [
+                                                {
+                                                    AGM : {
+                                                        Invsqrt : {
+                                                            LinearCombination : [
+                                                                [1 8]
+                                                                [
+                                                                    -1
+                                                                    {
+                                                                        Sqrt : 48
+                                                                    }
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                                4
+                                            ]
+                                        }
+                                        "pi"
+                                    ]
+                                }
+                            ]
+                        }
+                        "pi"
+                        {
+                            LinearCombination : [
+                                [
+                                    6
+                                    {
+                                        InvNthRoot : [9 11664]
+                                    }
+                                ]
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 250000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Path : ""
+        OutputEnable : "false"
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 224
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 224
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Sat Oct  3 21:10:14 2020
+End Date:              Sat Oct  3 21:10:40 2020
+
+Total Computation Time:    23.752 seconds
+Start-to-End Wall Time:    26.791 seconds
+
+CPU Utilization:           9508.32 %  +  250.63 % kernel overhead
+Multi-core Efficiency:     42.45 %  +  1.12 % kernel overhead
+
+Last Decimal Digits:
+9655045891 9382741573 5301479745 2364328154 3946977748  :  249,999,950
+0480332567 1868954021 9792136029 7219361384 7947953409  :  250,000,000
+
+Last Hexadecimal Digits:
+92267ed8b6 f3600d3cc7 47667fc8f3 621febe258 0b113d38e3  :  207,620,500
+d22ca7
+
+SHA256-dec(250,000,001 - 250,000,100): 11d82418323196a67e787dab7528e3d8588f6307e3ad389bad86deadd1488417
+
+Dec Counts: {25004362,24992573,24997405,25002049,24995432,24994736,25004637,25003042,25004160,25001604}
+Hex Counts: {12974333,12972644,12973429,12977696,12972839,12982031,12977441,12975617,12976269,12972706,12981493,12980491,12981767,12977616,12972159,12971975}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 351853912428229620
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 638761823774217955
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          87,095,485
+Reference Clock 2:          1,186,978
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Sat Oct  3 21:10:14 2020	0.758	Working Memory
+Sat Oct  3 21:10:16 2020	2.693	Working Memory: 5.97 GiB  (locked, spread: 100%/2)
+Sat Oct  3 21:10:16 2020	2.693	Twiddle Tables
+Sat Oct  3 21:10:16 2020	2.846	Twiddle Tables:  273 MiB  (locked, spread: 100%/2)
+Sat Oct  3 21:10:16 2020	2.846	Begin Computation
+Sat Oct  3 21:10:16 2020	2.847	Pi - Ramanujan (1910):
+Sat Oct  3 21:10:16 2020	2.847	Series CommonP2B3...  31,318,374 terms  (Expansion Factor = 3.842)
+Sat Oct  3 21:10:16 2020	2.847	Series: A ( 7 ) 0.000%
+Sat Oct  3 21:10:17 2020	3.252	Series: A ( 6 ) 8.303%
+Sat Oct  3 21:10:17 2020	3.868	Series: A ( 5 ) 18.450%
+Sat Oct  3 21:10:18 2020	4.539	Series: A ( 4 ) 28.648%
+Sat Oct  3 21:10:19 2020	5.265	Series: E ( 3 ) 38.908%
+Sat Oct  3 21:10:20 2020	5.977	Series: E ( 2 ) 49.240%
+Sat Oct  3 21:10:20 2020	6.809	Series: E ( 1 ) 61.955%
+Sat Oct  3 21:10:21 2020	7.776	Series: E ( 0 ) 78.230%
+Sat Oct  3 21:10:23 2020	8.979	Finishing Series
+Sat Oct  3 21:10:23 2020	8.999	Large Division
+Sat Oct  3 21:10:23 2020	9.277	InvSqrt(8)...
+Sat Oct  3 21:10:23 2020	9.460	Large Multiply
+Sat Oct  3 21:10:23 2020	9.528	InvSqrt(48)...
+Sat Oct  3 21:10:23 2020	9.718	Large Invsqrt...
+Sat Oct  3 21:10:24 2020	10.105	AGM(1,x)
+Sat Oct  3 21:10:24 2020	10.571	AGM: -4
+Sat Oct  3 21:10:25 2020	11.112	AGM: -9
+Sat Oct  3 21:10:25 2020	11.656	AGM: -18
+Sat Oct  3 21:10:26 2020	12.191	AGM: -37
+Sat Oct  3 21:10:26 2020	12.714	AGM: -75
+Sat Oct  3 21:10:27 2020	13.233	AGM: -150
+Sat Oct  3 21:10:27 2020	13.777	AGM: -302
+Sat Oct  3 21:10:28 2020	14.335	AGM: -604
+Sat Oct  3 21:10:28 2020	14.866	AGM: -1,209
+Sat Oct  3 21:10:29 2020	15.404	AGM: -2,419
+Sat Oct  3 21:10:30 2020	15.960	AGM: -4,839
+Sat Oct  3 21:10:30 2020	16.493	AGM: -9,679
+Sat Oct  3 21:10:31 2020	17.014	AGM: -19,358
+Sat Oct  3 21:10:31 2020	17.551	AGM: -38,717
+Sat Oct  3 21:10:32 2020	18.106	AGM: -77,435
+Sat Oct  3 21:10:32 2020	18.642	AGM: -154,872
+Sat Oct  3 21:10:33 2020	19.181	AGM: -309,744
+Sat Oct  3 21:10:33 2020	19.721	AGM: -619,490
+Sat Oct  3 21:10:34 2020	20.259	AGM: -1,238,980
+Sat Oct  3 21:10:34 2020	20.810	AGM: -2,477,962
+Sat Oct  3 21:10:35 2020	21.372	AGM: -4,955,924
+Sat Oct  3 21:10:36 2020	21.930	AGM: -9,911,849
+Sat Oct  3 21:10:36 2020	22.486	AGM: -19,823,699
+Sat Oct  3 21:10:37 2020	23.031	AGM: -39,647,399
+Sat Oct  3 21:10:37 2020	23.574	AGM: -79,294,798
+Sat Oct  3 21:10:38 2020	24.129	AGM: -158,589,597
+Sat Oct  3 21:10:38 2020	24.646	AGM: Final
+Sat Oct  3 21:10:38 2020	24.657	Powering
+Sat Oct  3 21:10:38 2020	24.750	Large Multiply
+Sat Oct  3 21:10:38 2020	24.825	Radical x^(-1/6)...
+Sat Oct  3 21:10:39 2020	25.512	Large Multiply
+Sat Oct  3 21:10:39 2020	25.572	Radical x^(-1/9)...
+Sat Oct  3 21:10:40 2020	26.252	Large Multiply
+Sat Oct  3 21:10:40 2020	26.317	Processing Hexadecimal Digits
+Sat Oct  3 21:10:40 2020	26.321	Base Converting
+Sat Oct  3 21:10:40 2020	26.603	Processing Decimal Digits
+Sat Oct  3 21:10:40 2020	26.607	Verifying Base Conversion
+Sat Oct  3 21:10:40 2020	26.748	Verifying Binary Output
+Sat Oct  3 21:10:40 2020	26.791	End Computation
+
+----
+
+Checksum0: 03436223c3254cb584fa0f4927b9022962719a9f74727e2cf12b43d50f2de9e54300db2b9065665ead1295221c925164ae5b2e66c9866a321d53259570ee4d3e
+Checksum1: c961fba60d876f49ac20be48dddcab1cb97b23be427b34c8f7a4236a05d34671d026ae17dbdd076980c614b4fe9eea2e0934d2507d700b8340d38cb0d38dd72c
