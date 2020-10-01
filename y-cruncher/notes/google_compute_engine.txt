@@ -1,0 +1,36 @@
+INSTANCE_NAME=instance
+MACHINE_TYPE=n1-highmem-96
+LOCAL_SSD_COUNT=0
+
+PROJECT=<project id>
+SERVICE_ACCOUNT=<account id>-compute@developer.gserviceaccount.com
+
+LOCAL_SSD_STRING=
+if [[ ${LOCAL_SSD_COUNT} -gt 0 ]]; then
+  LOCAL_SSD_STRING=`printf "%0.s --local-ssd=interface=NVME" {1..${LOCAL_SSD_COUNT}}`
+fi
+
+gcloud beta compute \
+  --project=${PROJECT} instances create ${INSTANCE_NAME} \
+  --zone=us-central1-f \
+  --machine-type=${MACHINE_TYPE} \
+  --network=default \
+  --network-tier=PREMIUM \
+  --no-restart-on-failure \
+  --maintenance-policy=TERMINATE \
+  --preemptible \
+  --service-account=${SERVICE_ACCOUNT} \
+  --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append \
+  --image=ubuntu-1804-bionic-v20200923 \
+  --image-project=ubuntu-os-cloud \
+  --boot-disk-size=10GB \
+  --boot-disk-type=pd-standard \
+  --boot-disk-device-name=${INSTANCE_NAME} \
+  ${LOCAL_SSD_STRING} \
+  --no-shielded-secure-boot \
+  --shielded-vtpm \
+  --shielded-integrity-monitoring \
+  --reservation-affinity=any \
+  --no-boot-disk-auto-delete
+
+gcloud compute instances stop ${INSTANCE_NAME}

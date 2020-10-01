@@ -1,0 +1,40 @@
+add-apt-repository ppa:deadsnakes/ppa
+
+apt update
+apt upgrade
+
+apt install htop libnuma1 numactl python3.8 python3.8-dev python3-pip rsync screen wget
+
+update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
+update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 2
+update-alternatives --config python3
+
+pip3 install --user psutil
+
+
+# Local SSD
+format_and_mount() {
+    id=$1
+
+    /sbin/mkfs.ext4 -m 0 -F /dev/nvme${id}n1
+
+    # mount if format successful
+    if [ $? -eq 0 ]
+    then
+        mkdir -p /volumes/nvme${id}n1
+        mount -o init_itable=0 /dev/nvme${id}n1 /volumes/nvme${id}n1
+
+        mkdir /volumes/nvme${id}n1/tmp
+        chmod 777 /volumes/nvme${id}n1/tmp
+    fi
+}
+
+# system limit of 24 local SSDs
+for id in {0..23}; do
+    UUID=`blkid -s UUID -o value /dev/disk/by-id/google-local-nvme-ssd-${id}`
+    if [ $? -eq 0 ]
+    then
+        echo UUID=${UUID} /volumes/nvme${id}n1 ext4 discard,defaults,nofail 0 2 | sudo tee -a /etc/fstab
+        format_and_mount ${id} &
+    fi
+done

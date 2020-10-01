@@ -1,0 +1,21 @@
+# Single benchmarks
+25m 50m 100m 250m 500m 1b 2.5b 5b 10b 25b 50b 100b 250b 500b 1t 2.5t
+
+# AWS C4:
+25m 50m 100m 250m 500m 1b 2.5b 5b 10b
+--template config_pushpool.template 25m:50 50m:50 100m:50 250m:50 500m:25 1b:25 2.5b:10 5b:5 10b:3
+
+# AWS C5:
+25m 50m 100m 250m 500m 1b 2.5b 5b 10b 25b
+--template config_pushpool.template 250m:100 500m:50 1b:50 2.5b:20 5b:10 10b:5 25b:5
+--template config_cilk.template 25m:100 50m:100 100m:100 250m:100
+
+# GCP n2-highmem
+25m 50m 100m 250m 500m 1b 2.5b 5b 10b 25b 50b 100b
+--template config_pushpool.template 25m:100 50m:100 100m:100 250m:100 500m:50 1b:50 2.5b:20 5b:10 10b:5 25b:5 50b:3 100b:2
+--template config_cilk.template 25m:100 50m:100
+
+# AWS I3en
+25m 50m 100m 250m 500m 1b 2.5b 5b 10b 25b 50b 100b
+--template config_pushpool.template 25m:50 50m:50 100m:50 250m:50 500m:25 1b:25 2.5b:10 5b:5 10b:3 25b:3 50b:2 100b
+--template config_cilk.template 25m:100 50m:100
