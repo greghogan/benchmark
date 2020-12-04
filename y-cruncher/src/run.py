@@ -53,7 +53,7 @@ for digits_count in args.digits:
     config.write(digits.digits)
 
     print('{} [0/{}] {}, digits: {}'.format(
-        datetime.datetime.now(), args.constant, digits.count, digits.digits_string))
+        datetime.datetime.now(), digits.count, args.constant, digits.digits_string))
     total_ms = 0
     min_ms = None
 
