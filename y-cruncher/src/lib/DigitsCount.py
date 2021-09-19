@@ -10,7 +10,7 @@ class DigitsCount:
 
         colons = digits_count.count(':')
         if colons > 2:
-            print('Malformed configuration! "{}" should be "<digits>[:<count>]'.format(digits_count))
+            print('Malformed configuration! "{}" should be "<digits>[:<count>[:<seconds>]]'.format(digits_count))
             sys.exit(1)
         elif colons == 2:
             digit_string, count, limit_ms = digits_count.split(':')

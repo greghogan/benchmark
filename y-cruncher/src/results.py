@@ -60,35 +60,48 @@ base_dir = pathlib.Path(os.path.dirname(sys.path[0]))
 fetch_dir = base_dir / 'fetch'
 results_dir = base_dir / 'results'
 
+results_by_instance_dir = results_dir / 'Tables by instance'
+os.makedirs(results_by_instance_dir, exist_ok=True)
+results_by_constant_dir = results_dir / 'Tables by constant'
+os.makedirs(results_by_constant_dir, exist_ok=True)
+
 # sort fetched results into directory by platform / instance / constant
 for filename in fetch_dir.glob('*.txt'):
     validation = ParseCruncherValidation(filename)
 
     dir = results_dir / validation.platform / validation.instance /'{} [{}]'.format(validation.constant.replace('/', '∕'), validation.algorithm)
-    if not dir.exists():
-        os.makedirs(dir)
+    os.makedirs(dir, exist_ok=True)
 
     filebase, _ = os.path.splitext(os.path.basename(filename))
     for ext in ['.cfg', '.out', '.txt']:
         (fetch_dir / (filebase + ext)).rename(dir / (filebase + ext))
+
+# instance => digits
+digits_by_instance = collections.defaultdict(set)
+# constant => digits
+digits_by_execution = collections.defaultdict(set)
+
+# instance => execution => digit => milliseconds
+executions_by_instance = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(int)))
+# execution => instance => digit => milliseconds
+instances_by_execution = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(int)))
 
 for platform in os.listdir(results_dir):
     platform_dir = results_dir / platform
     if not platform_dir.is_dir():
         continue
 
-    for instance in os.listdir(platform_dir):
-        instance_dir = platform_dir / instance
-        if not instance_dir.is_dir():
+    for machine_type in os.listdir(platform_dir):
+        machine_type_dir = platform_dir / machine_type
+        if not machine_type_dir.is_dir():
             continue
 
-        digits = set()
-        executions = set()
-        milliseconds = {}
+        instance = (platform, machine_type)
+
         basepaths = {}
 
-        for constant in os.listdir(instance_dir):
-            constant_dir = instance_dir / constant
+        for constant in os.listdir(machine_type_dir):
+            constant_dir = machine_type_dir / constant
             if not constant_dir.is_dir():
                 continue
 
@@ -105,62 +118,102 @@ for platform in os.listdir(results_dir):
                 validation = ParseCruncherValidation(filepath)
                 execution = (validation.constant, validation.algorithm)
 
-                if execution not in executions:
-                    executions.add(execution)
+                digits_by_instance[instance].add(validation.digits)
+                # don't display low-digits results in the execution tables
+                if validation.digits >= 25_000_000:
+                    digits_by_execution[execution].add(validation.digits)
 
-                if validation.digits not in digits:
-                    digits.add(validation.digits)
-
-                if (validation.digits, execution) in milliseconds:
-                    old_basepath = basepaths[validation.digits, execution]
+                if validation.digits in executions_by_instance[instance][execution]:
+                    milliseconds = executions_by_instance[instance][execution][validation.digits]
+                    old_basepath = basepaths[validation.digits]
 
                     # only replace if faster
-                    if validation.milliseconds < milliseconds[validation.digits, execution] or \
-                            (validation.milliseconds == milliseconds[validation.digits, execution] and basepath < old_basepath):
+                    if validation.milliseconds < milliseconds or \
+                            (validation.milliseconds == milliseconds and basepath < old_basepath):
                         print("removing " + old_basepath)
                         os.remove(old_basepath + '.txt')
                         os.remove(old_basepath + '.cfg')
                         os.remove(old_basepath + '.out')
 
-                        milliseconds[validation.digits, execution] = validation.milliseconds
-                        basepaths[validation.digits, execution] = basepath
+                        executions_by_instance[instance][execution][validation.digits] = validation.milliseconds
+                        instances_by_execution[execution][instance][validation.digits] = validation.milliseconds
+                        basepaths[validation.digits] = basepath
                     else:
                         print("removing " + basepath)
                         os.remove(basepath + '.txt')
                         os.remove(basepath + '.cfg')
                         os.remove(basepath + '.out')
                 else:
-                    milliseconds[validation.digits, execution] = validation.milliseconds
-                    basepaths[validation.digits, execution] = basepath
+                    executions_by_instance[instance][execution][validation.digits] = validation.milliseconds
+                    instances_by_execution[execution][instance][validation.digits] = validation.milliseconds
+                    basepaths[validation.digits] = basepath
 
             for basename, group in basename_groups.items():
                 if group != {'.cfg', '.out', '.txt'}:
                     print("missing files for '{}'".format(basename))
 
-        digits = sorted(digits)
+# file per instance
+# table execution x digits
+# cells milliseconds and digits/sec
+for instance, executions in executions_by_instance.items():
+    platform, machine_type = instance
+    digits = digits_by_instance[instance]
 
-        with open(os.path.join(results_dir, '{} [{}].csv'.format(platform, instance)), 'w') as file:
+    with open(os.path.join(results_by_instance_dir, '{} [{}].csv'.format(platform, machine_type)), 'w') as file:
+        file.write(',')
+        for digit in sorted(digits):
             file.write(',')
-            for digit in digits:
+            file.write(digit_string(digit))
+            file.write(',')
+        file.write('\n')
+
+        for execution in sorted(executions):
+            constant, algorithm = execution
+            milliseconds = executions[execution]
+
+            file.write('"{} [{}]",'.format(constant, algorithm))
+            if constant in priorities:
+                file.write(str(priorities[constant]))
+
+            for digit in sorted(digits):
                 file.write(',')
-                file.write(digit_string(digit))
-                file.write(',')
+                if digit in milliseconds:
+                    file.write('{:.3f}'.format(milliseconds[digit] / 1000))
+                    file.write(',')
+                    rate = digit * 1000 / milliseconds[digit]
+                    file.write('"{:,}"'.format(round_to_significant_figures(rate, 3)))
+                else:
+                    file.write(',')
             file.write('\n')
 
-            for execution in sorted(executions):
-                constant, algorithm = execution
+# file per constant
+# table instance x digits
+# cells milliseconds and digits/sec
+for execution, instances in instances_by_execution.items():
+    constant, algorithm = execution
+    digits = digits_by_execution[execution]
 
-                file.write('"{} [{}]",'.format(constant, algorithm))
-                if constant in priorities:
-                    file.write(str(priorities[constant]))
+    with open(os.path.join(results_by_constant_dir, '{} [{}].csv'.format(constant, algorithm)), 'w') as file:
+        for digit in sorted(digits):
+            file.write(',')
+            file.write(digit_string(digit))
+            file.write(',')
+        file.write('\n')
 
-                for digit in digits:
+        for instance in sorted(instances):
+            platform, machine_type = instance
+            milliseconds = instances[instance]
+
+            file.write('"{} [{}]",'.format(platform, machine_type))
+
+            for idx, digit in enumerate(sorted(digits)):
+                if idx > 0:
                     file.write(',')
-                    if (digit, execution) in milliseconds:
-                        file.write('{:.3f}'.format(milliseconds[digit, execution] / 1000))
-                        file.write(',')
-                        rate = digit * 1000 / milliseconds[digit, execution]
-                        file.write('"{:,}"'.format(round_to_significant_figures(rate, 3)))
-                    else:
-                        file.write(',')
-                file.write('\n')
+                if digit in milliseconds:
+                    file.write('{:.3f}'.format(milliseconds[digit] / 1000))
+                    file.write(',')
+                    rate = digit * 1000 / milliseconds[digit]
+                    file.write('"{:,}"'.format(round_to_significant_figures(rate, 3)))
+                else:
+                    file.write(',')
+            file.write('\n')
