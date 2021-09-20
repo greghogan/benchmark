@@ -89,7 +89,12 @@ for digits_count in args.digits:
             result = subprocess.run(['./y-cruncher.exe', 'config', 'run.cfg'], capture_output=True)
         else:
             #result = subprocess.run(['sudo', numactl, '--interleave=all', './y-cruncher', 'config', 'run.cfg'], capture_output=True)
-            result = subprocess.run(['sudo', './y-cruncher', 'config', 'run.cfg'], capture_output=True)
+            result = subprocess.run([script_dir + '/kill_wrapper.sh', 'Press ENTER to continue', 'sudo', './y-cruncher', 'config', 'run.cfg'], capture_output=True)
+
+        if result.returncode != 0:
+            print("Error in execution; assuming insufficient memory and aborting")
+            break
+
         output = ParseCruncherOutput(result.stdout.decode('utf-8'))
         output.write(args.results)
 
