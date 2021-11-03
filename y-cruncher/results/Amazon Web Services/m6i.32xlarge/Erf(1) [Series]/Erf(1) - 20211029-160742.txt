@@ -1,0 +1,166 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.7.8 Build 9507
+Tuning:                18-CNL ~ Shinoa
+
+User:                  Amazon Web Services (m6i.32xlarge)
+
+Operating System:      Linux 5.10.68-62.173.amzn2.x86_64 x86_64
+
+Processor(s):
+    Name:              Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz
+    Logical Cores:     128
+    Physical Cores:    64
+    Sockets:           2
+    NUMA Nodes:        2
+    Base Frequency:    2,899,967,712 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     532,541,083,648 ( 496 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Erf(1)
+Algorithm:             Taylor Series
+Decimal Digits:        50,000,000
+Hexadecimal Digits:    41,524,102
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  128 / ?  (randomization off)
+Working Memory:        2,035,464,768 (1.90 GiB)
+Total Memory:          2,490,284,864 (2.32 GiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Erf(1)"
+        NameLong : "Erf(1)"
+        AlgorithmShort : "Series"
+        AlgorithmLong : "Taylor Series"
+        Formula : {
+            Multiply : [
+                {
+                    SeriesHypergeometric : {
+                        CoefficientP : -6
+                        CoefficientQ : 4
+                        CoefficientD : 3
+                        PolynomialP : [1]
+                        PolynomialQ : [-3 -5 -2]
+                        PolynomialR : [3 2]
+                    }
+                }
+                {
+                    Invsqrt : {
+                        Pi : {}
+                    }
+                }
+            ]
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 50000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Path : ""
+        OutputEnable : "false"
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 128
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 128
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Fri Oct 29 16:07:40 2021
+End Date:              Fri Oct 29 16:07:42 2021
+
+Total Computation Time:    0.916 seconds
+Start-to-End Wall Time:    2.115 seconds
+
+CPU Utilization:           5048.94 %  +  414.65 % kernel overhead
+Multi-core Efficiency:     39.44 %  +  3.24 % kernel overhead
+
+Last Decimal Digits:
+5498952147 9071768356 6980286794 2235150427 1904003950  :  49,999,950
+7723623840 8547994816 4110785335 5690136372 3143247776  :  50,000,000
+
+Last Hexadecimal Digits:
+e855bd5680 4ef6ebb5b3 b382e8b202 64107879fd 89c3e6c9f2  :  41,524,100
+fa
+
+SHA256-dec(50,000,001 - 50,000,100): 28cebac0ca9b35eab6761ffe402dd8c5b24027ba0570d19713c457e3b23d6b60
+
+Dec Counts: {4997564,4999679,4999363,5000226,5001488,4996625,5001839,5002866,5000365,4999985}
+Hex Counts: {2595851,2596375,2596600,2594368,2595280,2592813,2591674,2593075,2595929,2595160,2595272,2593581,2597204,2596667,2598423,2595830}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 903494232987435644
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 1264872738848221587
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          102,556,718
+Reference Clock 2:          823,813
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Fri Oct 29 16:07:40 2021	0.492	Working Memory
+Fri Oct 29 16:07:40 2021	0.961	Working Memory: 1.90 GiB  (locked, spread: 100%/2)
+Fri Oct 29 16:07:40 2021	0.961	Twiddle Tables
+Fri Oct 29 16:07:41 2021	1.165	Twiddle Tables:  434 MiB  (locked, spread: 99%/2)
+Fri Oct 29 16:07:41 2021	1.166	Begin Computation
+Fri Oct 29 16:07:41 2021	1.166	Series CommonP2B3...  7,746,209 terms  (Expansion Factor = 2.047)
+Fri Oct 29 16:07:41 2021	1.166	Series: A ( 4 ) 0.000%
+Fri Oct 29 16:07:41 2021	1.207	Series: A ( 3 ) 12.848%
+Fri Oct 29 16:07:41 2021	1.259	Series: E ( 2 ) 27.820%
+Fri Oct 29 16:07:41 2021	1.322	Series: E ( 1 ) 42.992%
+Fri Oct 29 16:07:41 2021	1.402	Series: E ( 0 ) 64.742%
+Fri Oct 29 16:07:41 2021	1.510	Finishing Series
+Fri Oct 29 16:07:41 2021	1.511	Large Division
+Fri Oct 29 16:07:41 2021	1.544	Pi - Chudnovsky (1988):
+Fri Oct 29 16:07:41 2021	1.544	Series CommonP2B3...  3,525,695 terms  (Expansion Factor = 2.424)
+Fri Oct 29 16:07:41 2021	1.544	Series: A ( 5 ) 0.000%
+Fri Oct 29 16:07:41 2021	1.579	Series: A ( 4 ) 9.363%
+Fri Oct 29 16:07:41 2021	1.630	Series: E ( 3 ) 22.241%
+Fri Oct 29 16:07:41 2021	1.683	Series: E ( 2 ) 35.199%
+Fri Oct 29 16:07:41 2021	1.743	Series: E ( 1 ) 49.478%
+Fri Oct 29 16:07:41 2021	1.824	Series: E ( 0 ) 69.825%
+Fri Oct 29 16:07:41 2021	1.929	Finishing Series
+Fri Oct 29 16:07:41 2021	1.931	Large Division
+Fri Oct 29 16:07:41 2021	1.962	InvSqrt(10005)...
+Fri Oct 29 16:07:41 2021	1.985	Large Multiply
+Fri Oct 29 16:07:42 2021	1.994	Large Invsqrt...
+Fri Oct 29 16:07:42 2021	2.038	Large Multiply
+Fri Oct 29 16:07:42 2021	2.047	Processing Hexadecimal Digits
+Fri Oct 29 16:07:42 2021	2.048	Base Converting
+Fri Oct 29 16:07:42 2021	2.083	Processing Decimal Digits
+Fri Oct 29 16:07:42 2021	2.084	Verifying Base Conversion
+Fri Oct 29 16:07:42 2021	2.107	Verifying Binary Output
+Fri Oct 29 16:07:42 2021	2.115	End Computation
+
+----
+
+Checksum0: 5fa930f510e44c64d5d4a99d9a3af03b4a42343aa1cd0974464dfc5beafcc61b782d380742045cb56cec44bcf725f6995e5afd4ab019a921b7c494e22589d5cf
+Checksum1: ea7337348310d8c8a19275d60bfda3ed0de1e87bdb65f152d5bcbcbc6a05d322f41d3aca0238d70aaae5d0bff3d669c1b59888af4da2c5fb92d33e477aa07497

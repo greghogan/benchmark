@@ -1,0 +1,308 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.7.8 Build 9507
+Tuning:                18-CNL ~ Shinoa
+
+User:                  Amazon Web Services (m6i.32xlarge)
+
+Operating System:      Linux 5.10.68-62.173.amzn2.x86_64 x86_64
+
+Processor(s):
+    Name:              Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz
+    Logical Cores:     128
+    Physical Cores:    64
+    Sockets:           2
+    NUMA Nodes:        2
+    Base Frequency:    2,899,961,824 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     532,541,083,648 ( 496 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - ArcTanh(e^-1)
+Algorithm:             Log Expansion of ArcTanh(x)
+Decimal Digits:        500,000,000
+Hexadecimal Digits:    415,241,012
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  128 / ?  (randomization off)
+Working Memory:        3,665,799,488 (3.41 GiB)
+Total Memory:          4,166,740,544 (3.88 GiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "ArcTanh(e^-1)"
+        NameLong : "ArcTanh(e^-1)"
+        AlgorithmShort : "Log-Formula"
+        AlgorithmLong : "Log Expansion of ArcTanh(x)"
+        Formula : {
+            Shift : [
+                {
+                    Log : {
+                        Scope : {
+                            Locals : [
+                                {
+                                    arg : {
+                                        E : {
+                                            Power : -1
+                                        }
+                                    }
+                                }
+                            ]
+                            Formula : {
+                                Divide : [
+                                    {
+                                        LinearCombination : [
+                                            [
+                                                1
+                                                "arg"
+                                            ]
+                                            [1 1]
+                                        ]
+                                    }
+                                    {
+                                        LinearCombination : [
+                                            [
+                                                -1
+                                                "arg"
+                                            ]
+                                            [1 1]
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+                -1
+            ]
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 500000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Path : ""
+        OutputEnable : "false"
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 128
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 128
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Fri Oct 29 18:09:50 2021
+End Date:              Fri Oct 29 18:10:38 2021
+
+Total Computation Time:    46.692 seconds
+Start-to-End Wall Time:    48.448 seconds
+
+CPU Utilization:           9807.91 %  +  69.93 % kernel overhead
+Multi-core Efficiency:     76.62 %  +  0.55 % kernel overhead
+
+Last Decimal Digits:
+8272127344 4369143229 6718082981 1827834217 9525749388  :  499,999,950
+6099750105 3758108506 3999327634 8962569180 5845987773  :  500,000,000
+
+Last Hexadecimal Digits:
+7b95bad764 6921a2bcb7 7959ff8263 b5c18f129d eb92ca95ab  :  415,241,000
+8c5f59f665 b8
+
+SHA256-dec(500,000,001 - 500,000,100): f0a6192de39f1bf12b91062437d14bcd1a6b842be343471a88dda65249b23784
+
+Dec Counts: {49993504,49988602,49997617,50002102,50015096,50004279,50003769,49996761,50001058,49997212}
+Hex Counts: {25955063,25957045,25951631,25948116,25948643,25953679,25952359,25955317,25950173,25950000,25950805,25954162,25956882,25958098,25949535,25949504}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 1959866823046433484
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 442960125621219635
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          102,596,883
+Reference Clock 2:          807,113
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Fri Oct 29 18:09:50 2021	0.492	Working Memory
+Fri Oct 29 18:09:51 2021	1.350	Working Memory: 3.41 GiB  (locked, spread: 99%/2)
+Fri Oct 29 18:09:51 2021	1.350	Twiddle Tables
+Fri Oct 29 18:09:51 2021	1.574	Twiddle Tables:  478 MiB  (locked, spread: 99%/2)
+Fri Oct 29 18:09:51 2021	1.574	Begin Computation
+Fri Oct 29 18:09:51 2021	1.574	e - exp(-1):
+Fri Oct 29 18:09:51 2021	1.574	Series Hyperdescent...  67,606,905 terms  (Expansion Factor = 1.000)
+Fri Oct 29 18:09:52 2021	2.305	Finishing Series
+Fri Oct 29 18:09:52 2021	2.305	Large Division
+Fri Oct 29 18:09:52 2021	2.551	Large Division
+Fri Oct 29 18:09:53 2021	2.779	Log(x):
+Fri Oct 29 18:09:53 2021	2.783	AGM(1,x)
+Fri Oct 29 18:09:53 2021	3.193	AGM: 125,000,052
+Fri Oct 29 18:09:53 2021	3.687	AGM: 62,500,026
+Fri Oct 29 18:09:54 2021	4.179	AGM: 31,250,013
+Fri Oct 29 18:09:54 2021	4.673	AGM: 15,625,006
+Fri Oct 29 18:09:55 2021	5.169	AGM: 7,812,503
+Fri Oct 29 18:09:55 2021	5.665	AGM: 3,906,251
+Fri Oct 29 18:09:56 2021	6.158	AGM: 1,953,125
+Fri Oct 29 18:09:56 2021	6.654	AGM: 976,562
+Fri Oct 29 18:09:57 2021	7.144	AGM: 488,281
+Fri Oct 29 18:09:57 2021	7.640	AGM: 244,140
+Fri Oct 29 18:09:58 2021	8.133	AGM: 122,070
+Fri Oct 29 18:09:58 2021	8.626	AGM: 61,035
+Fri Oct 29 18:09:59 2021	9.136	AGM: 30,517
+Fri Oct 29 18:09:59 2021	9.630	AGM: 15,258
+Fri Oct 29 18:10:00 2021	10.125	AGM: 7,629
+Fri Oct 29 18:10:00 2021	10.618	AGM: 3,814
+Fri Oct 29 18:10:01 2021	11.112	AGM: 1,907
+Fri Oct 29 18:10:01 2021	11.603	AGM: 953
+Fri Oct 29 18:10:02 2021	12.096	AGM: 476
+Fri Oct 29 18:10:02 2021	12.588	AGM: 238
+Fri Oct 29 18:10:03 2021	13.081	AGM: 119
+Fri Oct 29 18:10:03 2021	13.574	AGM: 59
+Fri Oct 29 18:10:04 2021	14.068	AGM: 29
+Fri Oct 29 18:10:04 2021	14.561	AGM: 14
+Fri Oct 29 18:10:05 2021	15.054	AGM: 7
+Fri Oct 29 18:10:05 2021	15.548	AGM: 3
+Fri Oct 29 18:10:06 2021	16.040	AGM: 1
+Fri Oct 29 18:10:06 2021	16.533	AGM: 0
+Fri Oct 29 18:10:07 2021	17.026	AGM: -1
+Fri Oct 29 18:10:07 2021	17.516	AGM: -3
+Fri Oct 29 18:10:08 2021	18.010	AGM: -7
+Fri Oct 29 18:10:08 2021	18.501	AGM: -15
+Fri Oct 29 18:10:09 2021	18.995	AGM: -31
+Fri Oct 29 18:10:09 2021	19.488	AGM: -63
+Fri Oct 29 18:10:10 2021	19.985	AGM: -127
+Fri Oct 29 18:10:10 2021	20.478	AGM: -255
+Fri Oct 29 18:10:11 2021	20.972	AGM: -511
+Fri Oct 29 18:10:11 2021	21.466	AGM: -1,022
+Fri Oct 29 18:10:12 2021	21.958	AGM: -2,046
+Fri Oct 29 18:10:12 2021	22.452	AGM: -4,093
+Fri Oct 29 18:10:13 2021	22.947	AGM: -8,186
+Fri Oct 29 18:10:13 2021	23.440	AGM: -16,373
+Fri Oct 29 18:10:14 2021	23.933	AGM: -32,747
+Fri Oct 29 18:10:14 2021	24.427	AGM: -65,496
+Fri Oct 29 18:10:15 2021	24.923	AGM: -130,992
+Fri Oct 29 18:10:15 2021	25.415	AGM: -261,985
+Fri Oct 29 18:10:16 2021	25.909	AGM: -523,971
+Fri Oct 29 18:10:16 2021	26.406	AGM: -1,047,943
+Fri Oct 29 18:10:17 2021	26.900	AGM: -2,095,887
+Fri Oct 29 18:10:17 2021	27.399	AGM: -4,191,774
+Fri Oct 29 18:10:18 2021	27.893	AGM: -8,383,549
+Fri Oct 29 18:10:18 2021	28.388	AGM: -16,767,099
+Fri Oct 29 18:10:19 2021	28.885	AGM: -33,534,199
+Fri Oct 29 18:10:19 2021	29.385	AGM: -67,068,399
+Fri Oct 29 18:10:20 2021	29.888	AGM: -134,136,800
+Fri Oct 29 18:10:20 2021	30.404	AGM: -268,273,600
+Fri Oct 29 18:10:21 2021	30.896	AGM: Final
+Fri Oct 29 18:10:21 2021	30.903	Large Division
+Fri Oct 29 18:10:21 2021	31.134	Series CommonP2B3...  35,256,847 terms  (Expansion Factor = 2.636)
+Fri Oct 29 18:10:21 2021	31.134	Series: A ( 13 ) 0.000%
+Fri Oct 29 18:10:21 2021	31.159	Series: A ( 12 ) 0.652%
+Fri Oct 29 18:10:21 2021	31.208	Series: A ( 11 ) 1.833%
+Fri Oct 29 18:10:21 2021	31.262	Series: E ( 10 ) 3.014%
+Fri Oct 29 18:10:21 2021	31.322	Series: E ( 9 ) 4.196%
+Fri Oct 29 18:10:21 2021	31.392	Series: E ( 8 ) 5.738%
+Fri Oct 29 18:10:21 2021	31.485	Series: E ( 7 ) 7.846%
+Fri Oct 29 18:10:21 2021	31.601	Series: E ( 6 ) 10.732%
+Fri Oct 29 18:10:21 2021	31.762	Series: E ( 5 ) 14.685%
+Fri Oct 29 18:10:22 2021	31.983	Series: E ( 4 ) 20.104%
+Fri Oct 29 18:10:22 2021	32.302	Series: E ( 3 ) 27.543%
+Fri Oct 29 18:10:22 2021	32.715	Series: E ( 2 ) 37.778%
+Fri Oct 29 18:10:23 2021	33.266	Series: E ( 1 ) 51.913%
+Fri Oct 29 18:10:24 2021	34.007	Series: E ( 0 ) 71.591%
+Fri Oct 29 18:10:25 2021	35.044	Finishing Series
+Fri Oct 29 18:10:25 2021	35.057	Large Division
+Fri Oct 29 18:10:25 2021	35.286	InvSqrt(10005)...
+Fri Oct 29 18:10:25 2021	35.451	Large Multiply
+Fri Oct 29 18:10:25 2021	35.534	Large Multiply
+Fri Oct 29 18:10:25 2021	35.616	18 ArcCoth( 26 ):
+Fri Oct 29 18:10:25 2021	35.616	Series CommonP2B3...  176,681,827 terms  (Expansion Factor = 3.867)
+Fri Oct 29 18:10:25 2021	35.616	Series: A ( 19 ) 0.000%
+Fri Oct 29 18:10:25 2021	35.628	Series: A ( 18 ) 0.174%
+Fri Oct 29 18:10:25 2021	35.677	Series: A ( 17 ) 0.975%
+Fri Oct 29 18:10:25 2021	35.727	Series: A ( 16 ) 1.776%
+Fri Oct 29 18:10:26 2021	35.778	Series: E ( 15 ) 2.577%
+Fri Oct 29 18:10:26 2021	35.833	Series: E ( 14 ) 3.379%
+Fri Oct 29 18:10:26 2021	35.895	Series: E ( 13 ) 4.221%
+Fri Oct 29 18:10:26 2021	35.967	Series: E ( 12 ) 5.272%
+Fri Oct 29 18:10:26 2021	36.054	Series: E ( 11 ) 6.587%
+Fri Oct 29 18:10:26 2021	36.159	Series: E ( 10 ) 8.230%
+Fri Oct 29 18:10:26 2021	36.291	Series: E ( 9 ) 10.284%
+Fri Oct 29 18:10:26 2021	36.445	Series: E ( 8 ) 12.854%
+Fri Oct 29 18:10:26 2021	36.644	Series: E ( 7 ) 16.070%
+Fri Oct 29 18:10:27 2021	36.890	Series: E ( 6 ) 20.098%
+Fri Oct 29 18:10:27 2021	37.204	Series: E ( 5 ) 25.146%
+Fri Oct 29 18:10:27 2021	37.616	Series: E ( 4 ) 31.481%
+Fri Oct 29 18:10:28 2021	38.102	Series: E ( 3 ) 39.444%
+Fri Oct 29 18:10:28 2021	38.718	Series: E ( 2 ) 49.480%
+Fri Oct 29 18:10:29 2021	39.458	Series: E ( 1 ) 62.185%
+Fri Oct 29 18:10:30 2021	40.364	Series: E ( 0 ) 78.411%
+Fri Oct 29 18:10:31 2021	41.574	Finishing Series
+Fri Oct 29 18:10:31 2021	41.583	Large Division
+Fri Oct 29 18:10:32 2021	41.816	-2 ArcCoth( 4801 ):
+Fri Oct 29 18:10:32 2021	41.816	Series CommonP2B3...  67,910,229 terms  (Expansion Factor = 2.046)
+Fri Oct 29 18:10:32 2021	41.816	Series: A ( 10 ) 0.000%
+Fri Oct 29 18:10:32 2021	41.850	Series: A ( 9 ) 1.230%
+Fri Oct 29 18:10:32 2021	41.898	Series: E ( 8 ) 2.760%
+Fri Oct 29 18:10:32 2021	41.950	Series: E ( 7 ) 4.292%
+Fri Oct 29 18:10:32 2021	42.021	Series: E ( 6 ) 6.334%
+Fri Oct 29 18:10:32 2021	42.116	Series: E ( 5 ) 9.350%
+Fri Oct 29 18:10:32 2021	42.245	Series: E ( 4 ) 13.809%
+Fri Oct 29 18:10:32 2021	42.449	Series: E ( 3 ) 20.404%
+Fri Oct 29 18:10:32 2021	42.731	Series: E ( 2 ) 30.180%
+Fri Oct 29 18:10:33 2021	43.151	Series: E ( 1 ) 44.711%
+Fri Oct 29 18:10:33 2021	43.761	Series: E ( 0 ) 66.457%
+Fri Oct 29 18:10:34 2021	44.704	Finishing Series
+Fri Oct 29 18:10:34 2021	44.712	Large Division
+Fri Oct 29 18:10:35 2021	44.947	8 ArcCoth( 8749 ):
+Fri Oct 29 18:10:35 2021	44.947	Series CommonP2B3...  63,420,273 terms  (Expansion Factor = 1.973)
+Fri Oct 29 18:10:35 2021	44.947	Series: A ( 10 ) 0.000%
+Fri Oct 29 18:10:35 2021	44.968	Series: A ( 9 ) 0.722%
+Fri Oct 29 18:10:35 2021	45.014	Series: E ( 8 ) 2.311%
+Fri Oct 29 18:10:35 2021	45.066	Series: E ( 7 ) 3.900%
+Fri Oct 29 18:10:35 2021	45.127	Series: E ( 6 ) 5.826%
+Fri Oct 29 18:10:35 2021	45.213	Series: E ( 5 ) 8.704%
+Fri Oct 29 18:10:35 2021	45.341	Series: E ( 4 ) 13.010%
+Fri Oct 29 18:10:35 2021	45.527	Series: E ( 3 ) 19.457%
+Fri Oct 29 18:10:36 2021	45.797	Series: E ( 2 ) 29.125%
+Fri Oct 29 18:10:36 2021	46.204	Series: E ( 1 ) 43.667%
+Fri Oct 29 18:10:37 2021	46.808	Series: E ( 0 ) 65.681%
+Fri Oct 29 18:10:37 2021	47.726	Finishing Series
+Fri Oct 29 18:10:37 2021	47.735	Large Division
+Fri Oct 29 18:10:38 2021	47.972	Finishing Log(x)
+Fri Oct 29 18:10:38 2021	47.979	Shift
+Fri Oct 29 18:10:38 2021	47.981	Processing Hexadecimal Digits
+Fri Oct 29 18:10:38 2021	47.984	Base Converting
+Fri Oct 29 18:10:38 2021	48.269	Processing Decimal Digits
+Fri Oct 29 18:10:38 2021	48.272	Verifying Base Conversion
+Fri Oct 29 18:10:38 2021	48.437	Verifying Binary Output
+Fri Oct 29 18:10:38 2021	48.448	End Computation
+
+----
+
+Checksum0: 49db515023e1bdd632068717bbfc0b1170c6b087ff31fcc61a8002efa0cf685c701f778518deb0b696a3233d8db82a79414c6da2ecf5868a61afeb547b147cb7
+Checksum1: 475e709559d120906f923817dfc641e675736bd1edadce9888fc50d9d8a507cf45a0881fce4b5584041ea30a20abec45626edfb86e8986ff356867586433f8d8
