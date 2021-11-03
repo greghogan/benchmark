@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 
 import collections
+import datetime
 import math
 import os
 import pathlib
+import re
 import sys
+import urllib.parse
 
 from lib.ParseCruncherValidation import ParseCruncherValidation
 
@@ -56,6 +59,8 @@ def digit_string(digits):
     return removesuffix(str(digits / 10**power), '.0') + suffix
 
 
+re_filename_date_time = re.compile(r'.* - (\d{8})-(\d{6})')
+
 base_dir = pathlib.Path(sys.path[0]).parent
 fetch_dir = base_dir / 'fetch'
 results_dir = base_dir / 'results'
@@ -65,6 +70,7 @@ os.makedirs(results_by_instance_dir, exist_ok=True)
 results_by_constant_dir = results_dir / 'Tables by constant'
 os.makedirs(results_by_constant_dir, exist_ok=True)
 best_times_by_constant_dir = results_dir / 'Best times by constant'
+os.makedirs(best_times_by_constant_dir, exist_ok=True)
 
 # sort fetched results into directory by platform / instance / constant
 for filename in fetch_dir.glob('*.txt'):
@@ -83,9 +89,9 @@ digits_by_instance = collections.defaultdict(set)
 # constant => digits
 digits_by_execution = collections.defaultdict(set)
 
-# instance => execution => digit => (milliseconds, file path)
+# instance => execution => digit => data dictionary
 executions_by_instance = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(int)))
-# execution => instance => digit => (milliseconds, file path)
+# execution => instance => digit => data dictionary
 instances_by_execution = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(int)))
 
 for platform in os.listdir(results_dir):
@@ -120,8 +126,14 @@ for platform in os.listdir(results_dir):
                 if validation.digits >= 25_000_000:
                     digits_by_execution[execution].add(validation.digits)
 
+                date = datetime.datetime.strptime(re_filename_date_time.search(filename.stem)[1], "%Y%m%d")
+                data = {'filename': filename, 'platform': validation.platform, 'instance': validation.instance,
+                        'date': date, 'milliseconds': validation.milliseconds}
+
                 if validation.digits in executions_by_instance[instance][execution]:
-                    milliseconds, current_filename = executions_by_instance[instance][execution][validation.digits]
+                    old_data = executions_by_instance[instance][execution][validation.digits]
+                    milliseconds = old_data['milliseconds']
+                    current_filename = old_data['filename']
 
                     # only replace if faster
                     if validation.milliseconds < milliseconds or \
@@ -131,16 +143,16 @@ for platform in os.listdir(results_dir):
                         current_filename.with_suffix('.cfg').unlink()
                         current_filename.with_suffix('.out').unlink()
 
-                        executions_by_instance[instance][execution][validation.digits] = (validation.milliseconds, filename)
-                        instances_by_execution[execution][instance][validation.digits] = (validation.milliseconds, filename)
+                        executions_by_instance[instance][execution][validation.digits] = data
+                        instances_by_execution[execution][instance][validation.digits] = data
                     else:
                         print(f'removing {filename}')
                         filename.unlink()
                         filename.with_suffix('.cfg').unlink()
                         filename.with_suffix('.out').unlink()
                 else:
-                    executions_by_instance[instance][execution][validation.digits] = (validation.milliseconds, filename)
-                    instances_by_execution[execution][instance][validation.digits] = (validation.milliseconds, filename)
+                    executions_by_instance[instance][execution][validation.digits] = data
+                    instances_by_execution[execution][instance][validation.digits] = data
 
             for basename, group in basename_groups.items():
                 if group != {'.cfg', '.out', '.txt'}:
@@ -172,7 +184,8 @@ for instance, executions in executions_by_instance.items():
             for digit in sorted(digits):
                 file.write(',')
                 if digit in times:
-                    milliseconds = times[digit][0]
+                    data = times[digit]
+                    milliseconds = data['milliseconds']
 
                     file.write('{:.3f}'.format(milliseconds / 1000))
                     file.write(',')
@@ -209,29 +222,39 @@ for execution, instances in instances_by_execution.items():
                 if idx > 0:
                     file.write(',')
                 if digit in times:
-                    milliseconds = times[digit][0]
+                    data = times[digit]
+                    milliseconds = data['milliseconds']
 
                     file.write('{:.3f}'.format(milliseconds / 1000))
                     file.write(',')
-                    rate = digit * 1000 / milliseconds
-                    file.write('"{:,}"'.format(round_to_significant_figures(rate, 3)))
+                    rate = round_to_significant_figures(digit * 1000 / milliseconds, 3)
+                    file.write('"{:,}"'.format(rate))
 
-                    if digit not in best_times or milliseconds < best_times[digit][0]:
-                        best_times[digit] = times[digit]
+                    if digit not in best_times or milliseconds < best_times[digit]['milliseconds']:
+                        best_times[digit] = data
                 else:
                     file.write(',')
 
             file.write('\n')
 
-    # create symbolic links to the fastest execution for each computation size
-    dir = best_times_by_constant_dir / '{} [{}]'.format(constant, algorithm)
-    os.makedirs(dir, exist_ok=True)
+    # create markdown files with links to the fastest execution for each computation size
+    with open(best_times_by_constant_dir / f'{constant} [{algorithm}].md', 'w') as file:
+        file.write('| Digits | Seconds | Digits / Second | Platform | Instance | Date | Files |\n')
+        file.write('| ------ | ------- | --------------- | -------- | -------- | ---- | ----- |\n')
 
-    # remove old symbolic links
-    for filename in dir.glob('*'):
-        filename.unlink()
+        for digit in sorted(best_times):
+            data = best_times[digit]
+            filename = data['filename']
+            platform = data['platform']
+            instance = data['instance']
+            date = data['date']
+            milliseconds = data['milliseconds']
+            rate = round_to_significant_figures(digit * 1000 / milliseconds, 3)
 
-    for digit, (milliseconds, filename) in best_times.items():
-        for suffix in ['.cfg', '.out', '.txt']:
-            linkname = dir / f'{digit} [{digit_string(digit)}]{suffix}'
-            os.symlink(pathlib.Path('../..') / filename.with_suffix(suffix).relative_to(results_dir), linkname)
+            link = pathlib.Path('..') / filename.relative_to(results_dir).with_suffix('')
+            quoted = urllib.parse.quote(str(link))
+
+            file.write(f'| {digit_string(digit)} | {milliseconds/1000:.3f} | {rate:,} | {platform} | {instance} | {date:%Y-%m-%d} | ')
+            for suffix in ['cfg', 'out', 'txt']:
+                file.write(f'[{suffix}]({quoted}.{suffix}) ')
+            file.write(f'|\n')
