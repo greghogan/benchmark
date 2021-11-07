@@ -1,0 +1,186 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.7.8 Build 9507
+Tuning:                19-ZN2 ~ Kagari
+
+User:                  Google Cloud Platform (n2d-standard-224)
+
+Operating System:      Linux 5.13.0-1005-gcp x86_64
+
+Processor(s):
+    Name:              AMD EPYC 7B12
+    Logical Cores:     224
+    Physical Cores:    112
+    Sockets:           2
+    NUMA Nodes:        2
+    Base Frequency:    2,249,982,720 Hz
+
+Motherboard:
+    Manufacturer:      Google
+    Model:             Google Compute Engine
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     946,871,078,912 ( 882 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Erf(1)
+Algorithm:             Taylor Series with e
+Decimal Digits:        250,000,000
+Hexadecimal Digits:    207,620,506
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  224 / ?  (randomization off)
+Working Memory:        6,405,034,176 (5.96 GiB)
+Total Memory:          6,691,670,464 (6.23 GiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Erf(1)"
+        NameLong : "Erf(1)"
+        AlgorithmShort : "Series-e"
+        AlgorithmLong : "Taylor Series with e"
+        Formula : {
+            Multiply : [
+                {
+                    Invsqrt : {
+                        Multiply : [
+                            {
+                                Pi : {
+                                    Algorithm : "ramanujan"
+                                }
+                            }
+                            {
+                                Power : [
+                                    {
+                                        E : {}
+                                    }
+                                    2
+                                ]
+                            }
+                        ]
+                    }
+                }
+                {
+                    SeriesHypergeometric : {
+                        CoefficientP : 4
+                        CoefficientQ : 2
+                        CoefficientD : 1
+                        PolynomialP : [1]
+                        PolynomialQ : [1 2]
+                        PolynomialR : [2]
+                    }
+                }
+            ]
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 250000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Path : ""
+        OutputEnable : "false"
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 224
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 224
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Sun Nov  7 15:45:12 2021
+End Date:              Sun Nov  7 15:45:25 2021
+
+Total Computation Time:    9.190 seconds
+Start-to-End Wall Time:    12.834 seconds
+
+CPU Utilization:           11929.98 %  +  596.07 % kernel overhead
+Multi-core Efficiency:     53.26 %  +  2.66 % kernel overhead
+
+Last Decimal Digits:
+5907602581 9585688829 9110598080 3087486127 4284323186  :  249,999,950
+5878129832 0259898867 0903695479 9063703210 2765276977  :  250,000,000
+
+Last Hexadecimal Digits:
+fa5777e711 36cf37f9e6 8136e0225f d2922d5024 45b4b51cb2  :  207,620,500
+5c1dac
+
+SHA256-dec(250,000,001 - 250,000,100): a58a732f309530366b32efc548d36a541095ce44960c70ea6b5e4c50d191030f
+
+Dec Counts: {24992444,24998601,25002787,24996613,24999204,24995394,24999090,25010449,25004330,25001088}
+Hex Counts: {12974122,12979847,12974212,12977366,12972877,12967100,12971938,12979771,12975876,12979327,12978614,12968802,12976745,12975545,12989578,12978786}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 1527296769023035233
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 1421629505040723943
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          81,637,217
+Reference Clock 2:          1,035,518
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Sun Nov  7 15:45:13 2021	0.821	Working Memory
+Sun Nov  7 15:45:16 2021	3.282	Working Memory: 5.97 GiB  (locked, spread: 100%/2)
+Sun Nov  7 15:45:16 2021	3.282	Twiddle Tables
+Sun Nov  7 15:45:16 2021	3.456	Twiddle Tables:  273 MiB  (locked, spread: 100%/2)
+Sun Nov  7 15:45:16 2021	3.456	Begin Computation
+Sun Nov  7 15:45:16 2021	3.457	Pi - Ramanujan (1910):
+Sun Nov  7 15:45:16 2021	3.457	Series CommonP2B3...  31,318,374 terms  (Expansion Factor = 3.842)
+Sun Nov  7 15:45:16 2021	3.457	Series: A ( 7 ) 0.000%
+Sun Nov  7 15:45:16 2021	3.843	Series: A ( 6 ) 8.303%
+Sun Nov  7 15:45:17 2021	4.434	Series: A ( 5 ) 18.450%
+Sun Nov  7 15:45:17 2021	5.066	Series: A ( 4 ) 28.648%
+Sun Nov  7 15:45:18 2021	5.744	Series: E ( 3 ) 38.908%
+Sun Nov  7 15:45:19 2021	6.410	Series: E ( 2 ) 49.240%
+Sun Nov  7 15:45:19 2021	7.189	Series: E ( 1 ) 61.955%
+Sun Nov  7 15:45:20 2021	8.107	Series: E ( 0 ) 78.230%
+Sun Nov  7 15:45:21 2021	9.219	Finishing Series
+Sun Nov  7 15:45:21 2021	9.233	Large Division
+Sun Nov  7 15:45:22 2021	9.477	InvSqrt(8)...
+Sun Nov  7 15:45:22 2021	9.643	Large Multiply
+Sun Nov  7 15:45:22 2021	9.700	e - exp(1)
+Sun Nov  7 15:45:22 2021	9.701	Series Hyperdescent...  35,153,489 terms  (Expansion Factor = 1.000)
+Sun Nov  7 15:45:22 2021	10.245	Finishing Series
+Sun Nov  7 15:45:22 2021	10.245	Large Division
+Sun Nov  7 15:45:23 2021	10.486	Squaring
+Sun Nov  7 15:45:23 2021	10.527	Large Multiply
+Sun Nov  7 15:45:23 2021	10.591	Large Invsqrt...
+Sun Nov  7 15:45:23 2021	10.926	Series CommonP2B3...  35,153,493 terms  (Expansion Factor = 1.042)
+Sun Nov  7 15:45:23 2021	10.926	Series: A ( 2 ) 0.000%
+Sun Nov  7 15:45:23 2021	11.046	Series: E ( 1 ) 11.594%
+Sun Nov  7 15:45:24 2021	11.493	Series: E ( 0 ) 48.983%
+Sun Nov  7 15:45:24 2021	12.078	Finishing Series
+Sun Nov  7 15:45:24 2021	12.092	Large Division
+Sun Nov  7 15:45:25 2021	12.334	Large Multiply
+Sun Nov  7 15:45:25 2021	12.392	Processing Hexadecimal Digits
+Sun Nov  7 15:45:25 2021	12.396	Base Converting
+Sun Nov  7 15:45:25 2021	12.651	Processing Decimal Digits
+Sun Nov  7 15:45:25 2021	12.655	Verifying Base Conversion
+Sun Nov  7 15:45:25 2021	12.789	Verifying Binary Output
+Sun Nov  7 15:45:25 2021	12.834	End Computation
+
+----
+
+Checksum0: 61ba2f544faa5a36628e55cfb407934b6930b31a403ea4219ae532afd6d033e77f27273cd75e4f9ad1cb100a5789b49e04db30392f3563ea1dfe5fae21613d44
+Checksum1: 07f8f27340046709e317a55444a2c3d465c4ed6609b2f5520f4a4f8e4b6521e703eab9080b2e52823dbc3e824ecaead3dc974446d3d7f6752b7e06f66a1af435
