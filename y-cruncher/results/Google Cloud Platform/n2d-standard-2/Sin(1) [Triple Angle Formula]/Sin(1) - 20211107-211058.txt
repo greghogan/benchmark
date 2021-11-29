@@ -1,0 +1,164 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.7.8 Build 9507
+Tuning:                19-ZN2 ~ Kagari
+
+User:                  Google Cloud Platform (n2d-standard-2)
+
+Operating System:      Linux 5.13.0-1005-gcp x86_64
+
+Processor(s):
+    Name:              AMD EPYC 7B12
+    Logical Cores:     2
+    Physical Cores:    1
+    Sockets:           1
+    NUMA Nodes:        1
+    Base Frequency:    2,249,990,640 Hz
+
+Motherboard:
+    Manufacturer:      Google
+    Model:             Google Compute Engine
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     8,335,015,936 (7.76 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Sine of 1
+Algorithm:             3*sin(1/3) - 4*sin^3(1/3)
+Decimal Digits:        25,000,000
+Hexadecimal Digits:    20,762,051
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  2 / ?  (randomization off)
+Working Memory:        157,515,264 ( 150 MiB)
+Total Memory:          401,094,400 ( 383 MiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Sin(1)"
+        NameLong : "Sine of 1"
+        AlgorithmShort : "Triple Angle Formula"
+        AlgorithmLong : "3*sin(1/3) - 4*sin^3(1/3)"
+        Formula : {
+            Scope : {
+                Locals : [
+                    {
+                        sin : {
+                            SeriesHyperdescent : {
+                                Power : 1
+                                CoefficientP : 1
+                                CoefficientQ : 1
+                                CoefficientD : 3
+                                PolynomialP : [1]
+                                PolynomialQ : [0 -18 -36]
+                            }
+                        }
+                    }
+                ]
+                Formula : {
+                    LinearCombination : [
+                        [
+                            3
+                            "sin"
+                        ]
+                        [
+                            -4
+                            {
+                                Power : [
+                                    "sin"
+                                    3
+                                ]
+                            }
+                        ]
+                    ]
+                }
+            }
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 25000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Path : ""
+        OutputEnable : "false"
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 2
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 4
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Sun Nov  7 21:10:55 2021
+End Date:              Sun Nov  7 21:10:58 2021
+
+Total Computation Time:    2.134 seconds
+Start-to-End Wall Time:    2.601 seconds
+
+CPU Utilization:           192.62 %  +  0.00 % kernel overhead
+Multi-core Efficiency:     96.31 %  +  0.00 % kernel overhead
+
+Last Decimal Digits:
+0617653734 6410720840 5041082583 0513120950 7848919169  :  24,999,950
+3843373467 1836851599 1806524629 9584680731 5354612074  :  25,000,000
+
+Last Hexadecimal Digits:
+cc815afb64 8a6f92dabe 68322aedeb 6463cd902f dcc74b9d34  :  20,762,050
+5
+
+SHA256-dec(25,000,001 - 25,000,100): ef4a320d1618ece10229e5d433d5c17d6eea8805072d231079eecec8d85baaae
+
+Dec Counts: {2501253,2500571,2499692,2502118,2499611,2499408,2497831,2501141,2499431,2498944}
+Hex Counts: {1298529,1298094,1296384,1296948,1296866,1297130,1297656,1299658,1296583,1299735,1298196,1297708,1296932,1297134,1297574,1296924}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 2144733986436699781
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 593387634706112861
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          87,195,814
+Reference Clock 2:          1,116,694
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Sun Nov  7 21:10:55 2021	0.009	Working Memory
+Sun Nov  7 21:10:55 2021	0.100	Working Memory:  151 MiB  (locked, spread: 100%/1)
+Sun Nov  7 21:10:55 2021	0.100	Twiddle Tables
+Sun Nov  7 21:10:55 2021	0.291	Twiddle Tables:  232 MiB  (locked, spread: 100%/1)
+Sun Nov  7 21:10:55 2021	0.291	Begin Computation
+Sun Nov  7 21:10:55 2021	0.291	Series Hyperdescent...  1,888,255 terms  (Expansion Factor = 1.000)
+Sun Nov  7 21:10:56 2021	1.469	Finishing Series
+Sun Nov  7 21:10:56 2021	1.474	Large Division
+Sun Nov  7 21:10:57 2021	1.752	Powering
+Sun Nov  7 21:10:57 2021	1.936	Processing Hexadecimal Digits
+Sun Nov  7 21:10:57 2021	1.941	Base Converting
+Sun Nov  7 21:10:57 2021	2.430	Processing Decimal Digits
+Sun Nov  7 21:10:57 2021	2.439	Verifying Base Conversion
+Sun Nov  7 21:10:58 2021	2.600	Verifying Binary Output
+Sun Nov  7 21:10:58 2021	2.601	End Computation
+
+----
+
+Checksum0: 09848df77f1018093fa07cb45a0505f6bb724de6dffe6e4378600fe309dbce05a0dacfb91e05737d2518f639a369ca6b5f7e9f4e729be91dfead144c4e3e058d
+Checksum1: fdc24f9a4ceff033db63ed48917a4e4bf5fc9d9b73b0d404bcb56e56b9ecaf11287668797d4bd8b85b4fc90037e7a04c78ea72e08ce0d2967bbe46613ec96a0f
