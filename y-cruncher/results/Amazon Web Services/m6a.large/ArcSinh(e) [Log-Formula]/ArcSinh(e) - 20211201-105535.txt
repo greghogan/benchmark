@@ -1,0 +1,305 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.7.8 Build 9507
+Tuning:                19-ZN2 ~ Kagari
+
+User:                  Amazon Web Services (m6a.large)
+
+Operating System:      Linux 5.10.75-79.358.amzn2.x86_64 x86_64
+
+Processor(s):
+    Name:              AMD EPYC 7R13 Processor
+    Logical Cores:     2
+    Physical Cores:    1
+    Sockets:           1
+    NUMA Nodes:        1
+    Base Frequency:    2,649,937,664 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     8,140,910,592 (7.58 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - ArcSinh(e)
+Algorithm:             Log Expansion of ArcSinh(x)
+Decimal Digits:        50,000,000
+Hexadecimal Digits:    41,524,102
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  2 / ?  (randomization off)
+Working Memory:        314,153,280 ( 300 MiB)
+Total Memory:          570,839,616 ( 544 MiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "ArcSinh(e)"
+        NameLong : "ArcSinh(e)"
+        AlgorithmShort : "Log-Formula"
+        AlgorithmLong : "Log Expansion of ArcSinh(x)"
+        Formula : {
+            Log : {
+                Scope : {
+                    Locals : [
+                        {
+                            arg : {
+                                E : {}
+                            }
+                        }
+                    ]
+                    Formula : {
+                        LinearCombination : [
+                            [
+                                1
+                                "arg"
+                            ]
+                            [
+                                1
+                                {
+                                    Sqrt : {
+                                        LinearCombination : [
+                                            [
+                                                1
+                                                {
+                                                    Power : [
+                                                        "arg"
+                                                        2
+                                                    ]
+                                                }
+                                            ]
+                                            [1 1]
+                                        ]
+                                    }
+                                }
+                            ]
+                        ]
+                    }
+                }
+            }
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 50000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Path : ""
+        OutputEnable : "false"
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 2
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 4
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Wed Dec  1 10:54:00 2021
+End Date:              Wed Dec  1 10:55:35 2021
+
+Total Computation Time:    93.555 seconds
+Start-to-End Wall Time:    94.143 seconds
+
+CPU Utilization:           189.64 %  +  0.11 % kernel overhead
+Multi-core Efficiency:     94.82 %  +  0.05 % kernel overhead
+
+Last Decimal Digits:
+3679574359 5010175548 4434531744 3031510478 4501850807  :  49,999,950
+2034165962 7185673401 9779147387 7019835064 2181316251  :  50,000,000
+
+Last Hexadecimal Digits:
+3adbf28f97 660b635d5b 77f7e7f3ea 2e66745068 d5279fd6ea  :  41,524,100
+f4
+
+SHA256-dec(50,000,001 - 50,000,100): 79bc1308410f86f20f4f196a2facb965595444d0b5de62c3af068c053af8580a
+
+Dec Counts: {4997760,5001733,5000114,5001884,4997070,4997678,5002453,5000633,5001243,4999432}
+Hex Counts: {2593583,2593281,2597554,2595569,2592492,2594413,2595397,2592852,2593879,2596980,2597131,2596464,2597218,2596520,2594572,2596197}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 953494604530995332
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 183342782955759565
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          101,200,658
+Reference Clock 2:          993,386
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Wed Dec  1 10:54:00 2021	0.006	Working Memory
+Wed Dec  1 10:54:01 2021	0.137	Working Memory:  301 MiB  (locked, spread: 100%/1)
+Wed Dec  1 10:54:01 2021	0.137	Twiddle Tables
+Wed Dec  1 10:54:01 2021	0.285	Twiddle Tables:  245 MiB  (locked, spread: 100%/1)
+Wed Dec  1 10:54:01 2021	0.285	Begin Computation
+Wed Dec  1 10:54:01 2021	0.285	e - exp(1)
+Wed Dec  1 10:54:01 2021	0.285	Series Hyperdescent...  7,746,204 terms  (Expansion Factor = 1.000)
+Wed Dec  1 10:54:02 2021	2.104	Finishing Series
+Wed Dec  1 10:54:02 2021	2.104	Large Division
+Wed Dec  1 10:54:03 2021	2.593	Squaring
+Wed Dec  1 10:54:03 2021	2.742	Large Invsqrt...
+Wed Dec  1 10:54:04 2021	3.413	Large Multiply
+Wed Dec  1 10:54:04 2021	3.618	Log(x):
+Wed Dec  1 10:54:04 2021	3.621	AGM(1,x)
+Wed Dec  1 10:54:05 2021	4.499	AGM: 12,500,056
+Wed Dec  1 10:54:06 2021	5.582	AGM: 6,250,028
+Wed Dec  1 10:54:07 2021	6.665	AGM: 3,125,014
+Wed Dec  1 10:54:08 2021	7.745	AGM: 1,562,507
+Wed Dec  1 10:54:09 2021	9.010	AGM: 781,253
+Wed Dec  1 10:54:10 2021	10.086	AGM: 390,626
+Wed Dec  1 10:54:12 2021	11.164	AGM: 195,313
+Wed Dec  1 10:54:13 2021	12.241	AGM: 97,656
+Wed Dec  1 10:54:14 2021	13.368	AGM: 48,828
+Wed Dec  1 10:54:15 2021	14.444	AGM: 24,414
+Wed Dec  1 10:54:16 2021	15.524	AGM: 12,206
+Wed Dec  1 10:54:17 2021	16.600	AGM: 6,103
+Wed Dec  1 10:54:18 2021	17.677	AGM: 3,051
+Wed Dec  1 10:54:19 2021	18.752	AGM: 1,525
+Wed Dec  1 10:54:20 2021	19.827	AGM: 762
+Wed Dec  1 10:54:21 2021	20.902	AGM: 381
+Wed Dec  1 10:54:22 2021	21.975	AGM: 190
+Wed Dec  1 10:54:23 2021	23.051	AGM: 95
+Wed Dec  1 10:54:25 2021	24.132	AGM: 47
+Wed Dec  1 10:54:26 2021	25.213	AGM: 23
+Wed Dec  1 10:54:27 2021	26.296	AGM: 11
+Wed Dec  1 10:54:28 2021	27.424	AGM: 5
+Wed Dec  1 10:54:29 2021	28.508	AGM: 2
+Wed Dec  1 10:54:30 2021	29.590	AGM: 1
+Wed Dec  1 10:54:31 2021	30.675	AGM: 0
+Wed Dec  1 10:54:32 2021	31.760	AGM: -2
+Wed Dec  1 10:54:33 2021	32.856	AGM: -4
+Wed Dec  1 10:54:34 2021	33.942	AGM: -9
+Wed Dec  1 10:54:35 2021	35.023	AGM: -19
+Wed Dec  1 10:54:37 2021	36.178	AGM: -39
+Wed Dec  1 10:54:38 2021	37.259	AGM: -79
+Wed Dec  1 10:54:39 2021	38.388	AGM: -159
+Wed Dec  1 10:54:40 2021	39.466	AGM: -319
+Wed Dec  1 10:54:41 2021	40.654	AGM: -639
+Wed Dec  1 10:54:42 2021	41.746	AGM: -1,278
+Wed Dec  1 10:54:43 2021	42.843	AGM: -2,558
+Wed Dec  1 10:54:44 2021	43.917	AGM: -5,116
+Wed Dec  1 10:54:45 2021	44.994	AGM: -10,233
+Wed Dec  1 10:54:46 2021	46.075	AGM: -20,467
+Wed Dec  1 10:54:48 2021	47.158	AGM: -40,934
+Wed Dec  1 10:54:49 2021	48.239	AGM: -81,869
+Wed Dec  1 10:54:50 2021	49.365	AGM: -163,740
+Wed Dec  1 10:54:51 2021	50.442	AGM: -327,480
+Wed Dec  1 10:54:52 2021	51.522	AGM: -654,961
+Wed Dec  1 10:54:53 2021	52.599	AGM: -1,309,923
+Wed Dec  1 10:54:54 2021	53.676	AGM: -2,619,848
+Wed Dec  1 10:54:55 2021	54.754	AGM: -5,239,696
+Wed Dec  1 10:54:56 2021	55.834	AGM: -10,479,393
+Wed Dec  1 10:54:57 2021	56.911	AGM: -20,958,787
+Wed Dec  1 10:54:58 2021	57.986	AGM: -41,917,575
+Wed Dec  1 10:54:59 2021	59.062	AGM: Final
+Wed Dec  1 10:54:59 2021	59.070	Large Division
+Wed Dec  1 10:55:00 2021	59.558	Series CommonP2B3...  3,525,695 terms  (Expansion Factor = 2.424)
+Wed Dec  1 10:55:00 2021	59.558	Series: A ( 14 ) 0.000%
+Wed Dec  1 10:55:00 2021	59.572	Series: A ( 13 ) 0.456%
+Wed Dec  1 10:55:00 2021	59.600	Series: E ( 12 ) 1.084%
+Wed Dec  1 10:55:00 2021	59.630	Series: E ( 11 ) 1.712%
+Wed Dec  1 10:55:00 2021	59.665	Series: E ( 10 ) 2.392%
+Wed Dec  1 10:55:00 2021	59.716	Series: E ( 9 ) 3.344%
+Wed Dec  1 10:55:00 2021	59.789	Series: E ( 8 ) 4.676%
+Wed Dec  1 10:55:00 2021	59.893	Series: E ( 7 ) 6.538%
+Wed Dec  1 10:55:00 2021	60.058	Series: E ( 6 ) 9.144%
+Wed Dec  1 10:55:01 2021	60.287	Series: E ( 5 ) 12.794%
+Wed Dec  1 10:55:01 2021	60.676	Series: E ( 4 ) 17.911%
+Wed Dec  1 10:55:02 2021	61.177	Series: E ( 3 ) 25.093%
+Wed Dec  1 10:55:02 2021	61.952	Series: E ( 2 ) 35.199%
+Wed Dec  1 10:55:03 2021	63.058	Series: E ( 1 ) 49.478%
+Wed Dec  1 10:55:05 2021	64.778	Series: E ( 0 ) 69.825%
+Wed Dec  1 10:55:08 2021	67.218	Finishing Series
+Wed Dec  1 10:55:08 2021	67.229	Large Division
+Wed Dec  1 10:55:08 2021	67.716	InvSqrt(10005)...
+Wed Dec  1 10:55:08 2021	67.989	Large Multiply
+Wed Dec  1 10:55:09 2021	68.189	Large Multiply
+Wed Dec  1 10:55:09 2021	68.508	18 ArcCoth( 26 ):
+Wed Dec  1 10:55:09 2021	68.508	Series CommonP2B3...  17,668,231 terms  (Expansion Factor = 3.514)
+Wed Dec  1 10:55:09 2021	68.508	Series: A ( 20 ) 0.000%
+Wed Dec  1 10:55:09 2021	68.523	Series: A ( 19 ) 0.263%
+Wed Dec  1 10:55:09 2021	68.564	Series: A ( 18 ) 0.694%
+Wed Dec  1 10:55:09 2021	68.611	Series: A ( 17 ) 1.124%
+Wed Dec  1 10:55:09 2021	68.663	Series: E ( 16 ) 1.555%
+Wed Dec  1 10:55:09 2021	68.715	Series: E ( 15 ) 1.985%
+Wed Dec  1 10:55:09 2021	68.776	Series: E ( 14 ) 2.527%
+Wed Dec  1 10:55:09 2021	68.849	Series: E ( 13 ) 3.217%
+Wed Dec  1 10:55:09 2021	68.938	Series: E ( 12 ) 4.096%
+Wed Dec  1 10:55:09 2021	69.045	Series: E ( 11 ) 5.215%
+Wed Dec  1 10:55:10 2021	69.178	Series: E ( 10 ) 6.641%
+Wed Dec  1 10:55:10 2021	69.400	Series: E ( 9 ) 8.457%
+Wed Dec  1 10:55:10 2021	69.632	Series: E ( 8 ) 10.773%
+Wed Dec  1 10:55:10 2021	69.926	Series: E ( 7 ) 13.727%
+Wed Dec  1 10:55:11 2021	70.369	Series: E ( 6 ) 17.497%
+Wed Dec  1 10:55:11 2021	70.895	Series: E ( 5 ) 22.313%
+Wed Dec  1 10:55:12 2021	71.642	Series: E ( 4 ) 28.473%
+Wed Dec  1 10:55:13 2021	72.589	Series: E ( 3 ) 36.367%
+Wed Dec  1 10:55:14 2021	73.832	Series: E ( 2 ) 46.511%
+Wed Dec  1 10:55:16 2021	75.503	Series: E ( 1 ) 59.610%
+Wed Dec  1 10:55:18 2021	77.713	Series: E ( 0 ) 76.692%
+Wed Dec  1 10:55:21 2021	80.575	Finishing Series
+Wed Dec  1 10:55:21 2021	80.583	Large Division
+Wed Dec  1 10:55:21 2021	81.024	-2 ArcCoth( 4801 ):
+Wed Dec  1 10:55:21 2021	81.024	Series CommonP2B3...  6,791,042 terms  (Expansion Factor = 1.910)
+Wed Dec  1 10:55:21 2021	81.024	Series: A ( 11 ) 0.000%
+Wed Dec  1 10:55:21 2021	81.043	Series: E ( 10 ) 0.776%
+Wed Dec  1 10:55:21 2021	81.069	Series: E ( 9 ) 1.578%
+Wed Dec  1 10:55:21 2021	81.098	Series: E ( 8 ) 2.380%
+Wed Dec  1 10:55:22 2021	81.143	Series: E ( 7 ) 3.591%
+Wed Dec  1 10:55:22 2021	81.217	Series: E ( 6 ) 5.417%
+Wed Dec  1 10:55:22 2021	81.381	Series: E ( 5 ) 8.174%
+Wed Dec  1 10:55:22 2021	81.575	Series: E ( 4 ) 12.339%
+Wed Dec  1 10:55:22 2021	81.889	Series: E ( 3 ) 18.638%
+Wed Dec  1 10:55:23 2021	82.416	Series: E ( 2 ) 28.182%
+Wed Dec  1 10:55:24 2021	83.174	Series: E ( 1 ) 42.687%
+Wed Dec  1 10:55:25 2021	84.522	Series: E ( 0 ) 64.889%
+Wed Dec  1 10:55:27 2021	86.688	Finishing Series
+Wed Dec  1 10:55:27 2021	86.696	Large Division
+Wed Dec  1 10:55:28 2021	87.139	8 ArcCoth( 8749 ):
+Wed Dec  1 10:55:28 2021	87.139	Series CommonP2B3...  6,342,046 terms  (Expansion Factor = 1.846)
+Wed Dec  1 10:55:28 2021	87.139	Series: A ( 11 ) 0.000%
+Wed Dec  1 10:55:28 2021	87.148	Series: A ( 10 ) 0.480%
+Wed Dec  1 10:55:28 2021	87.173	Series: E ( 9 ) 1.310%
+Wed Dec  1 10:55:28 2021	87.201	Series: E ( 8 ) 2.141%
+Wed Dec  1 10:55:28 2021	87.243	Series: E ( 7 ) 3.268%
+Wed Dec  1 10:55:28 2021	87.309	Series: E ( 6 ) 4.989%
+Wed Dec  1 10:55:28 2021	87.458	Series: E ( 5 ) 7.619%
+Wed Dec  1 10:55:28 2021	87.640	Series: E ( 4 ) 11.638%
+Wed Dec  1 10:55:28 2021	87.929	Series: E ( 3 ) 17.789%
+Wed Dec  1 10:55:29 2021	88.446	Series: E ( 2 ) 27.216%
+Wed Dec  1 10:55:30 2021	89.182	Series: E ( 1 ) 41.711%
+Wed Dec  1 10:55:31 2021	90.494	Series: E ( 0 ) 64.150%
+Wed Dec  1 10:55:33 2021	92.590	Finishing Series
+Wed Dec  1 10:55:33 2021	92.598	Large Division
+Wed Dec  1 10:55:33 2021	93.043	Finishing Log(x)
+Wed Dec  1 10:55:33 2021	93.049	Processing Hexadecimal Digits
+Wed Dec  1 10:55:33 2021	93.056	Base Converting
+Wed Dec  1 10:55:34 2021	93.847	Processing Decimal Digits
+Wed Dec  1 10:55:34 2021	93.861	Verifying Base Conversion
+Wed Dec  1 10:55:35 2021	94.142	Verifying Binary Output
+Wed Dec  1 10:55:35 2021	94.143	End Computation
+
+----
+
+Checksum0: 5dbdb23252b10c0c3bf714a185863e8218a6f0650725e9f0b59187e3c806dd829ac6005dc8f36165b07a6c18cd8b120ca0701e556cd8c7052a98f914018ab6f3
+Checksum1: 3003c097b79e5cdd723f0b5a2810b652113dd2c045a6559fb12905133f8c2c0fed5c9c974b6cf495123369fd28159ca58a0aa57aa19574eb57045af2e33e8b96
