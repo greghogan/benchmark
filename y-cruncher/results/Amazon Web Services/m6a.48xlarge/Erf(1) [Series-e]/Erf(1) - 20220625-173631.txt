@@ -1,0 +1,177 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.7.9 Build 9510
+Tuning:                19-ZN2 ~ Kagari
+
+User:                  Amazon Web Services (m6a.48xlarge)
+
+Operating System:      Linux 5.15.29-16.111.amzn2022.x86_64 x86_64
+
+Processor(s):
+    Name:              AMD EPYC 7R13 Processor
+    Logical Cores:     192
+    Physical Cores:    96
+    Sockets:           2
+    NUMA Nodes:        4
+    Base Frequency:    2,649,950,400 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     794,614,173,696 ( 740 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Erf(1)
+Algorithm:             Taylor Series with e
+Decimal Digits:        25,000,000
+Hexadecimal Digits:    20,762,051
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  192 / ?  (randomization off)
+Working Memory:        9,302,272,064 (8.66 GiB)
+Total Memory:          9,387,783,488 (8.74 GiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Erf(1)"
+        NameLong : "Erf(1)"
+        AlgorithmShort : "Series-e"
+        AlgorithmLong : "Taylor Series with e"
+        Formula : {
+            Multiply : [
+                {
+                    Invsqrt : {
+                        Multiply : [
+                            {
+                                Pi : {
+                                    Algorithm : "ramanujan"
+                                }
+                            }
+                            {
+                                Power : [
+                                    {
+                                        E : {}
+                                    }
+                                    2
+                                ]
+                            }
+                        ]
+                    }
+                }
+                {
+                    SeriesHypergeometric : {
+                        CoefficientP : 4
+                        CoefficientQ : 2
+                        CoefficientD : 1
+                        PolynomialP : [1]
+                        PolynomialQ : [1 2]
+                        PolynomialR : [2]
+                    }
+                }
+            ]
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 25000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Framework : "none"
+        Path : ""
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 192
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 192
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Sat Jun 25 17:36:26 2022
+End Date:              Sat Jun 25 17:36:30 2022
+
+Total Computation Time:    0.789 seconds
+Start-to-End Wall Time:    4.776 seconds
+
+CPU Utilization:           6525.70 %  +  229.44 % kernel overhead
+Multi-core Efficiency:     33.99 %  +  1.19 % kernel overhead
+
+Last Decimal Digits:
+7998772808 4693509898 2233770506 0238646406 8809731077  :  24,999,950
+4406390387 3772031469 2898683875 6595732729 4357870405  :  25,000,000
+
+Last Hexadecimal Digits:
+14e9f9524a 89f8c2c021 e2b122227f 93e6772f18 7eaf0cd374  :  20,762,050
+b
+
+SHA256-dec(25,000,001 - 25,000,100): 8ad98e6d9718622a1202b0b70fe28965609582eb1642e4d038a27461d4c6e6d0
+
+Dec Counts: {2499425,2499878,2497568,2500829,2500889,2498149,2501014,2501653,2502258,2498337}
+Hex Counts: {1299051,1297589,1298014,1298154,1297746,1295055,1294953,1296178,1298763,1297856,1298173,1298154,1297644,1298537,1298952,1297232}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 1518593169088207343
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 1695823964381418358
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          98,426,140
+Reference Clock 2:          986,930
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Sat Jun 25 17:36:26 2022	0.429	Working Memory
+Sat Jun 25 17:36:29 2022	3.897	Working Memory: 8.66 GiB  (locked, spread: 99%/2)
+Sat Jun 25 17:36:29 2022	3.897	Twiddle Tables
+Sat Jun 25 17:36:29 2022	3.944	Twiddle Tables: 81.6 MiB  (locked, spread: 99%/2)
+Sat Jun 25 17:36:29 2022	3.944	Begin Computation
+Sat Jun 25 17:36:29 2022	3.944	Pi - Ramanujan (1910):
+Sat Jun 25 17:36:29 2022	3.944	Series CommonP2B3...  3,131,856 terms  (Expansion Factor = 3.467)
+Sat Jun 25 17:36:29 2022	3.944	Series: A ( 0 ) 0.000%
+Sat Jun 25 17:36:30 2022	4.328	Finishing Series
+Sat Jun 25 17:36:30 2022	4.330	Large Division
+Sat Jun 25 17:36:30 2022	4.362	InvSqrt(8)...
+Sat Jun 25 17:36:30 2022	4.386	Large Multiply
+Sat Jun 25 17:36:30 2022	4.396	e - exp(1)
+Sat Jun 25 17:36:30 2022	4.396	Series Hyperdescent...  4,049,827 terms  (Expansion Factor = 1.000)
+Sat Jun 25 17:36:30 2022	4.455	Finishing Series
+Sat Jun 25 17:36:30 2022	4.455	Large Division
+Sat Jun 25 17:36:30 2022	4.488	Squaring
+Sat Jun 25 17:36:30 2022	4.494	Large Multiply
+Sat Jun 25 17:36:30 2022	4.504	Large Invsqrt...
+Sat Jun 25 17:36:30 2022	4.554	Series CommonP2B3...  4,049,832 terms  (Expansion Factor = 1.049)
+Sat Jun 25 17:36:30 2022	4.554	Series: A ( 0 ) 0.000%
+Sat Jun 25 17:36:30 2022	4.654	Finishing Series
+Sat Jun 25 17:36:30 2022	4.655	Large Division
+Sat Jun 25 17:36:30 2022	4.688	Large Multiply
+Sat Jun 25 17:36:30 2022	4.699	Processing Hexadecimal Digits
+Sat Jun 25 17:36:30 2022	4.700	Base Converting
+Sat Jun 25 17:36:30 2022	4.734	Processing Decimal Digits
+Sat Jun 25 17:36:30 2022	4.734	Verifying Base Conversion
+Sat Jun 25 17:36:30 2022	4.756	Verifying Binary Output
+Sat Jun 25 17:36:30 2022	4.776	End Computation
+
+----
+
+Checksum0: 0f954f4cad2c2967a66a96f1cb3da53e155e9bc3a55526a90213bcd4f7d6192f4b941d5604919ea228dda51b23013c0be384b04dc344efb53dd07aa965c1f21c
+Checksum1: 50f85b61eb4f3a19a5379597fba5452e3b9b4977275470cf5af47866ef18c246fa14c6a403037fbd7f81d082c909295e1fdc6d02a9f09932034a8f73b4cb28ef

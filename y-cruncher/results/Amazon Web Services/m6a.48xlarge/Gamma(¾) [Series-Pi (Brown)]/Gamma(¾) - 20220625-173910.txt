@@ -1,0 +1,173 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.7.9 Build 9510
+Tuning:                19-ZN2 ~ Kagari
+
+User:                  Amazon Web Services (m6a.48xlarge)
+
+Operating System:      Linux 5.15.29-16.111.amzn2022.x86_64 x86_64
+
+Processor(s):
+    Name:              AMD EPYC 7R13 Processor
+    Logical Cores:     192
+    Physical Cores:    96
+    Sockets:           2
+    NUMA Nodes:        4
+    Base Frequency:    2,649,949,120 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     794,614,173,696 ( 740 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Gamma(3/4)
+Algorithm:             Series-Pi (Brown 2009)
+Decimal Digits:        25,000,000
+Hexadecimal Digits:    20,762,051
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  192 / ?  (randomization off)
+Working Memory:        9,583,093,824 (8.92 GiB)
+Total Memory:          9,668,605,248 (9.00 GiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Gamma(¾)"
+        NameLong : "Gamma(3/4)"
+        AlgorithmShort : "Series-Pi (Brown)"
+        AlgorithmLong : "Series-Pi (Brown 2009)"
+        Formula : {
+            Invsqrt : {
+                Multiply : [
+                    {
+                        SeriesHypergeometric : {
+                            CoefficientP : 1
+                            CoefficientQ : 1
+                            CoefficientD : 2
+                            PolynomialP : [9 -24 16]
+                            PolynomialQ : [0 0 -128]
+                            PolynomialR : [9 -24 16]
+                        }
+                    }
+                    {
+                        Invsqrt : {
+                            Multiply : [
+                                {
+                                    Pi : {
+                                        Algorithm : "ramanujan"
+                                    }
+                                }
+                                {
+                                    Invsqrt : 32
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 25000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Framework : "none"
+        Path : ""
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 192
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 192
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Sat Jun 25 17:39:02 2022
+End Date:              Sat Jun 25 17:39:09 2022
+
+Total Computation Time:    2.314 seconds
+Start-to-End Wall Time:    6.425 seconds
+
+CPU Utilization:           10178.78 %  +  151.66 % kernel overhead
+Multi-core Efficiency:     53.01 %  +  0.79 % kernel overhead
+
+Last Decimal Digits:
+5205758088 8859388550 9735534192 3291691593 7759624482  :  24,999,950
+3565653324 0731664382 6109581053 2350281555 0785735062  :  25,000,000
+
+Last Hexadecimal Digits:
+59376dbb3f 612002990a e74f0c0f8f f12a7fa71d f301e7e1ac  :  20,762,050
+3
+
+SHA256-dec(25,000,001 - 25,000,100): 44fae1a6053b97ec73abf2bfc1907c4522e03eb2187ac2a15540191db6db6ee7
+
+Dec Counts: {2504431,2499568,2501717,2498705,2498715,2497365,2499647,2501136,2499622,2499094}
+Hex Counts: {1299399,1299466,1296416,1298423,1296319,1297834,1298962,1297200,1297322,1295904,1299955,1297559,1296484,1295901,1297727,1297180}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 259637938735647661
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 898833174082405385
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          100,712,983
+Reference Clock 2:          1,001,101
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Sat Jun 25 17:39:03 2022	0.436	Working Memory
+Sat Jun 25 17:39:06 2022	4.022	Working Memory: 8.93 GiB  (locked, spread: 99%/2)
+Sat Jun 25 17:39:06 2022	4.022	Twiddle Tables
+Sat Jun 25 17:39:06 2022	4.069	Twiddle Tables: 81.6 MiB  (locked, spread: 99%/2)
+Sat Jun 25 17:39:06 2022	4.069	Begin Computation
+Sat Jun 25 17:39:06 2022	4.070	Series CommonP2B3...  27,682,962 terms  (Expansion Factor = 17.853)
+Sat Jun 25 17:39:06 2022	4.070	Series: A ( 2 ) 0.000%
+Sat Jun 25 17:39:07 2022	4.432	Series: A ( 1 ) 26.367%
+Sat Jun 25 17:39:07 2022	5.038	Series: A ( 0 ) 61.810%
+Sat Jun 25 17:39:08 2022	5.737	Finishing Series
+Sat Jun 25 17:39:08 2022	5.739	Large Division
+Sat Jun 25 17:39:08 2022	5.773	Pi - Ramanujan (1910):
+Sat Jun 25 17:39:08 2022	5.773	Series CommonP2B3...  3,131,856 terms  (Expansion Factor = 3.467)
+Sat Jun 25 17:39:08 2022	5.773	Series: A ( 0 ) 0.000%
+Sat Jun 25 17:39:08 2022	6.141	Finishing Series
+Sat Jun 25 17:39:08 2022	6.143	Large Division
+Sat Jun 25 17:39:09 2022	6.175	InvSqrt(8)...
+Sat Jun 25 17:39:09 2022	6.198	Large Multiply
+Sat Jun 25 17:39:09 2022	6.207	InvSqrt(32)...
+Sat Jun 25 17:39:09 2022	6.230	Large Multiply
+Sat Jun 25 17:39:09 2022	6.241	Large Invsqrt...
+Sat Jun 25 17:39:09 2022	6.291	Large Multiply
+Sat Jun 25 17:39:09 2022	6.302	Large Invsqrt...
+Sat Jun 25 17:39:09 2022	6.351	Processing Hexadecimal Digits
+Sat Jun 25 17:39:09 2022	6.352	Base Converting
+Sat Jun 25 17:39:09 2022	6.385	Processing Decimal Digits
+Sat Jun 25 17:39:09 2022	6.385	Verifying Base Conversion
+Sat Jun 25 17:39:09 2022	6.406	Verifying Binary Output
+Sat Jun 25 17:39:09 2022	6.425	End Computation
+
+----
+
+Checksum0: fee4e526136cdbfe343e3cdbde4ef086f6912e49f8d9de259e1b73dca874c525592dc77365d439dfa5b62578e4e973fb542f5bb6c0e069629d8f21d0d889dd53
+Checksum1: 7b3e604ed8eefd24fdcd3ee8a6169b5584062498b9dcf34d3942c15243c1ebe9c25c2068f001afb692850523aa4c6a465c8714eaeaf304257e6d6271d9fcbe9f
