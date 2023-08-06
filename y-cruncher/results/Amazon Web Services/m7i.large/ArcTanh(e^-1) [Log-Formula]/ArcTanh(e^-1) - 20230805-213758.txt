@@ -1,0 +1,347 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.8.1 Build 9517
+Tuning:                18-CNL ~ Shinoa
+
+User:                  Amazon Web Services (m7i.large)
+
+Operating System:      Linux 5.19.0-1029-aws x86_64
+
+Processor(s):
+    Name:              Intel(R) Xeon(R) Platinum 8488C
+    Logical Cores:     2
+    Physical Cores:    1
+    Sockets:           1
+    NUMA Nodes:        1
+    Base Frequency:    2,400,004,928 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     8,157,425,664 (7.60 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - ArcTanh(e^-1)
+Algorithm:             Log Expansion of ArcTanh(x)
+Decimal Digits:        500,000,000
+Hexadecimal Digits:    415,241,012
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  2 / ?  (randomization off)
+Working Memory:        2,846,409,728 (2.65 GiB)
+Total Memory:          2,856,884,864 (2.66 GiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "ArcTanh(e^-1)"
+        NameLong : "ArcTanh(e^-1)"
+        AlgorithmShort : "Log-Formula"
+        AlgorithmLong : "Log Expansion of ArcTanh(x)"
+        Formula : {
+            Shift : [
+                {
+                    Log : {
+                        Scope : {
+                            Locals : [
+                                {
+                                    arg : {
+                                        E : {
+                                            Power : -1
+                                        }
+                                    }
+                                }
+                            ]
+                            Formula : {
+                                Divide : [
+                                    {
+                                        LinearCombination : [
+                                            [
+                                                1
+                                                "arg"
+                                            ]
+                                            [1 1]
+                                        ]
+                                    }
+                                    {
+                                        LinearCombination : [
+                                            [
+                                                -1
+                                                "arg"
+                                            ]
+                                            [1 1]
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+                -1
+            ]
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 500000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Framework : "none"
+        Path : ""
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 2
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 4
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Sat Aug  5 21:23:20 2023
+End Date:              Sat Aug  5 21:37:58 2023
+
+Total Computation Time:    873.832 seconds
+Start-to-End Wall Time:    877.500 seconds
+
+CPU Utilization:           189.91 %  +  0.02 % kernel overhead
+Multi-core Efficiency:     94.95 %  +  0.01 % kernel overhead
+
+Last Decimal Digits:
+8272127344 4369143229 6718082981 1827834217 9525749388  :  499,999,950
+6099750105 3758108506 3999327634 8962569180 5845987773  :  500,000,000
+
+Last Hexadecimal Digits:
+7b95bad764 6921a2bcb7 7959ff8263 b5c18f129d eb92ca95ab  :  415,241,000
+8c5f59f665 b8
+
+SHA256-dec(500,000,001 - 500,000,100): f0a6192de39f1bf12b91062437d14bcd1a6b842be343471a88dda65249b23784
+
+Dec Counts: {49993504,49988602,49997617,50002102,50015096,50004279,50003769,49996761,50001058,49997212}
+Hex Counts: {25955063,25957045,25951631,25948116,25948643,25953679,25952359,25955317,25950173,25950000,25950805,25954162,25956882,25958098,25949535,25949504}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 1959866823046433484
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 442960125621219635
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          80,547,209
+Reference Clock 2:          1,011,677
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Sat Aug  5 21:23:20 2023	0.005	Working Memory
+Sat Aug  5 21:23:21 2023	1.317	Working Memory: 2.65 GiB  (locked, spread: 100%/1)
+Sat Aug  5 21:23:21 2023	1.317	Twiddle Tables
+Sat Aug  5 21:23:21 2023	1.332	Twiddle Tables: 9.99 MiB  (locked, spread: 100%/1)
+Sat Aug  5 21:23:21 2023	1.332	Begin Computation
+Sat Aug  5 21:23:21 2023	1.332	e - exp(-1):
+Sat Aug  5 21:23:21 2023	1.332	Series Hyperdescent...  67,606,905 terms  (Expansion Factor = 1.000)
+Sat Aug  5 21:23:39 2023	18.864	Finishing Series
+Sat Aug  5 21:23:39 2023	18.864	Large Division
+Sat Aug  5 21:23:43 2023	22.899	Large Division
+Sat Aug  5 21:23:47 2023	26.792	Log(x):
+Sat Aug  5 21:23:47 2023	26.820	AGM(1,x)
+Sat Aug  5 21:23:54 2023	33.995	AGM: 125,000,052
+Sat Aug  5 21:24:03 2023	43.062	AGM: 62,500,026
+Sat Aug  5 21:24:12 2023	52.084	AGM: 31,250,013
+Sat Aug  5 21:24:21 2023	61.130	AGM: 15,625,006
+Sat Aug  5 21:24:30 2023	70.182	AGM: 7,812,503
+Sat Aug  5 21:24:39 2023	79.243	AGM: 3,906,251
+Sat Aug  5 21:24:48 2023	88.270	AGM: 1,953,125
+Sat Aug  5 21:24:57 2023	97.334	AGM: 976,562
+Sat Aug  5 21:25:07 2023	106.481	AGM: 488,281
+Sat Aug  5 21:25:16 2023	115.591	AGM: 244,140
+Sat Aug  5 21:25:25 2023	124.647	AGM: 122,070
+Sat Aug  5 21:25:34 2023	133.644	AGM: 61,035
+Sat Aug  5 21:25:43 2023	142.635	AGM: 30,517
+Sat Aug  5 21:25:52 2023	151.690	AGM: 15,258
+Sat Aug  5 21:26:01 2023	160.788	AGM: 7,629
+Sat Aug  5 21:26:10 2023	169.877	AGM: 3,814
+Sat Aug  5 21:26:19 2023	178.981	AGM: 1,907
+Sat Aug  5 21:26:28 2023	188.061	AGM: 953
+Sat Aug  5 21:26:37 2023	197.146	AGM: 476
+Sat Aug  5 21:26:46 2023	206.239	AGM: 238
+Sat Aug  5 21:26:55 2023	215.323	AGM: 119
+Sat Aug  5 21:27:05 2023	224.471	AGM: 59
+Sat Aug  5 21:27:14 2023	233.575	AGM: 29
+Sat Aug  5 21:27:23 2023	242.671	AGM: 14
+Sat Aug  5 21:27:32 2023	251.762	AGM: 7
+Sat Aug  5 21:27:41 2023	260.870	AGM: 3
+Sat Aug  5 21:27:50 2023	269.967	AGM: 1
+Sat Aug  5 21:27:59 2023	279.080	AGM: 0
+Sat Aug  5 21:28:08 2023	288.178	AGM: -1
+Sat Aug  5 21:28:17 2023	297.281	AGM: -3
+Sat Aug  5 21:28:26 2023	306.380	AGM: -7
+Sat Aug  5 21:28:36 2023	315.527	AGM: -15
+Sat Aug  5 21:28:45 2023	324.614	AGM: -31
+Sat Aug  5 21:28:54 2023	333.704	AGM: -63
+Sat Aug  5 21:29:03 2023	342.810	AGM: -127
+Sat Aug  5 21:29:12 2023	351.915	AGM: -255
+Sat Aug  5 21:29:21 2023	361.018	AGM: -511
+Sat Aug  5 21:29:30 2023	370.122	AGM: -1,022
+Sat Aug  5 21:29:39 2023	379.215	AGM: -2,046
+Sat Aug  5 21:29:48 2023	388.317	AGM: -4,093
+Sat Aug  5 21:29:58 2023	397.448	AGM: -8,186
+Sat Aug  5 21:30:07 2023	406.553	AGM: -16,373
+Sat Aug  5 21:30:16 2023	415.663	AGM: -32,747
+Sat Aug  5 21:30:25 2023	424.779	AGM: -65,496
+Sat Aug  5 21:30:34 2023	433.888	AGM: -130,992
+Sat Aug  5 21:30:43 2023	442.988	AGM: -261,985
+Sat Aug  5 21:30:52 2023	452.100	AGM: -523,971
+Sat Aug  5 21:31:01 2023	461.208	AGM: -1,047,943
+Sat Aug  5 21:31:10 2023	470.298	AGM: -2,095,887
+Sat Aug  5 21:31:19 2023	479.387	AGM: -4,191,774
+Sat Aug  5 21:31:29 2023	488.516	AGM: -8,383,549
+Sat Aug  5 21:31:38 2023	497.605	AGM: -16,767,099
+Sat Aug  5 21:31:47 2023	506.685	AGM: -33,534,199
+Sat Aug  5 21:31:56 2023	515.751	AGM: -67,068,399
+Sat Aug  5 21:32:05 2023	524.798	AGM: -134,136,800
+Sat Aug  5 21:32:14 2023	533.824	AGM: -268,273,600
+Sat Aug  5 21:32:23 2023	542.726	AGM: Final
+Sat Aug  5 21:32:23 2023	542.798	Large Division
+Sat Aug  5 21:32:27 2023	546.676	Series CommonP2B3...  35,256,847 terms  (Expansion Factor = 2.636)
+Sat Aug  5 21:32:27 2023	546.676	Series: A ( 23 ) 0.000%
+Sat Aug  5 21:32:27 2023	546.678	Series: A ( 22 ) 0.011%
+Sat Aug  5 21:32:27 2023	546.695	Series: A ( 21 ) 0.069%
+Sat Aug  5 21:32:27 2023	546.714	Series: E ( 20 ) 0.127%
+Sat Aug  5 21:32:27 2023	546.734	Series: E ( 19 ) 0.184%
+Sat Aug  5 21:32:27 2023	546.759	Series: E ( 18 ) 0.252%
+Sat Aug  5 21:32:27 2023	546.794	Series: E ( 17 ) 0.344%
+Sat Aug  5 21:32:27 2023	546.845	Series: E ( 16 ) 0.471%
+Sat Aug  5 21:32:27 2023	546.921	Series: E ( 15 ) 0.643%
+Sat Aug  5 21:32:27 2023	547.025	Series: E ( 14 ) 0.879%
+Sat Aug  5 21:32:27 2023	547.181	Series: E ( 13 ) 1.202%
+Sat Aug  5 21:32:27 2023	547.395	Series: E ( 12 ) 1.643%
+Sat Aug  5 21:32:28 2023	547.726	Series: E ( 11 ) 2.246%
+Sat Aug  5 21:32:28 2023	548.156	Series: E ( 10 ) 3.070%
+Sat Aug  5 21:32:29 2023	548.820	Series: E ( 9 ) 4.196%
+Sat Aug  5 21:32:30 2023	549.759	Series: E ( 8 ) 5.738%
+Sat Aug  5 21:32:31 2023	551.050	Series: E ( 7 ) 7.846%
+Sat Aug  5 21:32:33 2023	552.930	Series: E ( 6 ) 10.732%
+Sat Aug  5 21:32:36 2023	555.547	Series: E ( 5 ) 14.685%
+Sat Aug  5 21:32:39 2023	559.373	Series: E ( 4 ) 20.104%
+Sat Aug  5 21:32:45 2023	564.731	Series: E ( 3 ) 27.543%
+Sat Aug  5 21:32:52 2023	572.371	Series: E ( 2 ) 37.778%
+Sat Aug  5 21:33:03 2023	583.260	Series: E ( 1 ) 51.913%
+Sat Aug  5 21:33:19 2023	598.520	Series: E ( 0 ) 71.591%
+Sat Aug  5 21:33:41 2023	620.568	Finishing Series
+Sat Aug  5 21:33:41 2023	620.687	Large Division
+Sat Aug  5 21:33:45 2023	624.565	InvSqrt(10005)...
+Sat Aug  5 21:33:47 2023	627.011	Large Multiply
+Sat Aug  5 21:33:49 2023	628.862	Large Multiply
+Sat Aug  5 21:33:51 2023	630.709	18 ArcCoth( 26 ):
+Sat Aug  5 21:33:51 2023	630.709	Series CommonP2B3...  176,681,827 terms  (Expansion Factor = 3.867)
+Sat Aug  5 21:33:51 2023	630.709	Series: A ( 32 ) 0.000%
+Sat Aug  5 21:33:51 2023	630.719	Series: A ( 31 ) 0.031%
+Sat Aug  5 21:33:51 2023	630.737	Series: A ( 30 ) 0.070%
+Sat Aug  5 21:33:51 2023	630.756	Series: A ( 29 ) 0.110%
+Sat Aug  5 21:33:51 2023	630.775	Series: E ( 28 ) 0.149%
+Sat Aug  5 21:33:51 2023	630.795	Series: E ( 27 ) 0.188%
+Sat Aug  5 21:33:51 2023	630.820	Series: E ( 26 ) 0.235%
+Sat Aug  5 21:33:51 2023	630.854	Series: E ( 25 ) 0.293%
+Sat Aug  5 21:33:51 2023	630.899	Series: E ( 24 ) 0.366%
+Sat Aug  5 21:33:51 2023	630.955	Series: E ( 23 ) 0.457%
+Sat Aug  5 21:33:51 2023	631.029	Series: E ( 22 ) 0.571%
+Sat Aug  5 21:33:51 2023	631.121	Series: E ( 21 ) 0.713%
+Sat Aug  5 21:33:51 2023	631.244	Series: E ( 20 ) 0.890%
+Sat Aug  5 21:33:52 2023	631.447	Series: E ( 19 ) 1.112%
+Sat Aug  5 21:33:52 2023	631.648	Series: E ( 18 ) 1.389%
+Sat Aug  5 21:33:52 2023	631.913	Series: E ( 17 ) 1.734%
+Sat Aug  5 21:33:52 2023	632.257	Series: E ( 16 ) 2.166%
+Sat Aug  5 21:33:53 2023	632.733	Series: E ( 15 ) 2.705%
+Sat Aug  5 21:33:53 2023	633.278	Series: E ( 14 ) 3.379%
+Sat Aug  5 21:33:54 2023	634.038	Series: E ( 13 ) 4.221%
+Sat Aug  5 21:33:55 2023	634.989	Series: E ( 12 ) 5.272%
+Sat Aug  5 21:33:56 2023	636.209	Series: E ( 11 ) 6.587%
+Sat Aug  5 21:33:58 2023	637.855	Series: E ( 10 ) 8.230%
+Sat Aug  5 21:34:00 2023	639.908	Series: E ( 9 ) 10.284%
+Sat Aug  5 21:34:03 2023	642.496	Series: E ( 8 ) 12.854%
+Sat Aug  5 21:34:06 2023	645.921	Series: E ( 7 ) 16.070%
+Sat Aug  5 21:34:10 2023	650.386	Series: E ( 6 ) 20.098%
+Sat Aug  5 21:34:16 2023	655.931	Series: E ( 5 ) 25.146%
+Sat Aug  5 21:34:23 2023	663.384	Series: E ( 4 ) 31.481%
+Sat Aug  5 21:34:33 2023	673.131	Series: E ( 3 ) 39.444%
+Sat Aug  5 21:34:45 2023	685.237	Series: E ( 2 ) 49.480%
+Sat Aug  5 21:35:01 2023	700.990	Series: E ( 1 ) 62.185%
+Sat Aug  5 21:35:21 2023	720.918	Series: E ( 0 ) 78.411%
+Sat Aug  5 21:35:47 2023	746.936	Finishing Series
+Sat Aug  5 21:35:47 2023	747.031	Large Division
+Sat Aug  5 21:35:51 2023	750.890	-2 ArcCoth( 4801 ):
+Sat Aug  5 21:35:51 2023	750.890	Series CommonP2B3...  67,910,229 terms  (Expansion Factor = 2.046)
+Sat Aug  5 21:35:51 2023	750.890	Series: A ( 18 ) 0.000%
+Sat Aug  5 21:35:51 2023	750.897	Series: A ( 17 ) 0.041%
+Sat Aug  5 21:35:51 2023	750.914	Series: E ( 16 ) 0.116%
+Sat Aug  5 21:35:51 2023	750.932	Series: E ( 15 ) 0.191%
+Sat Aug  5 21:35:51 2023	750.956	Series: E ( 14 ) 0.282%
+Sat Aug  5 21:35:51 2023	750.995	Series: E ( 13 ) 0.416%
+Sat Aug  5 21:35:51 2023	751.058	Series: E ( 12 ) 0.614%
+Sat Aug  5 21:35:51 2023	751.150	Series: E ( 11 ) 0.906%
+Sat Aug  5 21:35:51 2023	751.303	Series: E ( 10 ) 1.336%
+Sat Aug  5 21:35:52 2023	751.569	Series: E ( 9 ) 1.971%
+Sat Aug  5 21:35:52 2023	751.928	Series: E ( 8 ) 2.908%
+Sat Aug  5 21:35:53 2023	752.541	Series: E ( 7 ) 4.292%
+Sat Aug  5 21:35:54 2023	753.465	Series: E ( 6 ) 6.334%
+Sat Aug  5 21:35:55 2023	754.894	Series: E ( 5 ) 9.350%
+Sat Aug  5 21:35:57 2023	757.081	Series: E ( 4 ) 13.809%
+Sat Aug  5 21:36:01 2023	760.679	Series: E ( 3 ) 20.404%
+Sat Aug  5 21:36:06 2023	765.996	Series: E ( 2 ) 30.180%
+Sat Aug  5 21:36:14 2023	774.326	Series: E ( 1 ) 44.711%
+Sat Aug  5 21:36:27 2023	787.174	Series: E ( 0 ) 66.457%
+Sat Aug  5 21:36:47 2023	807.036	Finishing Series
+Sat Aug  5 21:36:47 2023	807.132	Large Division
+Sat Aug  5 21:36:51 2023	811.106	8 ArcCoth( 8749 ):
+Sat Aug  5 21:36:51 2023	811.106	Series CommonP2B3...  63,420,273 terms  (Expansion Factor = 1.973)
+Sat Aug  5 21:36:51 2023	811.106	Series: A ( 18 ) 0.000%
+Sat Aug  5 21:36:51 2023	811.106	Series: A ( 17 ) 0.002%
+Sat Aug  5 21:36:51 2023	811.121	Series: A ( 16 ) 0.080%
+Sat Aug  5 21:36:51 2023	811.138	Series: E ( 15 ) 0.158%
+Sat Aug  5 21:36:51 2023	811.156	Series: E ( 14 ) 0.235%
+Sat Aug  5 21:36:51 2023	811.187	Series: E ( 13 ) 0.352%
+Sat Aug  5 21:36:51 2023	811.236	Series: E ( 12 ) 0.525%
+Sat Aug  5 21:36:51 2023	811.317	Series: E ( 11 ) 0.784%
+Sat Aug  5 21:36:52 2023	811.487	Series: E ( 10 ) 1.171%
+Sat Aug  5 21:36:52 2023	811.699	Series: E ( 9 ) 1.748%
+Sat Aug  5 21:36:52 2023	812.018	Series: E ( 8 ) 2.611%
+Sat Aug  5 21:36:53 2023	812.544	Series: E ( 7 ) 3.900%
+Sat Aug  5 21:36:53 2023	813.322	Series: E ( 6 ) 5.826%
+Sat Aug  5 21:36:55 2023	814.642	Series: E ( 5 ) 8.704%
+Sat Aug  5 21:36:57 2023	816.679	Series: E ( 4 ) 13.010%
+Sat Aug  5 21:37:00 2023	819.906	Series: E ( 3 ) 19.457%
+Sat Aug  5 21:37:05 2023	824.877	Series: E ( 2 ) 29.125%
+Sat Aug  5 21:37:13 2023	832.950	Series: E ( 1 ) 43.667%
+Sat Aug  5 21:37:25 2023	845.227	Series: E ( 0 ) 65.681%
+Sat Aug  5 21:37:45 2023	864.559	Finishing Series
+Sat Aug  5 21:37:45 2023	864.656	Large Division
+Sat Aug  5 21:37:49 2023	868.600	Finishing Log(x)
+Sat Aug  5 21:37:49 2023	868.673	Shift
+Sat Aug  5 21:37:49 2023	868.697	Processing Hexadecimal Digits
+Sat Aug  5 21:37:49 2023	868.747	Base Converting
+Sat Aug  5 21:37:55 2023	875.214	Processing Decimal Digits
+Sat Aug  5 21:37:55 2023	875.307	Verifying Base Conversion
+Sat Aug  5 21:37:58 2023	877.484	Verifying Binary Output
+Sat Aug  5 21:37:58 2023	877.500	End Computation
+
+----
+
+Checksum0: a37880c62de19e38d042c2d7ed807fb5d0e8a8ec2dc2c46f3fca7ffe050a3fe28592e5a59ae9ec0d24c5a709ebdecd09727dd5a211d667c1ccd660bd9c39bdd6
+Checksum1: 15e9055b581019af1af0e9ab63a864dd9f323b28f21d1972f268c96ebc184175a9df98fe5f730b83c555fd608075ed1f9bb39b70eb3297900bea0a9c93835917

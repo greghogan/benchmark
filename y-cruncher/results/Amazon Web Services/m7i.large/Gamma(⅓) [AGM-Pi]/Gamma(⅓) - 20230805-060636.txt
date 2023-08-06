@@ -1,0 +1,246 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.8.1 Build 9517
+Tuning:                18-CNL ~ Shinoa
+
+User:                  Amazon Web Services (m7i.large)
+
+Operating System:      Linux 5.19.0-1029-aws x86_64
+
+Processor(s):
+    Name:              Intel(R) Xeon(R) Platinum 8488C
+    Logical Cores:     2
+    Physical Cores:    1
+    Sockets:           1
+    NUMA Nodes:        1
+    Base Frequency:    2,400,004,800 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     8,157,425,664 (7.60 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Gamma(1/3)
+Algorithm:             AGM-Pi
+Decimal Digits:        100,000,000
+Hexadecimal Digits:    83,048,203
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  2 / ?  (randomization off)
+Working Memory:        581,132,544 ( 554 MiB)
+Total Memory:          591,607,680 ( 564 MiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Gamma(⅓)"
+        NameLong : "Gamma(1/3)"
+        AlgorithmShort : "AGM-Pi"
+        AlgorithmLong : "AGM-Pi"
+        Formula : {
+            Divide : [
+                {
+                    Multiply : [
+                        {
+                            InvNthRoot : [
+                                3
+                                {
+                                    AGM : {
+                                        Invsqrt : {
+                                            LinearCombination : [
+                                                [1 8]
+                                                [
+                                                    -1
+                                                    {
+                                                        Sqrt : 48
+                                                    }
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                        {
+                            InvNthRoot : [12 3]
+                        }
+                    ]
+                }
+                {
+                    Multiply : [
+                        {
+                            InvNthRoot : [
+                                3
+                                {
+                                    Power : [
+                                        {
+                                            Pi : {
+                                                Algorithm : "ramanujan"
+                                            }
+                                        }
+                                        2
+                                    ]
+                                }
+                            ]
+                        }
+                        {
+                            InvNthRoot : [9 16]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 100000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Framework : "none"
+        Path : ""
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 2
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 4
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Sat Aug  5 06:05:30 2023
+End Date:              Sat Aug  5 06:06:36 2023
+
+Total Computation Time:    65.110 seconds
+Start-to-End Wall Time:    65.846 seconds
+
+CPU Utilization:           189.72 %  +  0.03 % kernel overhead
+Multi-core Efficiency:     94.86 %  +  0.02 % kernel overhead
+
+Last Decimal Digits:
+4346882547 3103450699 2177091522 3531275158 7912042071  :  99,999,950
+6646095898 8539682328 7769723447 9663785930 9512517089  :  100,000,000
+
+Last Hexadecimal Digits:
+462ad9ec41 d31d72d0f2 b1391d662b 0600faf77e adc47d4ebf  :  83,048,200
+31c
+
+SHA256-dec(100,000,001 - 100,000,100): b5988971e98fbffb09779ffe8b12e41513314ae8b8b5a243771b5f3a45a96203
+
+Dec Counts: {10000841,9999318,9995726,10000704,10002096,10001869,10002481,10001361,10002972,9992632}
+Hex Counts: {5190718,5188009,5194109,5192791,5193493,5193513,5189282,5188320,5190834,5187145,5188979,5189081,5193572,5188696,5194258,5185403}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 739046988581114168
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 2299282699014354838
+
+Spot Check:                 Good through 100,000,000
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          80,565,235
+Reference Clock 2:          1,017,737
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Sat Aug  5 06:05:30 2023	0.005	Working Memory
+Sat Aug  5 06:05:30 2023	0.271	Working Memory:  555 MiB  (locked, spread: 100%/1)
+Sat Aug  5 06:05:30 2023	0.271	Twiddle Tables
+Sat Aug  5 06:05:30 2023	0.285	Twiddle Tables: 9.99 MiB  (locked, spread: 100%/1)
+Sat Aug  5 06:05:30 2023	0.285	Begin Computation
+Sat Aug  5 06:05:30 2023	0.285	InvSqrt(48)...
+Sat Aug  5 06:05:30 2023	0.665	Large Invsqrt...
+Sat Aug  5 06:05:31 2023	1.466	AGM(1,x)
+Sat Aug  5 06:05:32 2023	2.598	AGM: -4
+Sat Aug  5 06:05:34 2023	4.049	AGM: -9
+Sat Aug  5 06:05:35 2023	5.445	AGM: -18
+Sat Aug  5 06:05:37 2023	6.890	AGM: -37
+Sat Aug  5 06:05:38 2023	8.285	AGM: -75
+Sat Aug  5 06:05:39 2023	9.691	AGM: -150
+Sat Aug  5 06:05:41 2023	11.135	AGM: -302
+Sat Aug  5 06:05:42 2023	12.532	AGM: -604
+Sat Aug  5 06:05:44 2023	13.979	AGM: -1,209
+Sat Aug  5 06:05:45 2023	15.377	AGM: -2,419
+Sat Aug  5 06:05:47 2023	16.833	AGM: -4,839
+Sat Aug  5 06:05:48 2023	18.237	AGM: -9,679
+Sat Aug  5 06:05:49 2023	19.639	AGM: -19,358
+Sat Aug  5 06:05:51 2023	21.082	AGM: -38,717
+Sat Aug  5 06:05:52 2023	22.484	AGM: -77,435
+Sat Aug  5 06:05:54 2023	23.923	AGM: -154,872
+Sat Aug  5 06:05:55 2023	25.323	AGM: -309,744
+Sat Aug  5 06:05:57 2023	26.769	AGM: -619,490
+Sat Aug  5 06:05:58 2023	28.169	AGM: -1,238,980
+Sat Aug  5 06:05:59 2023	29.567	AGM: -2,477,962
+Sat Aug  5 06:06:01 2023	31.009	AGM: -4,955,924
+Sat Aug  5 06:06:02 2023	32.410	AGM: -9,911,849
+Sat Aug  5 06:06:04 2023	33.864	AGM: -19,823,699
+Sat Aug  5 06:06:05 2023	35.269	AGM: -39,647,399
+Sat Aug  5 06:06:06 2023	36.677	AGM: -79,294,798
+Sat Aug  5 06:06:08 2023	38.109	AGM: Final
+Sat Aug  5 06:06:08 2023	38.121	Radical x^(-1/3)...
+Sat Aug  5 06:06:09 2023	39.106	Radical x^(-1/12)...
+Sat Aug  5 06:06:11 2023	41.092	Large Multiply
+Sat Aug  5 06:06:11 2023	41.361	Pi - Ramanujan (1910):
+Sat Aug  5 06:06:11 2023	41.361	Series CommonP2B3...  12,527,361 terms  (Expansion Factor = 3.693)
+Sat Aug  5 06:06:11 2023	41.361	Series: A ( 24 ) 0.000%
+Sat Aug  5 06:06:11 2023	41.368	Series: A ( 23 ) 0.114%
+Sat Aug  5 06:06:11 2023	41.385	Series: A ( 22 ) 0.319%
+Sat Aug  5 06:06:11 2023	41.403	Series: A ( 21 ) 0.524%
+Sat Aug  5 06:06:11 2023	41.423	Series: E ( 20 ) 0.728%
+Sat Aug  5 06:06:11 2023	41.443	Series: E ( 19 ) 0.933%
+Sat Aug  5 06:06:11 2023	41.469	Series: E ( 18 ) 1.175%
+Sat Aug  5 06:06:11 2023	41.503	Series: E ( 17 ) 1.480%
+Sat Aug  5 06:06:11 2023	41.549	Series: E ( 16 ) 1.864%
+Sat Aug  5 06:06:11 2023	41.607	Series: E ( 15 ) 2.348%
+Sat Aug  5 06:06:11 2023	41.680	Series: E ( 14 ) 2.958%
+Sat Aug  5 06:06:12 2023	41.805	Series: E ( 13 ) 3.726%
+Sat Aug  5 06:06:12 2023	41.938	Series: E ( 12 ) 4.694%
+Sat Aug  5 06:06:12 2023	42.107	Series: E ( 11 ) 5.915%
+Sat Aug  5 06:06:12 2023	42.328	Series: E ( 10 ) 7.453%
+Sat Aug  5 06:06:12 2023	42.609	Series: E ( 9 ) 9.393%
+Sat Aug  5 06:06:13 2023	43.015	Series: E ( 8 ) 11.840%
+Sat Aug  5 06:06:13 2023	43.496	Series: E ( 7 ) 14.930%
+Sat Aug  5 06:06:14 2023	44.173	Series: E ( 6 ) 18.832%
+Sat Aug  5 06:06:15 2023	45.021	Series: E ( 5 ) 23.766%
+Sat Aug  5 06:06:16 2023	46.096	Series: E ( 4 ) 30.012%
+Sat Aug  5 06:06:17 2023	47.466	Series: E ( 3 ) 37.935%
+Sat Aug  5 06:06:19 2023	49.362	Series: E ( 2 ) 48.013%
+Sat Aug  5 06:06:22 2023	51.814	Series: E ( 1 ) 60.894%
+Sat Aug  5 06:06:25 2023	54.998	Series: E ( 0 ) 77.524%
+Sat Aug  5 06:06:29 2023	59.173	Finishing Series
+Sat Aug  5 06:06:29 2023	59.194	Large Division
+Sat Aug  5 06:06:30 2023	59.811	InvSqrt(8)...
+Sat Aug  5 06:06:30 2023	60.185	Large Multiply
+Sat Aug  5 06:06:30 2023	60.454	Squaring
+Sat Aug  5 06:06:30 2023	60.647	Radical x^(-1/3)...
+Sat Aug  5 06:06:31 2023	61.647	Radical x^(-1/9)...
+Sat Aug  5 06:06:33 2023	63.417	Large Multiply
+Sat Aug  5 06:06:33 2023	63.687	Large Division
+Sat Aug  5 06:06:34 2023	64.309	Processing Hexadecimal Digits
+Sat Aug  5 06:06:34 2023	64.319	Base Converting
+Sat Aug  5 06:06:35 2023	65.405	Processing Decimal Digits
+Sat Aug  5 06:06:35 2023	65.424	Verifying Base Conversion
+Sat Aug  5 06:06:36 2023	65.844	Verifying Binary Output
+Sat Aug  5 06:06:36 2023	65.846	End Computation
+
+----
+
+Checksum0: e3065e55a9e10a08fed98065c71f67c54c9965686d80175f1399d0296a5a1f64da0f018aaeae1eadc20a29763783cd97453e88a9724093d5e1d7b8fb596c28ce
+Checksum1: 4572c3af5d0219b0c1ee14b5c0cd77a22d1ce4129b5646090c73b6862886f136d84a15939778c05f8af9502c119a31ff70755f409fbe065be0d1a05e6b60f196
