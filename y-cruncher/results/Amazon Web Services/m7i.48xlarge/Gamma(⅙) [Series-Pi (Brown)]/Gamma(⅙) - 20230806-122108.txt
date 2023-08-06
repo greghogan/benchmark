@@ -1,0 +1,178 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.8.1 Build 9517
+Tuning:                18-CNL ~ Shinoa
+
+User:                  Amazon Web Services (m7i.48xlarge)
+
+Operating System:      Linux 5.19.0-1029-aws x86_64
+
+Processor(s):
+    Name:              Intel(R) Xeon(R) Platinum 8488C
+    Logical Cores:     192
+    Physical Cores:    96
+    Sockets:           2
+    NUMA Nodes:        2
+    Base Frequency:    2,400,002,528 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     798,825,226,240 ( 744 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Gamma(1/6)
+Algorithm:             Series-Pi (Brown 2009)
+Decimal Digits:        25,000,000
+Hexadecimal Digits:    20,762,051
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  192 / ?  (randomization off)
+Working Memory:        849,897,600 ( 811 MiB)
+Total Memory:          860,372,736 ( 821 MiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Gamma(⅙)"
+        NameLong : "Gamma(1/6)"
+        AlgorithmShort : "Series-Pi (Brown)"
+        AlgorithmLong : "Series-Pi (Brown 2009)"
+        Formula : {
+            InvNthRoot : [
+                3
+                {
+                    Multiply : [
+                        {
+                            SeriesHypergeometric : {
+                                Power : -1
+                                CoefficientP : 1
+                                CoefficientQ : 1
+                                CoefficientD : 5
+                                PolynomialP : [-5 46 -108 72]
+                                PolynomialQ : [0 0 0 -512000]
+                                PolynomialR : [-5 46 -108 72]
+                            }
+                        }
+                        {
+                            Invsqrt : {
+                                LinearCombination : [
+                                    [
+                                        2430
+                                        {
+                                            Power : [
+                                                {
+                                                    Pi : {}
+                                                }
+                                                5
+                                            ]
+                                        }
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 25000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Framework : "none"
+        Path : ""
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 192
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 192
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Sun Aug  6 12:21:06 2023
+End Date:              Sun Aug  6 12:21:07 2023
+
+Total Computation Time:    0.605 seconds
+Start-to-End Wall Time:    1.692 seconds
+
+CPU Utilization:           4370.32 %  +  8.27 % kernel overhead
+Multi-core Efficiency:     22.76 %  +  0.04 % kernel overhead
+
+Last Decimal Digits:
+4771891359 5060877087 9279362921 5732160473 2870542055  :  24,999,950
+7847109407 4627754833 6447499811 7950915436 4345559717  :  25,000,000
+
+Last Hexadecimal Digits:
+ee940284fa a9f41f426e 42b99485a0 8c91db30b3 0d6106d354  :  20,762,050
+7
+
+SHA256-dec(25,000,001 - 25,000,100): 789afa7264d720df32da7d7a5029600bf7c93984b0e2f902946e75bc9373984c
+
+Dec Counts: {2501173,2499385,2498253,2501169,2498954,2499793,2501837,2501115,2498436,2499885}
+Hex Counts: {1297403,1298225,1298470,1297160,1297543,1298338,1296870,1297936,1297720,1297833,1298398,1296196,1298382,1297959,1297179,1296439}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 573317342940310890
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 1819062633045296735
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          79,073,482
+Reference Clock 2:          992,513
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Sun Aug  6 12:21:06 2023	0.726	Working Memory
+Sun Aug  6 12:21:07 2023	1.005	Working Memory:  812 MiB  (locked, spread: 99%/2)
+Sun Aug  6 12:21:07 2023	1.005	Twiddle Tables
+Sun Aug  6 12:21:07 2023	1.018	Twiddle Tables: 9.99 MiB  (locked, spread: 100%/2)
+Sun Aug  6 12:21:07 2023	1.018	Begin Computation
+Sun Aug  6 12:21:07 2023	1.018	Series CommonP2B3...  6,490,296 terms  (Expansion Factor = 6.450)
+Sun Aug  6 12:21:07 2023	1.018	Series: A ( 1 ) 0.000%
+Sun Aug  6 12:21:07 2023	1.118	Series: A ( 0 ) 35.861%
+Sun Aug  6 12:21:07 2023	1.282	Finishing Series
+Sun Aug  6 12:21:07 2023	1.283	Large Division
+Sun Aug  6 12:21:07 2023	1.315	Pi - Chudnovsky (1988):
+Sun Aug  6 12:21:07 2023	1.315	Series CommonP2B3...  1,762,854 terms  (Expansion Factor = 2.360)
+Sun Aug  6 12:21:07 2023	1.315	Series: A ( 0 ) 0.000%
+Sun Aug  6 12:21:07 2023	1.411	Finishing Series
+Sun Aug  6 12:21:07 2023	1.413	Large Division
+Sun Aug  6 12:21:07 2023	1.446	InvSqrt(10005)...
+Sun Aug  6 12:21:07 2023	1.477	Large Multiply
+Sun Aug  6 12:21:07 2023	1.481	Powering
+Sun Aug  6 12:21:07 2023	1.493	Large Invsqrt...
+Sun Aug  6 12:21:07 2023	1.542	Large Multiply
+Sun Aug  6 12:21:07 2023	1.547	Radical x^(-1/3)...
+Sun Aug  6 12:21:07 2023	1.600	Processing Hexadecimal Digits
+Sun Aug  6 12:21:07 2023	1.601	Base Converting
+Sun Aug  6 12:21:07 2023	1.624	Processing Decimal Digits
+Sun Aug  6 12:21:07 2023	1.625	Verifying Base Conversion
+Sun Aug  6 12:21:07 2023	1.642	Verifying Binary Output
+Sun Aug  6 12:21:07 2023	1.692	End Computation
+
+----
+
+Checksum0: b4b594cd49b6c1447b3424262495a261bdfdaa152b91fc1284f2116e537107e939aee2d5e8feda660272e2f60f5ac223d942d26942cfe01f3ab7bd0b5ec7e0c5
+Checksum1: 6ca22b7f88e6f0c6994dba4f9e8faf19c59072a31918620c2cd04dae6fea56c458569ab6597992cda4ba67c322bd3bac65a8c9aa4b4a3bf2d799f356dcb94e6d

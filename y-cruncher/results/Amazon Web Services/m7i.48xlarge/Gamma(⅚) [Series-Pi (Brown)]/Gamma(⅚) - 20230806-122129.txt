@@ -1,0 +1,171 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.8.1 Build 9517
+Tuning:                18-CNL ~ Shinoa
+
+User:                  Amazon Web Services (m7i.48xlarge)
+
+Operating System:      Linux 5.19.0-1029-aws x86_64
+
+Processor(s):
+    Name:              Intel(R) Xeon(R) Platinum 8488C
+    Logical Cores:     192
+    Physical Cores:    96
+    Sockets:           2
+    NUMA Nodes:        2
+    Base Frequency:    2,400,003,392 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     798,825,226,240 ( 744 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Gamma(5/6)
+Algorithm:             Series-Pi (Brown 2009)
+Decimal Digits:        25,000,000
+Hexadecimal Digits:    20,762,051
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  192 / ?  (randomization off)
+Working Memory:        849,897,600 ( 811 MiB)
+Total Memory:          860,372,736 ( 821 MiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Gamma(⅚)"
+        NameLong : "Gamma(5/6)"
+        AlgorithmShort : "Series-Pi (Brown)"
+        AlgorithmLong : "Series-Pi (Brown 2009)"
+        Formula : {
+            InvNthRoot : [
+                3
+                {
+                    Multiply : [
+                        {
+                            SeriesHypergeometric : {
+                                CoefficientP : 27
+                                CoefficientQ : 27
+                                CoefficientD : 1
+                                PolynomialP : [-5 46 -108 72]
+                                PolynomialQ : [0 0 0 -512000]
+                                PolynomialR : [-5 46 -108 72]
+                            }
+                        }
+                        {
+                            Invsqrt : {
+                                LinearCombination : [
+                                    [
+                                        480
+                                        {
+                                            Pi : {}
+                                        }
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 25000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Framework : "none"
+        Path : ""
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 192
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 192
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Sun Aug  6 12:21:27 2023
+End Date:              Sun Aug  6 12:21:29 2023
+
+Total Computation Time:    0.578 seconds
+Start-to-End Wall Time:    1.654 seconds
+
+CPU Utilization:           4474.42 %  +  0.00 % kernel overhead
+Multi-core Efficiency:     23.30 %  +  0.00 % kernel overhead
+
+Last Decimal Digits:
+1242715142 0754290737 2416935587 4591922881 2977910109  :  24,999,950
+1044712248 5730315252 7719252541 6459199198 2125025540  :  25,000,000
+
+Last Hexadecimal Digits:
+6a54c0c937 41ca61faf9 1d0530eac2 affd631611 4ce921afcf  :  20,762,050
+7
+
+SHA256-dec(25,000,001 - 25,000,100): 3101864d460b0d89a5eef24bb042d1af0789782873bcdc69306fc8cbe50034ad
+
+Dec Counts: {2500342,2501161,2499683,2501310,2501781,2499036,2501203,2498442,2497483,2499559}
+Hex Counts: {1298543,1296932,1298313,1295442,1299339,1296523,1297767,1297506,1298265,1296362,1297259,1298133,1298594,1298701,1297863,1296509}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 217867770675308701
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 433257489168365515
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          79,385,362
+Reference Clock 2:          993,386
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Sun Aug  6 12:21:28 2023	0.724	Working Memory
+Sun Aug  6 12:21:28 2023	0.975	Working Memory:  812 MiB  (locked, spread: 99%/2)
+Sun Aug  6 12:21:28 2023	0.975	Twiddle Tables
+Sun Aug  6 12:21:28 2023	0.988	Twiddle Tables: 9.99 MiB  (locked, spread: 100%/2)
+Sun Aug  6 12:21:28 2023	0.988	Begin Computation
+Sun Aug  6 12:21:28 2023	0.988	Series CommonP2B3...  6,490,296 terms  (Expansion Factor = 6.450)
+Sun Aug  6 12:21:28 2023	0.988	Series: A ( 1 ) 0.000%
+Sun Aug  6 12:21:28 2023	1.082	Series: A ( 0 ) 35.861%
+Sun Aug  6 12:21:28 2023	1.250	Finishing Series
+Sun Aug  6 12:21:28 2023	1.251	Large Division
+Sun Aug  6 12:21:28 2023	1.283	Pi - Chudnovsky (1988):
+Sun Aug  6 12:21:28 2023	1.283	Series CommonP2B3...  1,762,854 terms  (Expansion Factor = 2.360)
+Sun Aug  6 12:21:28 2023	1.283	Series: A ( 0 ) 0.000%
+Sun Aug  6 12:21:28 2023	1.378	Finishing Series
+Sun Aug  6 12:21:28 2023	1.380	Large Division
+Sun Aug  6 12:21:28 2023	1.411	InvSqrt(10005)...
+Sun Aug  6 12:21:28 2023	1.439	Large Multiply
+Sun Aug  6 12:21:29 2023	1.444	Large Invsqrt...
+Sun Aug  6 12:21:29 2023	1.487	Large Multiply
+Sun Aug  6 12:21:29 2023	1.493	Radical x^(-1/3)...
+Sun Aug  6 12:21:29 2023	1.545	Processing Hexadecimal Digits
+Sun Aug  6 12:21:29 2023	1.546	Base Converting
+Sun Aug  6 12:21:29 2023	1.567	Processing Decimal Digits
+Sun Aug  6 12:21:29 2023	1.568	Verifying Base Conversion
+Sun Aug  6 12:21:29 2023	1.586	Verifying Binary Output
+Sun Aug  6 12:21:29 2023	1.655	End Computation
+
+----
+
+Checksum0: 6b5308de6ee8fa49df64d59259c1910b73f137d31352de95941200d715548550f2ed07aa23b041e1677c50d8d0976a12ec6309b338bc2b0fb7e33cdec4001963
+Checksum1: 300ddf851edd68b10ad95bc7d66be0ce75dd059db5f31f1da3adaa8d2f2c320b5e41ebf39fb100f05dd06dc599a27df23c452c95b1c78e03b664ba61f1c64819
