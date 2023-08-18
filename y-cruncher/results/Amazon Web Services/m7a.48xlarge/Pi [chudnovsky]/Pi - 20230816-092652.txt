@@ -1,0 +1,131 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.8.1 Build 9517
+Tuning:                22-ZN4 ~ Kizuna
+
+User:                  Amazon Web Services (m7a.48xlarge)
+
+Operating System:      Linux 6.2.0-1009-aws x86_64
+
+Processor(s):
+    Name:              AMD EPYC 9R14
+    Logical Cores:     192
+    Physical Cores:    192
+    Sockets:           2
+    NUMA Nodes:        2
+    Base Frequency:    2,599,985,440 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     794,591,174,656 ( 740 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Pi
+Algorithm:             Chudnovsky (1988)
+Decimal Digits:        250,000,000
+Hexadecimal Digits:    207,620,506
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  192 / ?  (randomization off)
+Working Memory:        1,603,013,632 (1.49 GiB)
+Total Memory:          1,614,438,784 (1.50 GiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "pi"
+        Algorithm : "chudnovsky"
+    }
+    ComputeSize : {
+        DecimalDigits : 250000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Framework : "none"
+        Path : ""
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 192
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 192
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Wed Aug 16 09:26:49 2023
+End Date:              Wed Aug 16 09:26:52 2023
+
+Total Computation Time:    1.776 seconds
+Start-to-End Wall Time:    2.658 seconds
+
+CPU Utilization:           13611.39 %  +  242.62 % kernel overhead
+Multi-core Efficiency:     70.89 %  +  1.26 % kernel overhead
+
+Last Decimal Digits:
+3673748634 2742427296 0219667627 3141599893 4569474921  :  249,999,950
+9958866734 1705167068 8515785208 0067520395 3452027780  :  250,000,000
+
+Last Hexadecimal Digits:
+be428b79cc 16c0cf8c8f 38b6a98f47 094e160cbb 475cc00b76  :  207,620,500
+841f9b
+
+SHA256-dec(250,000,001 - 250,000,100): 29cc910b9cdb70bc110c78bec38d7146a95673f8e0eea851a1f7ecff929216f4
+
+Dec Counts: {24995812,25002190,25004542,25003899,24997845,24991760,24999920,25000060,25001911,25002061}
+Hex Counts: {12980675,12972396,12984191,12975530,12971418,12982278,12977829,12979404,12972415,12969724,12974646,12972196,12978495,12977136,12975887,12976286}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 874974813830803092
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 1787759314537708441
+
+Spot Check:                 Good through 250,000,000
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          105,323,722
+Reference Clock 2:          1,241,657
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Wed Aug 16 09:26:50 2023	0.356	Working Memory
+Wed Aug 16 09:26:50 2023	0.784	Working Memory: 1.49 GiB  (locked, spread: 99%/2)
+Wed Aug 16 09:26:50 2023	0.784	Twiddle Tables
+Wed Aug 16 09:26:50 2023	0.799	Twiddle Tables: 10.9 MiB  (locked, spread: 100%/2)
+Wed Aug 16 09:26:50 2023	0.799	Begin Computation
+Wed Aug 16 09:26:50 2023	0.799	Series CommonP2B3...  17,628,429 terms  (Expansion Factor = 2.572)
+Wed Aug 16 09:26:50 2023	0.799	Series: A ( 3 ) 0.000%
+Wed Aug 16 09:26:50 2023	1.068	Series: A ( 2 ) 21.417%
+Wed Aug 16 09:26:51 2023	1.433	Series: E ( 1 ) 46.039%
+Wed Aug 16 09:26:51 2023	1.819	Series: E ( 0 ) 71.081%
+Wed Aug 16 09:26:52 2023	2.245	Finishing Series
+Wed Aug 16 09:26:52 2023	2.255	Large Division
+Wed Aug 16 09:26:52 2023	2.341	InvSqrt(10005)...
+Wed Aug 16 09:26:52 2023	2.415	Large Multiply
+Wed Aug 16 09:26:52 2023	2.434	Processing Hexadecimal Digits
+Wed Aug 16 09:26:52 2023	2.436	Base Converting
+Wed Aug 16 09:26:52 2023	2.577	Processing Decimal Digits
+Wed Aug 16 09:26:52 2023	2.578	Verifying Base Conversion
+Wed Aug 16 09:26:52 2023	2.638	Verifying Binary Output
+Wed Aug 16 09:26:52 2023	2.658	End Computation
+
+----
+
+Checksum0: 83be95ce995718bd8cb77d772f5412539f88bdd8b821cddbab9b87606850dae240b8ddf1d757cd228469d7a1e30a4f9301b6bbc084ef16636a5d1815d220bf72
+Checksum1: d29bb5238b9420dc2f73a81ee80af085ad17dd6eed23f08e81b1c0351d4351da0cd4d1d4bb3e84442a6347b3d9a3c7ce06991f258dd8465cd0b7206c7fd9f626
