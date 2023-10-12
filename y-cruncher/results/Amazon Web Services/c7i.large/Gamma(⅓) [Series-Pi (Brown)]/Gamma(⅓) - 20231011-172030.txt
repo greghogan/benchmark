@@ -1,0 +1,217 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.8.2 Build 9523
+Tuning:                18-CNL ~ Shinoa
+
+User:                  Amazon Web Services (c7i.large)
+
+Operating System:      Linux 6.2.0-1009-aws x86_64
+
+Processor(s):
+    Name:              Intel(R) Xeon(R) Platinum 8488C
+    Logical Cores:     2
+    Physical Cores:    1
+    Sockets:           1
+    NUMA Nodes:        1
+    Base Frequency:    2,400,011,648 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     3,996,831,744 (3.72 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Gamma(1/3)
+Algorithm:             Series-Pi (Brown 2009)
+Decimal Digits:        25,000,000
+Hexadecimal Digits:    20,762,051
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  2 / ?  (randomization off)
+Working Memory:        151,482,240 ( 144 MiB)
+Total Memory:          161,957,376 ( 154 MiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Gamma(⅓)"
+        NameLong : "Gamma(1/3)"
+        AlgorithmShort : "Series-Pi (Brown)"
+        AlgorithmLong : "Series-Pi (Brown 2009)"
+        Formula : {
+            InvNthRoot : [
+                6
+                {
+                    Multiply : [
+                        {
+                            SeriesHypergeometric : {
+                                Power : -1
+                                CoefficientP : 1
+                                CoefficientQ : 1
+                                CoefficientD : 5
+                                PolynomialP : [-5 46 -108 72]
+                                PolynomialQ : [0 0 0 -512000]
+                                PolynomialR : [-5 46 -108 72]
+                            }
+                        }
+                        {
+                            Power : [
+                                {
+                                    Pi : {
+                                        Power : -1
+                                    }
+                                }
+                                4
+                            ]
+                        }
+                        {
+                            Invsqrt : 360
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 25000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Framework : "none"
+        Path : ""
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 2
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 4
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Wed Oct 11 17:20:19 2023
+End Date:              Wed Oct 11 17:20:30 2023
+
+Total Computation Time:    10.974 seconds
+Start-to-End Wall Time:    11.158 seconds
+
+CPU Utilization:           189.35 %  +  0.09 % kernel overhead
+Multi-core Efficiency:     94.68 %  +  0.05 % kernel overhead
+
+Last Decimal Digits:
+3036926734 8282292147 2023967651 9784995366 0777641135  :  24,999,950
+4894197557 9792084901 3357022447 0944346280 2641556239  :  25,000,000
+
+Last Hexadecimal Digits:
+0d113c3e18 f4c0c7b0b7 5e7e466f46 49d55babde 598ca58c56  :  20,762,050
+b
+
+SHA256-dec(25,000,001 - 25,000,100): 0aec9d23fa08d1c4a8979b45b02faff5fd275121fcdace6c90953815d86b8da3
+
+Dec Counts: {2498790,2502501,2498554,2500658,2499344,2500665,2500017,2499492,2500835,2499144}
+Hex Counts: {1298452,1296684,1298795,1297526,1299301,1299203,1297849,1297322,1298823,1298246,1296322,1296852,1297146,1297035,1297333,1295162}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 1774787249169723470
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 852455578114922024
+
+Spot Check:                 Good through 25,000,000
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          80,561,372
+Reference Clock 2:          1,008,471
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Wed Oct 11 17:20:19 2023	0.005	Working Memory
+Wed Oct 11 17:20:19 2023	0.076	Working Memory:  145 MiB  (locked, spread: 100%/1)
+Wed Oct 11 17:20:19 2023	0.076	Twiddle Tables
+Wed Oct 11 17:20:19 2023	0.091	Twiddle Tables: 9.99 MiB  (locked, spread: 100%/1)
+Wed Oct 11 17:20:19 2023	0.091	Begin Computation
+Wed Oct 11 17:20:19 2023	0.091	Series CommonP2B3...  6,490,296 terms  (Expansion Factor = 6.450)
+Wed Oct 11 17:20:19 2023	0.091	Series: A ( 31 ) 0.000%
+Wed Oct 11 17:20:19 2023	0.096	Series: A ( 30 ) 0.168%
+Wed Oct 11 17:20:19 2023	0.116	Series: A ( 29 ) 0.633%
+Wed Oct 11 17:20:19 2023	0.138	Series: A ( 28 ) 1.098%
+Wed Oct 11 17:20:19 2023	0.163	Series: A ( 27 ) 1.564%
+Wed Oct 11 17:20:19 2023	0.187	Series: A ( 26 ) 2.029%
+Wed Oct 11 17:20:19 2023	0.212	Series: A ( 25 ) 2.495%
+Wed Oct 11 17:20:19 2023	0.238	Series: E ( 24 ) 2.960%
+Wed Oct 11 17:20:19 2023	0.264	Series: E ( 23 ) 3.426%
+Wed Oct 11 17:20:19 2023	0.292	Series: E ( 22 ) 3.932%
+Wed Oct 11 17:20:19 2023	0.325	Series: E ( 21 ) 4.512%
+Wed Oct 11 17:20:19 2023	0.367	Series: E ( 20 ) 5.179%
+Wed Oct 11 17:20:19 2023	0.412	Series: E ( 19 ) 5.944%
+Wed Oct 11 17:20:19 2023	0.466	Series: E ( 18 ) 6.822%
+Wed Oct 11 17:20:19 2023	0.530	Series: E ( 17 ) 7.831%
+Wed Oct 11 17:20:19 2023	0.606	Series: E ( 16 ) 8.990%
+Wed Oct 11 17:20:19 2023	0.696	Series: E ( 15 ) 10.321%
+Wed Oct 11 17:20:19 2023	0.799	Series: E ( 14 ) 11.850%
+Wed Oct 11 17:20:20 2023	0.919	Series: E ( 13 ) 13.608%
+Wed Oct 11 17:20:20 2023	1.062	Series: E ( 12 ) 15.629%
+Wed Oct 11 17:20:20 2023	1.226	Series: E ( 11 ) 17.953%
+Wed Oct 11 17:20:20 2023	1.418	Series: E ( 10 ) 20.626%
+Wed Oct 11 17:20:20 2023	1.632	Series: E ( 9 ) 23.703%
+Wed Oct 11 17:20:20 2023	1.889	Series: E ( 8 ) 27.247%
+Wed Oct 11 17:20:21 2023	2.209	Series: E ( 7 ) 31.332%
+Wed Oct 11 17:20:21 2023	2.559	Series: E ( 6 ) 36.044%
+Wed Oct 11 17:20:22 2023	3.013	Series: E ( 5 ) 41.487%
+Wed Oct 11 17:20:22 2023	3.477	Series: E ( 4 ) 47.785%
+Wed Oct 11 17:20:23 2023	4.076	Series: E ( 3 ) 55.088%
+Wed Oct 11 17:20:23 2023	4.720	Series: E ( 2 ) 63.586%
+Wed Oct 11 17:20:24 2023	5.495	Series: E ( 1 ) 73.529%
+Wed Oct 11 17:20:25 2023	6.402	Series: E ( 0 ) 85.297%
+Wed Oct 11 17:20:26 2023	7.480	Finishing Series
+Wed Oct 11 17:20:26 2023	7.484	Large Division
+Wed Oct 11 17:20:26 2023	7.616	Pi - Chudnovsky (1988):
+Wed Oct 11 17:20:26 2023	7.616	Series CommonP2B3...  1,762,854 terms  (Expansion Factor = 2.360)
+Wed Oct 11 17:20:26 2023	7.616	Series: A ( 12 ) 0.000%
+Wed Oct 11 17:20:26 2023	7.621	Series: A ( 11 ) 0.505%
+Wed Oct 11 17:20:26 2023	7.638	Series: A ( 10 ) 1.793%
+Wed Oct 11 17:20:26 2023	7.657	Series: E ( 9 ) 3.081%
+Wed Oct 11 17:20:26 2023	7.676	Series: E ( 8 ) 4.370%
+Wed Oct 11 17:20:26 2023	7.707	Series: E ( 7 ) 6.156%
+Wed Oct 11 17:20:26 2023	7.751	Series: E ( 6 ) 8.674%
+Wed Oct 11 17:20:26 2023	7.817	Series: E ( 5 ) 12.225%
+Wed Oct 11 17:20:27 2023	7.915	Series: E ( 4 ) 17.241%
+Wed Oct 11 17:20:27 2023	8.098	Series: E ( 3 ) 24.333%
+Wed Oct 11 17:20:27 2023	8.314	Series: E ( 2 ) 34.387%
+Wed Oct 11 17:20:27 2023	8.633	Series: E ( 1 ) 48.698%
+Wed Oct 11 17:20:28 2023	9.145	Series: E ( 0 ) 69.250%
+Wed Oct 11 17:20:28 2023	9.855	Finishing Series
+Wed Oct 11 17:20:28 2023	9.861	Large Division
+Wed Oct 11 17:20:29 2023	10.026	InvSqrt(10005)...
+Wed Oct 11 17:20:29 2023	10.113	Large Multiply
+Wed Oct 11 17:20:29 2023	10.172	Powering
+Wed Oct 11 17:20:29 2023	10.253	Large Multiply
+Wed Oct 11 17:20:29 2023	10.312	InvSqrt(360)...
+Wed Oct 11 17:20:29 2023	10.397	Large Multiply
+Wed Oct 11 17:20:29 2023	10.455	Radical x^(-1/6)...
+Wed Oct 11 17:20:29 2023	10.809	Processing Hexadecimal Digits
+Wed Oct 11 17:20:29 2023	10.811	Base Converting
+Wed Oct 11 17:20:30 2023	11.067	Processing Decimal Digits
+Wed Oct 11 17:20:30 2023	11.072	Verifying Base Conversion
+Wed Oct 11 17:20:30 2023	11.157	Verifying Binary Output
+Wed Oct 11 17:20:30 2023	11.158	End Computation
+
+----
+
+Checksum0: 90fdda10d1be5f3f5198ed2a86f96bcfbe4a92ef546e8349b8a89eef4cb7bfaa7e97050b5e331c6a373ada6f091ff2854870b8a29eb04b30fc850d2afec0d24d
+Checksum1: f2519b568ebb1350ad761fe4173c9cd42ca1f2f34b42261ef94c2e5423251bc6053137c9501be2cac370009e61c7a4c14561586613ffb3c8b3fe44fac53a8810
