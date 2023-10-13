@@ -1,0 +1,329 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.8.2 Build 9523
+Tuning:                22-ZN4 ~ Kizuna
+
+User:                  Amazon Web Services (c7a.large)
+
+Operating System:      Linux 6.2.0-1009-aws x86_64
+
+Processor(s):
+    Name:              AMD EPYC 9R14
+    Logical Cores:     2
+    Physical Cores:    2
+    Sockets:           1
+    NUMA Nodes:        1
+    Base Frequency:    2,600,005,824 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     3,973,758,976 (3.70 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Gamma(1/4)
+Algorithm:             Series-Pi (Brown 2009)
+Decimal Digits:        250,000,000
+Hexadecimal Digits:    207,620,506
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  2 / ?  (randomization off)
+Working Memory:        1,656,571,008 (1.54 GiB)
+Total Memory:          1,667,996,160 (1.55 GiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Gamma(¼)"
+        NameLong : "Gamma(1/4)"
+        AlgorithmShort : "Series-Pi (Brown)"
+        AlgorithmLong : "Series-Pi (Brown 2009)"
+        Formula : {
+            Invsqrt : {
+                Multiply : [
+                    {
+                        SeriesHypergeometric : {
+                            Power : -1
+                            CoefficientP : 1
+                            CoefficientQ : 147
+                            CoefficientD : 108
+                            PolynomialP : [15435 -143136 20224 1241088 -856064 -2752512 2621440]
+                            PolynomialQ : [0 0 82944 331776 331776]
+                            PolynomialR : [105 -1408 5504 -8192 4096]
+                        }
+                    }
+                    {
+                        Invsqrt : {
+                            LinearCombination : [
+                                [
+                                    3
+                                    {
+                                        Power : [
+                                            {
+                                                Pi : {
+                                                    Algorithm : "ramanujan"
+                                                }
+                                            }
+                                            3
+                                        ]
+                                    }
+                                ]
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 250000000
+        EnableHexDigits : "true"
+    }
+    Output : {
+        Framework : "none"
+        Path : ""
+    }
+    OutputVerify : "true"
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 2
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : "false"
+        MaxSequentialDispatch : 4
+    }
+    Allocator : {
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Fri Oct 13 04:15:18 2023
+End Date:              Fri Oct 13 04:19:13 2023
+
+Total Computation Time:    233.297 seconds
+Start-to-End Wall Time:    234.802 seconds
+
+CPU Utilization:           189.68 %  +  0.03 % kernel overhead
+Multi-core Efficiency:     94.84 %  +  0.02 % kernel overhead
+
+Last Decimal Digits:
+2494033558 0542979755 8709094853 7636878182 3154022110  :  249,999,950
+1449976375 4712741004 9226551983 0399139327 3043042971  :  250,000,000
+
+Last Hexadecimal Digits:
+8784302763 696a73f90f 4c9e74f92c 0481c1865e 1e0982c878  :  207,620,500
+19f937
+
+SHA256-dec(250,000,001 - 250,000,100): d27f2c4318e262ec343a478c2904350c0fd09bd4ef0a3b9868d8194e05de0c7f
+
+Dec Counts: {25000888,25002479,25002210,24996200,24994344,24996403,25001003,24999327,25007004,25000142}
+Hex Counts: {12980704,12977847,12981502,12973152,12975257,12980842,12980265,12977589,12976485,12974536,12968799,12970264,12977319,12977771,12972874,12975300}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 1926296032450934918
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 1957520778547876784
+
+Spot Check:                 Good through 250,000,000
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          105,338,874
+Reference Clock 2:          1,244,303
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Fri Oct 13 04:15:18 2023	0.005	Working Memory
+Fri Oct 13 04:15:19 2023	0.749	Working Memory: 1.54 GiB  (locked, spread: 100%/1)
+Fri Oct 13 04:15:19 2023	0.749	Twiddle Tables
+Fri Oct 13 04:15:19 2023	0.764	Twiddle Tables: 10.9 MiB  (locked, spread: 100%/1)
+Fri Oct 13 04:15:19 2023	0.764	Begin Computation
+Fri Oct 13 04:15:19 2023	0.764	Series CommonP2B3...  130,994,076 terms  (Expansion Factor = 18.996)
+Fri Oct 13 04:15:19 2023	0.764	Series: A ( 126 ) 0.000%
+Fri Oct 13 04:15:19 2023	0.768	Series: A ( 125 ) 0.008%
+Fri Oct 13 04:15:19 2023	0.782	Series: A ( 124 ) 0.033%
+Fri Oct 13 04:15:19 2023	0.800	Series: A ( 123 ) 0.058%
+Fri Oct 13 04:15:19 2023	0.819	Series: A ( 122 ) 0.084%
+Fri Oct 13 04:15:19 2023	0.839	Series: A ( 121 ) 0.109%
+Fri Oct 13 04:15:19 2023	0.861	Series: A ( 120 ) 0.134%
+Fri Oct 13 04:15:19 2023	0.883	Series: A ( 119 ) 0.160%
+Fri Oct 13 04:15:19 2023	0.905	Series: A ( 118 ) 0.185%
+Fri Oct 13 04:15:19 2023	0.926	Series: A ( 117 ) 0.210%
+Fri Oct 13 04:15:19 2023	0.948	Series: A ( 116 ) 0.236%
+Fri Oct 13 04:15:19 2023	0.970	Series: A ( 115 ) 0.261%
+Fri Oct 13 04:15:19 2023	0.993	Series: A ( 114 ) 0.287%
+Fri Oct 13 04:15:20 2023	1.016	Series: A ( 113 ) 0.312%
+Fri Oct 13 04:15:20 2023	1.039	Series: A ( 112 ) 0.337%
+Fri Oct 13 04:15:20 2023	1.062	Series: A ( 111 ) 0.363%
+Fri Oct 13 04:15:20 2023	1.086	Series: A ( 110 ) 0.388%
+Fri Oct 13 04:15:20 2023	1.110	Series: A ( 109 ) 0.413%
+Fri Oct 13 04:15:20 2023	1.134	Series: A ( 108 ) 0.439%
+Fri Oct 13 04:15:20 2023	1.158	Series: A ( 107 ) 0.464%
+Fri Oct 13 04:15:20 2023	1.183	Series: E ( 106 ) 0.490%
+Fri Oct 13 04:15:20 2023	1.207	Series: E ( 105 ) 0.515%
+Fri Oct 13 04:15:20 2023	1.232	Series: E ( 104 ) 0.541%
+Fri Oct 13 04:15:20 2023	1.260	Series: E ( 103 ) 0.568%
+Fri Oct 13 04:15:20 2023	1.289	Series: E ( 102 ) 0.597%
+Fri Oct 13 04:15:20 2023	1.321	Series: E ( 101 ) 0.627%
+Fri Oct 13 04:15:20 2023	1.354	Series: E ( 100 ) 0.658%
+Fri Oct 13 04:15:20 2023	1.389	Series: E ( 99 ) 0.691%
+Fri Oct 13 04:15:20 2023	1.425	Series: E ( 98 ) 0.726%
+Fri Oct 13 04:15:20 2023	1.463	Series: E ( 97 ) 0.762%
+Fri Oct 13 04:15:20 2023	1.504	Series: E ( 96 ) 0.801%
+Fri Oct 13 04:15:20 2023	1.549	Series: E ( 95 ) 0.841%
+Fri Oct 13 04:15:20 2023	1.595	Series: E ( 94 ) 0.883%
+Fri Oct 13 04:15:20 2023	1.646	Series: E ( 93 ) 0.927%
+Fri Oct 13 04:15:20 2023	1.699	Series: E ( 92 ) 0.974%
+Fri Oct 13 04:15:20 2023	1.754	Series: E ( 91 ) 1.023%
+Fri Oct 13 04:15:20 2023	1.810	Series: E ( 90 ) 1.074%
+Fri Oct 13 04:15:20 2023	1.872	Series: E ( 89 ) 1.128%
+Fri Oct 13 04:15:20 2023	1.938	Series: E ( 88 ) 1.185%
+Fri Oct 13 04:15:21 2023	2.009	Series: E ( 87 ) 1.245%
+Fri Oct 13 04:15:21 2023	2.084	Series: E ( 86 ) 1.307%
+Fri Oct 13 04:15:21 2023	2.164	Series: E ( 85 ) 1.373%
+Fri Oct 13 04:15:21 2023	2.287	Series: E ( 84 ) 1.442%
+Fri Oct 13 04:15:21 2023	2.371	Series: E ( 83 ) 1.514%
+Fri Oct 13 04:15:21 2023	2.462	Series: E ( 82 ) 1.591%
+Fri Oct 13 04:15:21 2023	2.560	Series: E ( 81 ) 1.671%
+Fri Oct 13 04:15:21 2023	2.665	Series: E ( 80 ) 1.755%
+Fri Oct 13 04:15:21 2023	2.776	Series: E ( 79 ) 1.843%
+Fri Oct 13 04:15:21 2023	2.892	Series: E ( 78 ) 1.935%
+Fri Oct 13 04:15:22 2023	3.011	Series: E ( 77 ) 2.033%
+Fri Oct 13 04:15:22 2023	3.136	Series: E ( 76 ) 2.135%
+Fri Oct 13 04:15:22 2023	3.314	Series: E ( 75 ) 2.242%
+Fri Oct 13 04:15:22 2023	3.461	Series: E ( 74 ) 2.355%
+Fri Oct 13 04:15:22 2023	3.615	Series: E ( 73 ) 2.474%
+Fri Oct 13 04:15:22 2023	3.778	Series: E ( 72 ) 2.598%
+Fri Oct 13 04:15:22 2023	3.956	Series: E ( 71 ) 2.729%
+Fri Oct 13 04:15:23 2023	4.133	Series: E ( 70 ) 2.866%
+Fri Oct 13 04:15:23 2023	4.364	Series: E ( 69 ) 3.010%
+Fri Oct 13 04:15:23 2023	4.567	Series: E ( 68 ) 3.162%
+Fri Oct 13 04:15:23 2023	4.786	Series: E ( 67 ) 3.321%
+Fri Oct 13 04:15:24 2023	5.023	Series: E ( 66 ) 3.488%
+Fri Oct 13 04:15:24 2023	5.324	Series: E ( 65 ) 3.663%
+Fri Oct 13 04:15:24 2023	5.589	Series: E ( 64 ) 3.848%
+Fri Oct 13 04:15:24 2023	5.857	Series: E ( 63 ) 4.041%
+Fri Oct 13 04:15:25 2023	6.149	Series: E ( 62 ) 4.245%
+Fri Oct 13 04:15:25 2023	6.487	Series: E ( 61 ) 4.458%
+Fri Oct 13 04:15:25 2023	6.813	Series: E ( 60 ) 4.683%
+Fri Oct 13 04:15:26 2023	7.162	Series: E ( 59 ) 4.918%
+Fri Oct 13 04:15:26 2023	7.599	Series: E ( 58 ) 5.166%
+Fri Oct 13 04:15:26 2023	7.983	Series: E ( 57 ) 5.426%
+Fri Oct 13 04:15:27 2023	8.410	Series: E ( 56 ) 5.700%
+Fri Oct 13 04:15:27 2023	8.821	Series: E ( 55 ) 5.987%
+Fri Oct 13 04:15:28 2023	9.315	Series: E ( 54 ) 6.288%
+Fri Oct 13 04:15:28 2023	9.809	Series: E ( 53 ) 6.605%
+Fri Oct 13 04:15:29 2023	10.377	Series: E ( 52 ) 6.938%
+Fri Oct 13 04:15:29 2023	10.937	Series: E ( 51 ) 7.288%
+Fri Oct 13 04:15:30 2023	11.588	Series: E ( 50 ) 7.655%
+Fri Oct 13 04:15:31 2023	12.195	Series: E ( 49 ) 8.041%
+Fri Oct 13 04:15:31 2023	12.857	Series: E ( 48 ) 8.447%
+Fri Oct 13 04:15:32 2023	13.553	Series: E ( 47 ) 8.873%
+Fri Oct 13 04:15:33 2023	14.304	Series: E ( 46 ) 9.321%
+Fri Oct 13 04:15:34 2023	15.078	Series: E ( 45 ) 9.791%
+Fri Oct 13 04:15:34 2023	15.878	Series: E ( 44 ) 10.285%
+Fri Oct 13 04:15:35 2023	16.790	Series: E ( 43 ) 10.805%
+Fri Oct 13 04:15:36 2023	17.688	Series: E ( 42 ) 11.350%
+Fri Oct 13 04:15:37 2023	18.632	Series: E ( 41 ) 11.924%
+Fri Oct 13 04:15:38 2023	19.620	Series: E ( 40 ) 12.526%
+Fri Oct 13 04:15:39 2023	20.711	Series: E ( 39 ) 13.160%
+Fri Oct 13 04:15:40 2023	21.887	Series: E ( 38 ) 13.825%
+Fri Oct 13 04:15:42 2023	23.119	Series: E ( 37 ) 14.525%
+Fri Oct 13 04:15:43 2023	24.457	Series: E ( 36 ) 15.260%
+Fri Oct 13 04:15:44 2023	25.833	Series: E ( 35 ) 16.032%
+Fri Oct 13 04:15:46 2023	27.313	Series: E ( 34 ) 16.844%
+Fri Oct 13 04:15:47 2023	28.777	Series: E ( 33 ) 17.698%
+Fri Oct 13 04:15:49 2023	30.432	Series: E ( 32 ) 18.595%
+Fri Oct 13 04:15:51 2023	32.076	Series: E ( 31 ) 19.539%
+Fri Oct 13 04:15:52 2023	33.858	Series: E ( 30 ) 20.530%
+Fri Oct 13 04:15:54 2023	35.755	Series: E ( 29 ) 21.573%
+Fri Oct 13 04:15:56 2023	37.740	Series: E ( 28 ) 22.669%
+Fri Oct 13 04:15:58 2023	39.781	Series: E ( 27 ) 23.822%
+Fri Oct 13 04:16:00 2023	41.927	Series: E ( 26 ) 25.034%
+Fri Oct 13 04:16:03 2023	44.356	Series: E ( 25 ) 26.309%
+Fri Oct 13 04:16:05 2023	46.921	Series: E ( 24 ) 27.650%
+Fri Oct 13 04:16:08 2023	49.623	Series: E ( 23 ) 29.061%
+Fri Oct 13 04:16:11 2023	52.515	Series: E ( 22 ) 30.545%
+Fri Oct 13 04:16:14 2023	55.524	Series: E ( 21 ) 32.106%
+Fri Oct 13 04:16:17 2023	58.641	Series: E ( 20 ) 33.749%
+Fri Oct 13 04:16:20 2023	61.825	Series: E ( 19 ) 35.478%
+Fri Oct 13 04:16:24 2023	65.423	Series: E ( 18 ) 37.298%
+Fri Oct 13 04:16:28 2023	69.089	Series: E ( 17 ) 39.214%
+Fri Oct 13 04:16:31 2023	72.961	Series: E ( 16 ) 41.231%
+Fri Oct 13 04:16:36 2023	77.120	Series: E ( 15 ) 43.356%
+Fri Oct 13 04:16:40 2023	81.450	Series: E ( 14 ) 45.594%
+Fri Oct 13 04:16:44 2023	85.938	Series: E ( 13 ) 47.953%
+Fri Oct 13 04:16:49 2023	90.784	Series: E ( 12 ) 50.439%
+Fri Oct 13 04:16:55 2023	96.062	Series: E ( 11 ) 53.060%
+Fri Oct 13 04:17:00 2023	101.854	Series: E ( 10 ) 55.825%
+Fri Oct 13 04:17:06 2023	107.754	Series: E ( 9 ) 58.743%
+Fri Oct 13 04:17:13 2023	114.131	Series: E ( 8 ) 61.824%
+Fri Oct 13 04:17:19 2023	120.704	Series: E ( 7 ) 65.080%
+Fri Oct 13 04:17:26 2023	127.712	Series: E ( 6 ) 68.523%
+Fri Oct 13 04:17:34 2023	135.129	Series: E ( 5 ) 72.168%
+Fri Oct 13 04:17:42 2023	143.047	Series: E ( 4 ) 76.032%
+Fri Oct 13 04:17:50 2023	151.546	Series: E ( 3 ) 80.137%
+Fri Oct 13 04:17:59 2023	160.173	Series: E ( 2 ) 84.510%
+Fri Oct 13 04:18:08 2023	169.547	Series: E ( 1 ) 89.191%
+Fri Oct 13 04:18:18 2023	179.119	Series: E ( 0 ) 94.251%
+Fri Oct 13 04:18:28 2023	189.458	Finishing Series
+Fri Oct 13 04:18:28 2023	189.483	Large Division
+Fri Oct 13 04:18:29 2023	190.646	Pi - Ramanujan (1910):
+Fri Oct 13 04:18:29 2023	190.646	Series CommonP2B3...  31,318,374 terms  (Expansion Factor = 3.842)
+Fri Oct 13 04:18:29 2023	190.646	Series: A ( 27 ) 0.000%
+Fri Oct 13 04:18:29 2023	190.653	Series: A ( 26 ) 0.055%
+Fri Oct 13 04:18:29 2023	190.672	Series: A ( 25 ) 0.181%
+Fri Oct 13 04:18:29 2023	190.692	Series: A ( 24 ) 0.307%
+Fri Oct 13 04:18:29 2023	190.713	Series: E ( 23 ) 0.433%
+Fri Oct 13 04:18:29 2023	190.735	Series: E ( 22 ) 0.559%
+Fri Oct 13 04:18:29 2023	190.760	Series: E ( 21 ) 0.699%
+Fri Oct 13 04:18:29 2023	190.792	Series: E ( 20 ) 0.873%
+Fri Oct 13 04:18:29 2023	190.836	Series: E ( 19 ) 1.091%
+Fri Oct 13 04:18:29 2023	190.893	Series: E ( 18 ) 1.364%
+Fri Oct 13 04:18:29 2023	190.965	Series: E ( 17 ) 1.705%
+Fri Oct 13 04:18:30 2023	191.059	Series: E ( 16 ) 2.131%
+Fri Oct 13 04:18:30 2023	191.181	Series: E ( 15 ) 2.663%
+Fri Oct 13 04:18:30 2023	191.378	Series: E ( 14 ) 3.329%
+Fri Oct 13 04:18:30 2023	191.587	Series: E ( 13 ) 4.161%
+Fri Oct 13 04:18:30 2023	191.854	Series: E ( 12 ) 5.202%
+Fri Oct 13 04:18:31 2023	192.213	Series: E ( 11 ) 6.504%
+Fri Oct 13 04:18:31 2023	192.727	Series: E ( 10 ) 8.132%
+Fri Oct 13 04:18:32 2023	193.358	Series: E ( 9 ) 10.171%
+Fri Oct 13 04:18:33 2023	194.105	Series: E ( 8 ) 12.722%
+Fri Oct 13 04:18:34 2023	195.091	Series: E ( 7 ) 15.919%
+Fri Oct 13 04:18:35 2023	196.432	Series: E ( 6 ) 19.925%
+Fri Oct 13 04:18:37 2023	198.068	Series: E ( 5 ) 24.951%
+Fri Oct 13 04:18:39 2023	200.198	Series: E ( 4 ) 31.265%
+Fri Oct 13 04:18:42 2023	203.013	Series: E ( 3 ) 39.211%
+Fri Oct 13 04:18:45 2023	206.637	Series: E ( 2 ) 49.240%
+Fri Oct 13 04:18:50 2023	211.151	Series: E ( 1 ) 61.955%
+Fri Oct 13 04:18:56 2023	217.146	Series: E ( 0 ) 78.230%
+Fri Oct 13 04:19:03 2023	224.956	Finishing Series
+Fri Oct 13 04:19:03 2023	224.980	Large Division
+Fri Oct 13 04:19:05 2023	226.140	InvSqrt(8)...
+Fri Oct 13 04:19:05 2023	226.877	Large Multiply
+Fri Oct 13 04:19:06 2023	227.482	Powering
+Fri Oct 13 04:19:07 2023	228.318	Large Invsqrt...
+Fri Oct 13 04:19:08 2023	229.934	Large Multiply
+Fri Oct 13 04:19:09 2023	230.541	Large Invsqrt...
+Fri Oct 13 04:19:11 2023	232.156	Processing Hexadecimal Digits
+Fri Oct 13 04:19:11 2023	232.175	Base Converting
+Fri Oct 13 04:19:13 2023	234.080	Processing Decimal Digits
+Fri Oct 13 04:19:13 2023	234.114	Verifying Base Conversion
+Fri Oct 13 04:19:13 2023	234.799	Verifying Binary Output
+Fri Oct 13 04:19:13 2023	234.802	End Computation
+
+----
+
+Checksum0: 46e323d80fa3c283b2893b324887550137cb34037e2a7501d2802b96407f535c1a52cd49fd54b58075380956a087fbb897a285a59e766c73189457346a23fcfa
+Checksum1: fc48249b323f592c81a4dbe212859d35aadeb41d94e90c17e1712a24d503e01a1368125c51ee57d2451f1219a17127be37f2a9b54c2c9b89926f8d355a5633a4
