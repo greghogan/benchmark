@@ -1,0 +1,213 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.8.3 Build 9532
+Tuning:                22-ZN4 ~ Kizuna
+
+User:                  Amazon Web Services (r7a.large)
+
+Operating System:      Linux 6.2.0-1009-aws x86_64
+
+Processor(s):
+    Name:              AMD EPYC 9R14
+    Logical Cores:     2
+    Physical Cores:    2
+    Sockets:           1
+    NUMA Nodes:        1
+    Base Frequency:    2,600,004,160 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     16,374,226,944 (15.2 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Gamma(1/3)
+Algorithm:             Zuniga (2023)
+Decimal Digits:        50,000,000
+Hexadecimal Digits:    41,524,102
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  2 / ?  (randomization off)
+Working Memory:        285,826,176 ( 273 MiB)
+Total Memory:          297,251,328 ( 283 MiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Gamma(⅓)"
+        NameLong : "Gamma(1/3)"
+        AlgorithmShort : "Zuniga (2023)"
+        AlgorithmLong : "Zuniga (2023)"
+        Formula : {
+            InvNthRoot : [
+                3
+                {
+                    Multiply : [
+                        {
+                            SeriesHypergeometric : {
+                                Power : -1
+                                CoefficientP : 32384
+                                CoefficientQ : 0
+                                CoefficientD : 1
+                                PolynomialP : [0 0 1024535 -4097536 4097152]
+                                PolynomialQ : [0 0 4195483730944 -16781934923776 16781934923776]
+                                PolynomialR : [21505 -202944 625536 -774144 331776]
+                            }
+                        }
+                        {
+                            InvNthRoot : [6 223901166922488]
+                        }
+                        {
+                            Power : [
+                                {
+                                    Pi : {
+                                        Power : -1
+                                    }
+                                }
+                                2
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 50000000
+        EnableHexDigits : true
+    }
+    Output : {
+        Framework : "none"
+        Path : ""
+    }
+    OutputVerify : true
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 2
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : false
+        MaxSequentialDispatch : 4
+    }
+    Allocator : {
+        Threads : 1
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Sat Dec  9 07:39:25 2023
+End Date:              Sat Dec  9 07:39:38 2023
+
+Total Computation Time:    12.954 seconds
+Start-to-End Wall Time:    13.243 seconds
+
+CPU Utilization:           189.91 %  +  0.15 % kernel overhead
+Multi-core Efficiency:     94.95 %  +  0.08 % kernel overhead
+
+Last Decimal Digits:
+1493812487 4504263045 3906506250 0529910321 1372018482  :  49,999,950
+1892594423 1893674962 3978838121 7235462105 1809425261  :  50,000,000
+
+Last Hexadecimal Digits:
+f9fc948c14 5036dbc35f a7e3689b06 5c62187b1f 0d2ba084cb  :  41,524,100
+83
+
+SHA256-dec(50,000,001 - 50,000,100): 6b19150f60156f4f24cb58e9da667e8aec76e25cd9bace592af9b83abb71ed51
+
+Dec Counts: {4998647,4998816,4999233,5001060,5000775,5001870,5001022,5000402,5000572,4997603}
+Hex Counts: {2595661,2593406,2598744,2594473,2596402,2596560,2595023,2595166,2595646,2595107,2593990,2593685,2596723,2593529,2597066,2592921}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 1091864128608239677
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 279363154093664468
+
+Spot Check:                 Good through 50,000,000
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          105,402,898
+Reference Clock 2:          1,242,525
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Sat Dec  9 07:39:25 2023	0.005	Working Memory
+Sat Dec  9 07:39:25 2023	0.146	Working Memory:  274 MiB  (locked, spread: 100%/1)
+Sat Dec  9 07:39:25 2023	0.146	Twiddle Tables
+Sat Dec  9 07:39:25 2023	0.161	Twiddle Tables: 10.9 MiB  (locked, spread: 100%/1)
+Sat Dec  9 07:39:25 2023	0.161	Begin Computation
+Sat Dec  9 07:39:25 2023	0.161	Series CommonP2B3...  6,490,167 terms  (Expansion Factor = 5.028)
+Sat Dec  9 07:39:25 2023	0.161	Series: A ( 25 ) 0.000%
+Sat Dec  9 07:39:25 2023	0.179	Series: A ( 24 ) 0.470%
+Sat Dec  9 07:39:25 2023	0.201	Series: A ( 23 ) 0.951%
+Sat Dec  9 07:39:25 2023	0.223	Series: A ( 22 ) 1.432%
+Sat Dec  9 07:39:25 2023	0.246	Series: A ( 21 ) 1.913%
+Sat Dec  9 07:39:25 2023	0.269	Series: E ( 20 ) 2.394%
+Sat Dec  9 07:39:25 2023	0.293	Series: E ( 19 ) 2.875%
+Sat Dec  9 07:39:25 2023	0.322	Series: E ( 18 ) 3.423%
+Sat Dec  9 07:39:26 2023	0.356	Series: E ( 17 ) 4.076%
+Sat Dec  9 07:39:26 2023	0.399	Series: E ( 16 ) 4.853%
+Sat Dec  9 07:39:26 2023	0.453	Series: E ( 15 ) 5.779%
+Sat Dec  9 07:39:26 2023	0.519	Series: E ( 14 ) 6.882%
+Sat Dec  9 07:39:26 2023	0.597	Series: E ( 13 ) 8.197%
+Sat Dec  9 07:39:26 2023	0.694	Series: E ( 12 ) 9.763%
+Sat Dec  9 07:39:26 2023	0.812	Series: E ( 11 ) 11.631%
+Sat Dec  9 07:39:26 2023	0.958	Series: E ( 10 ) 13.857%
+Sat Dec  9 07:39:26 2023	1.134	Series: E ( 9 ) 16.514%
+Sat Dec  9 07:39:27 2023	1.357	Series: E ( 8 ) 19.684%
+Sat Dec  9 07:39:27 2023	1.632	Series: E ( 7 ) 23.471%
+Sat Dec  9 07:39:27 2023	2.009	Series: E ( 6 ) 27.996%
+Sat Dec  9 07:39:28 2023	2.411	Series: E ( 5 ) 33.410%
+Sat Dec  9 07:39:28 2023	2.945	Series: E ( 4 ) 39.897%
+Sat Dec  9 07:39:29 2023	3.555	Series: E ( 3 ) 47.684%
+Sat Dec  9 07:39:30 2023	4.371	Series: E ( 2 ) 57.059%
+Sat Dec  9 07:39:30 2023	5.308	Series: E ( 1 ) 68.403%
+Sat Dec  9 07:39:32 2023	6.491	Series: E ( 0 ) 82.264%
+Sat Dec  9 07:39:33 2023	7.935	Finishing Series
+Sat Dec  9 07:39:33 2023	7.936	Large Division
+Sat Dec  9 07:39:33 2023	8.123	Radical x^(-1/6)...
+Sat Dec  9 07:39:34 2023	8.529	Large Multiply
+Sat Dec  9 07:39:34 2023	8.613	Pi - Chudnovsky (1988):
+Sat Dec  9 07:39:34 2023	8.613	Series CommonP2B3...  3,525,695 terms  (Expansion Factor = 2.424)
+Sat Dec  9 07:39:34 2023	8.613	Series: A ( 13 ) 0.000%
+Sat Dec  9 07:39:34 2023	8.618	Series: A ( 12 ) 0.331%
+Sat Dec  9 07:39:34 2023	8.637	Series: A ( 11 ) 1.335%
+Sat Dec  9 07:39:34 2023	8.658	Series: E ( 10 ) 2.340%
+Sat Dec  9 07:39:34 2023	8.678	Series: E ( 9 ) 3.344%
+Sat Dec  9 07:39:34 2023	8.708	Series: E ( 8 ) 4.676%
+Sat Dec  9 07:39:34 2023	8.753	Series: E ( 7 ) 6.538%
+Sat Dec  9 07:39:34 2023	8.819	Series: E ( 6 ) 9.144%
+Sat Dec  9 07:39:34 2023	8.935	Series: E ( 5 ) 12.794%
+Sat Dec  9 07:39:34 2023	9.077	Series: E ( 4 ) 17.911%
+Sat Dec  9 07:39:34 2023	9.296	Series: E ( 3 ) 25.093%
+Sat Dec  9 07:39:35 2023	9.611	Series: E ( 2 ) 35.199%
+Sat Dec  9 07:39:35 2023	10.118	Series: E ( 1 ) 49.478%
+Sat Dec  9 07:39:36 2023	10.864	Series: E ( 0 ) 69.825%
+Sat Dec  9 07:39:37 2023	11.906	Finishing Series
+Sat Dec  9 07:39:37 2023	11.912	Large Division
+Sat Dec  9 07:39:37 2023	12.097	InvSqrt(10005)...
+Sat Dec  9 07:39:37 2023	12.214	Large Multiply
+Sat Dec  9 07:39:37 2023	12.297	Squaring
+Sat Dec  9 07:39:38 2023	12.355	Large Multiply
+Sat Dec  9 07:39:38 2023	12.438	Radical x^(-1/3)...
+Sat Dec  9 07:39:38 2023	12.759	Processing Hexadecimal Digits
+Sat Dec  9 07:39:38 2023	12.763	Base Converting
+Sat Dec  9 07:39:38 2023	13.119	Processing Decimal Digits
+Sat Dec  9 07:39:38 2023	13.125	Verifying Base Conversion
+Sat Dec  9 07:39:38 2023	13.242	Verifying Binary Output
+Sat Dec  9 07:39:38 2023	13.243	End Computation
+
+----
+
+Checksum0: 3ba302fe5b73406ec634050a509311767bd12ed850173c0731658c0561efe0cd9481fb1abbee21d5783126abe595e8c72cee4768966f4e14ea40831679a4355d
+Checksum1: a5ee89656420a486c7b2b88e3c7ffde131e1c4049c60781c8393b76be744870e2c43c0d23757d15d7026d01cfa720698d2cd913de5df7b65ef413064cf8eb5e8

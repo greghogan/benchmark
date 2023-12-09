@@ -1,0 +1,281 @@
+﻿Benchmark Validation File - DO NOT MODIFY! If you do, it will fail validation.
+
+Validation Version:    1.3
+
+Program:               y-cruncher v0.8.3 Build 9532
+Tuning:                22-ZN4 ~ Kizuna
+
+User:                  Amazon Web Services (r7a.large)
+
+Operating System:      Linux 6.2.0-1009-aws x86_64
+
+Processor(s):
+    Name:              AMD EPYC 9R14
+    Logical Cores:     2
+    Physical Cores:    2
+    Sockets:           1
+    NUMA Nodes:        1
+    Base Frequency:    2,600,000,416 Hz
+
+Motherboard:
+    Manufacturer:      Amazon EC2
+    Model:             
+    Version:           
+    Serial Number:     Suppressed - Personally identifiable information is opt-in only.
+
+Memory:
+    Usable Memory:     16,374,226,944 (15.2 GiB)
+    Total Memory:      Unable to Detect
+
+Constant:              Custom - Gamma(3/4)
+Algorithm:             Series-Pi (Brown 2009)
+Decimal Digits:        50,000,000
+Hexadecimal Digits:    41,524,102
+Computation Mode:      Ram Only
+Threading Mode:        Push Pool  ->  2 / ?  (randomization off)
+Working Memory:        317,536,384 ( 303 MiB)
+Total Memory:          328,961,536 ( 314 MiB)
+
+Configuration Dump:
+{
+    Constant : {
+        Constant : "custom"
+        NameShort : "Gamma(¾)"
+        NameLong : "Gamma(3/4)"
+        AlgorithmShort : "Series-Pi (Brown)"
+        AlgorithmLong : "Series-Pi (Brown 2009)"
+        Formula : {
+            Invsqrt : {
+                Multiply : [
+                    {
+                        SeriesHypergeometric : {
+                            CoefficientP : 1
+                            CoefficientQ : 1
+                            CoefficientD : 2
+                            PolynomialP : [9 -24 16]
+                            PolynomialQ : [0 0 -128]
+                            PolynomialR : [9 -24 16]
+                        }
+                    }
+                    {
+                        Invsqrt : {
+                            Multiply : [
+                                {
+                                    Pi : {
+                                        Algorithm : "ramanujan"
+                                    }
+                                }
+                                {
+                                    Invsqrt : 32
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+    ComputeSize : {
+        DecimalDigits : 50000000
+        EnableHexDigits : true
+    }
+    Output : {
+        Framework : "none"
+        Path : ""
+    }
+    OutputVerify : true
+    Mode : "ram"
+    Parallelism : {
+        TaskDecomposition : 2
+        Framework : "pushpool"
+        WorkerThreads : 0
+        Randomization : false
+        MaxSequentialDispatch : 4
+    }
+    Allocator : {
+        Threads : 1
+        Allocator : "interleave-libnuma"
+        LockedPages : "forced"
+        Nodes : [0 1]
+    }
+}
+
+Start Date:            Sat Dec  9 13:28:36 2023
+End Date:              Sat Dec  9 13:29:16 2023
+
+Total Computation Time:    38.974 seconds
+Start-to-End Wall Time:    39.275 seconds
+
+CPU Utilization:           189.33 %  +  0.10 % kernel overhead
+Multi-core Efficiency:     94.66 %  +  0.05 % kernel overhead
+
+Last Decimal Digits:
+8851428078 2088607218 5819755922 6481518154 1715720464  :  49,999,950
+8394954653 1196493461 4035277781 6838420341 1237821802  :  50,000,000
+
+Last Hexadecimal Digits:
+ba91be703f ba95a91379 819aae025b f762e9cf4a 3fbf852afd  :  41,524,100
+24
+
+SHA256-dec(50,000,001 - 50,000,100): 20056ca5af7496dfafcf8bec121a9fd1e83ad446109b5fdd33356686b4289497
+
+Dec Counts: {5003845,5002168,5002227,5002148,4998536,4994490,5000061,5001876,4997670,4996979}
+Hex Counts: {2595299,2596186,2594259,2597396,2592488,2594833,2597381,2598564,2593421,2593404,2599524,2594748,2593232,2592515,2596483,2594369}
+
+Dec Hash: Floor(|x| * 10^dec) mod (2^61 - 1) = 968825558712525855
+Hex Hash: Floor(|x| * 16^hex) mod (2^61 - 1) = 510811258036198999
+
+Spot Check:                 Not Available
+Timer Sanity Check:         Passed
+Frequency Sanity Check:     Disabled in this version of y-cruncher
+Reference Clock:            TSC
+Reference Clock 0:          0
+Reference Clock 1:          105,365,822
+Reference Clock 2:          1,246,377
+Is Debugger Present:        Unknown
+Is Contiguous:              Yes
+ECC Recovered Errors:       0
+Colors:                     Yes
+
+Event Log:
+Sat Dec  9 13:28:36 2023	0.005	Working Memory
+Sat Dec  9 13:28:36 2023	0.156	Working Memory:  304 MiB  (locked, spread: 100%/1)
+Sat Dec  9 13:28:36 2023	0.156	Twiddle Tables
+Sat Dec  9 13:28:37 2023	0.171	Twiddle Tables: 10.9 MiB  (locked, spread: 100%/1)
+Sat Dec  9 13:28:37 2023	0.171	Begin Computation
+Sat Dec  9 13:28:37 2023	0.171	Series CommonP2B3...  55,365,693 terms  (Expansion Factor = 18.520)
+Sat Dec  9 13:28:37 2023	0.171	Series: A ( 91 ) 0.000%
+Sat Dec  9 13:28:37 2023	0.178	Series: A ( 90 ) 0.052%
+Sat Dec  9 13:28:37 2023	0.196	Series: A ( 89 ) 0.182%
+Sat Dec  9 13:28:37 2023	0.216	Series: A ( 88 ) 0.312%
+Sat Dec  9 13:28:37 2023	0.237	Series: A ( 87 ) 0.441%
+Sat Dec  9 13:28:37 2023	0.261	Series: A ( 86 ) 0.571%
+Sat Dec  9 13:28:37 2023	0.285	Series: A ( 85 ) 0.701%
+Sat Dec  9 13:28:37 2023	0.310	Series: A ( 84 ) 0.830%
+Sat Dec  9 13:28:37 2023	0.334	Series: A ( 83 ) 0.960%
+Sat Dec  9 13:28:37 2023	0.358	Series: A ( 82 ) 1.090%
+Sat Dec  9 13:28:37 2023	0.382	Series: A ( 81 ) 1.219%
+Sat Dec  9 13:28:37 2023	0.407	Series: A ( 80 ) 1.349%
+Sat Dec  9 13:28:37 2023	0.432	Series: A ( 79 ) 1.479%
+Sat Dec  9 13:28:37 2023	0.458	Series: A ( 78 ) 1.608%
+Sat Dec  9 13:28:37 2023	0.483	Series: A ( 77 ) 1.738%
+Sat Dec  9 13:28:37 2023	0.509	Series: A ( 76 ) 1.868%
+Sat Dec  9 13:28:37 2023	0.535	Series: A ( 75 ) 1.998%
+Sat Dec  9 13:28:37 2023	0.562	Series: A ( 74 ) 2.127%
+Sat Dec  9 13:28:37 2023	0.588	Series: A ( 73 ) 2.257%
+Sat Dec  9 13:28:37 2023	0.615	Series: A ( 72 ) 2.387%
+Sat Dec  9 13:28:37 2023	0.642	Series: E ( 71 ) 2.517%
+Sat Dec  9 13:28:37 2023	0.669	Series: E ( 70 ) 2.646%
+Sat Dec  9 13:28:37 2023	0.698	Series: E ( 69 ) 2.782%
+Sat Dec  9 13:28:37 2023	0.729	Series: E ( 68 ) 2.925%
+Sat Dec  9 13:28:37 2023	0.763	Series: E ( 67 ) 3.076%
+Sat Dec  9 13:28:37 2023	0.798	Series: E ( 66 ) 3.234%
+Sat Dec  9 13:28:37 2023	0.835	Series: E ( 65 ) 3.400%
+Sat Dec  9 13:28:37 2023	0.874	Series: E ( 64 ) 3.575%
+Sat Dec  9 13:28:37 2023	0.915	Series: E ( 63 ) 3.759%
+Sat Dec  9 13:28:37 2023	0.959	Series: E ( 62 ) 3.952%
+Sat Dec  9 13:28:37 2023	1.006	Series: E ( 61 ) 4.155%
+Sat Dec  9 13:28:37 2023	1.057	Series: E ( 60 ) 4.369%
+Sat Dec  9 13:28:37 2023	1.110	Series: E ( 59 ) 4.594%
+Sat Dec  9 13:28:37 2023	1.167	Series: E ( 58 ) 4.830%
+Sat Dec  9 13:28:38 2023	1.227	Series: E ( 57 ) 5.079%
+Sat Dec  9 13:28:38 2023	1.288	Series: E ( 56 ) 5.340%
+Sat Dec  9 13:28:38 2023	1.353	Series: E ( 55 ) 5.615%
+Sat Dec  9 13:28:38 2023	1.424	Series: E ( 54 ) 5.904%
+Sat Dec  9 13:28:38 2023	1.499	Series: E ( 53 ) 6.208%
+Sat Dec  9 13:28:38 2023	1.580	Series: E ( 52 ) 6.528%
+Sat Dec  9 13:28:38 2023	1.708	Series: E ( 51 ) 6.864%
+Sat Dec  9 13:28:38 2023	1.794	Series: E ( 50 ) 7.218%
+Sat Dec  9 13:28:38 2023	1.885	Series: E ( 49 ) 7.590%
+Sat Dec  9 13:28:38 2023	1.983	Series: E ( 48 ) 7.981%
+Sat Dec  9 13:28:38 2023	2.088	Series: E ( 47 ) 8.392%
+Sat Dec  9 13:28:39 2023	2.201	Series: E ( 46 ) 8.825%
+Sat Dec  9 13:28:39 2023	2.322	Series: E ( 45 ) 9.280%
+Sat Dec  9 13:28:39 2023	2.451	Series: E ( 44 ) 9.759%
+Sat Dec  9 13:28:39 2023	2.584	Series: E ( 43 ) 10.262%
+Sat Dec  9 13:28:39 2023	2.761	Series: E ( 42 ) 10.792%
+Sat Dec  9 13:28:39 2023	2.909	Series: E ( 41 ) 11.349%
+Sat Dec  9 13:28:39 2023	3.068	Series: E ( 40 ) 11.935%
+Sat Dec  9 13:28:40 2023	3.234	Series: E ( 39 ) 12.552%
+Sat Dec  9 13:28:40 2023	3.421	Series: E ( 38 ) 13.201%
+Sat Dec  9 13:28:40 2023	3.611	Series: E ( 37 ) 13.883%
+Sat Dec  9 13:28:40 2023	3.845	Series: E ( 36 ) 14.601%
+Sat Dec  9 13:28:40 2023	4.055	Series: E ( 35 ) 15.357%
+Sat Dec  9 13:28:41 2023	4.275	Series: E ( 34 ) 16.152%
+Sat Dec  9 13:28:41 2023	4.518	Series: E ( 33 ) 16.988%
+Sat Dec  9 13:28:41 2023	4.820	Series: E ( 32 ) 17.869%
+Sat Dec  9 13:28:41 2023	5.098	Series: E ( 31 ) 18.795%
+Sat Dec  9 13:28:42 2023	5.381	Series: E ( 30 ) 19.770%
+Sat Dec  9 13:28:42 2023	5.730	Series: E ( 29 ) 20.797%
+Sat Dec  9 13:28:42 2023	6.047	Series: E ( 28 ) 21.877%
+Sat Dec  9 13:28:43 2023	6.384	Series: E ( 27 ) 23.014%
+Sat Dec  9 13:28:43 2023	6.790	Series: E ( 26 ) 24.211%
+Sat Dec  9 13:28:43 2023	7.163	Series: E ( 25 ) 25.472%
+Sat Dec  9 13:28:44 2023	7.576	Series: E ( 24 ) 26.799%
+Sat Dec  9 13:28:44 2023	8.041	Series: E ( 23 ) 28.197%
+Sat Dec  9 13:28:45 2023	8.481	Series: E ( 22 ) 29.669%
+Sat Dec  9 13:28:45 2023	8.989	Series: E ( 21 ) 31.220%
+Sat Dec  9 13:28:46 2023	9.498	Series: E ( 20 ) 32.853%
+Sat Dec  9 13:28:46 2023	10.077	Series: E ( 19 ) 34.575%
+Sat Dec  9 13:28:47 2023	10.702	Series: E ( 18 ) 36.389%
+Sat Dec  9 13:28:48 2023	11.315	Series: E ( 17 ) 38.301%
+Sat Dec  9 13:28:48 2023	11.996	Series: E ( 16 ) 40.316%
+Sat Dec  9 13:28:49 2023	12.723	Series: E ( 15 ) 42.442%
+Sat Dec  9 13:28:50 2023	13.417	Series: E ( 14 ) 44.684%
+Sat Dec  9 13:28:51 2023	14.203	Series: E ( 13 ) 47.049%
+Sat Dec  9 13:28:51 2023	15.098	Series: E ( 12 ) 49.545%
+Sat Dec  9 13:28:52 2023	15.996	Series: E ( 11 ) 52.181%
+Sat Dec  9 13:28:53 2023	16.937	Series: E ( 10 ) 54.965%
+Sat Dec  9 13:28:54 2023	17.929	Series: E ( 9 ) 57.907%
+Sat Dec  9 13:28:55 2023	18.959	Series: E ( 8 ) 61.018%
+Sat Dec  9 13:28:56 2023	20.033	Series: E ( 7 ) 64.311%
+Sat Dec  9 13:28:58 2023	21.227	Series: E ( 6 ) 67.798%
+Sat Dec  9 13:28:59 2023	22.504	Series: E ( 5 ) 71.496%
+Sat Dec  9 13:29:00 2023	23.926	Series: E ( 4 ) 75.423%
+Sat Dec  9 13:29:02 2023	25.362	Series: E ( 3 ) 79.603%
+Sat Dec  9 13:29:03 2023	26.914	Series: E ( 2 ) 84.065%
+Sat Dec  9 13:29:05 2023	28.490	Series: E ( 1 ) 88.854%
+Sat Dec  9 13:29:07 2023	30.210	Series: E ( 0 ) 94.050%
+Sat Dec  9 13:29:08 2023	32.127	Finishing Series
+Sat Dec  9 13:29:08 2023	32.131	Large Division
+Sat Dec  9 13:29:09 2023	32.319	Pi - Ramanujan (1910):
+Sat Dec  9 13:29:09 2023	32.319	Series CommonP2B3...  6,263,691 terms  (Expansion Factor = 3.580)
+Sat Dec  9 13:29:09 2023	32.319	Series: A ( 18 ) 0.000%
+Sat Dec  9 13:29:09 2023	32.335	Series: A ( 17 ) 0.665%
+Sat Dec  9 13:29:09 2023	32.355	Series: A ( 16 ) 1.340%
+Sat Dec  9 13:29:09 2023	32.376	Series: E ( 15 ) 2.015%
+Sat Dec  9 13:29:09 2023	32.398	Series: E ( 14 ) 2.690%
+Sat Dec  9 13:29:09 2023	32.422	Series: E ( 13 ) 3.410%
+Sat Dec  9 13:29:09 2023	32.454	Series: E ( 12 ) 4.323%
+Sat Dec  9 13:29:09 2023	32.496	Series: E ( 11 ) 5.480%
+Sat Dec  9 13:29:09 2023	32.554	Series: E ( 10 ) 6.948%
+Sat Dec  9 13:29:09 2023	32.627	Series: E ( 9 ) 8.811%
+Sat Dec  9 13:29:09 2023	32.763	Series: E ( 8 ) 11.176%
+Sat Dec  9 13:29:09 2023	32.894	Series: E ( 7 ) 14.180%
+Sat Dec  9 13:29:09 2023	33.060	Series: E ( 6 ) 17.997%
+Sat Dec  9 13:29:10 2023	33.295	Series: E ( 5 ) 22.854%
+Sat Dec  9 13:29:10 2023	33.602	Series: E ( 4 ) 29.041%
+Sat Dec  9 13:29:10 2023	34.038	Series: E ( 3 ) 36.938%
+Sat Dec  9 13:29:11 2023	34.603	Series: E ( 2 ) 47.047%
+Sat Dec  9 13:29:12 2023	35.344	Series: E ( 1 ) 60.054%
+Sat Dec  9 13:29:13 2023	36.285	Series: E ( 0 ) 76.959%
+Sat Dec  9 13:29:14 2023	37.514	Finishing Series
+Sat Dec  9 13:29:14 2023	37.519	Large Division
+Sat Dec  9 13:29:14 2023	37.753	InvSqrt(8)...
+Sat Dec  9 13:29:14 2023	37.870	Large Multiply
+Sat Dec  9 13:29:14 2023	37.953	InvSqrt(32)...
+Sat Dec  9 13:29:14 2023	38.071	Large Multiply
+Sat Dec  9 13:29:14 2023	38.154	Large Invsqrt...
+Sat Dec  9 13:29:15 2023	38.427	Large Multiply
+Sat Dec  9 13:29:15 2023	38.510	Large Invsqrt...
+Sat Dec  9 13:29:15 2023	38.827	Processing Hexadecimal Digits
+Sat Dec  9 13:29:15 2023	38.830	Base Converting
+Sat Dec  9 13:29:15 2023	39.150	Processing Decimal Digits
+Sat Dec  9 13:29:15 2023	39.156	Verifying Base Conversion
+Sat Dec  9 13:29:16 2023	39.274	Verifying Binary Output
+Sat Dec  9 13:29:16 2023	39.275	End Computation
+
+----
+
+Checksum0: c3b719e72feb8087c6e7f0db7e061b83ba958f77b3136045a22c84c91c1d0151fd68c773b091cd47ebc1055cad779301a469b332858b3b1ded29b83bbc140a24
+Checksum1: d69774442d174483fd2f678f3e43ee1640a9fa0a1a1b11fd320fe27989a9baef6567fc0bcfa342d35438b1b2fc8d1b8b46c7b772eec38fe89a23dc0837a51136
