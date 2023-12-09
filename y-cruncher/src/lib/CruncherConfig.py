@@ -39,17 +39,19 @@ class CruncherConfig:
             Algorithm : "machin-secondary"'''
 
     constants['zeta3_α'] = '''Constant : "zeta3"
-            Algorithm : "wedeniwski"'''
+            Algorithm : "zuniga2023vi"'''
     constants['zeta3_β'] = '''Constant : "zeta3"
-            Algorithm : "az"'''
+            Algorithm : "zuniga2023v"'''
 
     constants['catalans_α'] = '''Constant : "catalan"
             Algorithm : "pilehrood-short"'''
     constants['catalans_β'] = '''Constant : "catalan"
-            Algorithm : "guillera2019"'''
+            Algorithm : "zuniga2023"'''
 
-    constants['lemniscate'] = '''Constant : "lemniscate"
-            Algorithm : "agm-pi"'''
+    constants['lemniscate_α'] = '''Constant : "lemniscate"
+            Algorithm : "zuniga2023x"'''
+    constants['lemniscate_β'] = '''Constant : "lemniscate"
+            Algorithm : "guillera"'''
 
     constants['log10_α'] = '''Constant : "log"
             Argument : 10
@@ -103,12 +105,13 @@ class CruncherConfig:
                 self.constant = 'Constant : "custom"\n' + data
 
         if output_enable:
-            self.output = '''Path : ""
-            OutputEnable : "true"
-            DigitsPerFile : -1'''
+            self.output = '''Framework : "ycd"
+            Path : ""
+            DigitsPerFile : 0
+            RawIO : "true"'''
         else:
-            self.output = '''Path : ""
-            OutputEnable : "false"'''
+            self.output = '''Framework : "none"
+            Path : ""'''
 
         config_template_filename = os.path.join(root_dir, 'templates', template)
         with open(config_template_filename, 'r', newline='\r\n') as file:
